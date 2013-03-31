@@ -79,4 +79,4 @@ class EditDialogLayout implements LayoutManager
         if (target.size().height < h)
             target.resize(pw + insets.right, h + insets.bottom);
     }
-};
+}

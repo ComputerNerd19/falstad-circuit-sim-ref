@@ -59,4 +59,4 @@ class CircuitLayout implements LayoutManager
             }
         }
     }
-};
+}

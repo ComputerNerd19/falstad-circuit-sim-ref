@@ -26,4 +26,4 @@ class EditOptions implements Editable
         if (n == 1 && ei.value > 0)
             CircuitElm.voltageRange = ei.value;
     }
-};
+}

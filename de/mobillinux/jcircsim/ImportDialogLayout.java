@@ -56,5 +56,5 @@ class ImportDialogLayout implements LayoutManager
             }
         }
     }
-};
+}
 

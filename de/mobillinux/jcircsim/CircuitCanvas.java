@@ -25,4 +25,4 @@ class CircuitCanvas extends Canvas
     {
         pg.updateCircuit(g);
     }
-};
+}

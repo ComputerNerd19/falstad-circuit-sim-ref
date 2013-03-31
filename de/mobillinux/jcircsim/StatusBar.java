@@ -47,7 +47,6 @@ class StatusBar extends JPanel
 
             }
         }
-        ;
 
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(10, 23));
