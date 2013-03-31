@@ -3,20 +3,18 @@ package de.mobillinux.jcircsim;
 
 // For information about the theory behind this, see Electronic Circuit & System Simulation Methods by Pillage
 
+import javax.swing.*;
 import java.awt.*;
-import java.util.Vector;
-import java.io.File;
-import java.util.Random;
-import java.lang.Math;
-import java.net.URL;
 import java.awt.event.*;
-import java.io.FilterInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.StringTokenizer;
+import java.io.File;
+import java.io.FilterInputStream;
 import java.lang.reflect.Constructor;
+import java.net.URL;
 import java.net.URLEncoder;
-
-import javax.swing.JFrame;
+import java.util.Random;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class CirSim extends JFrame implements ComponentListener, ActionListener, AdjustmentListener, MouseMotionListener, MouseListener, ItemListener, KeyListener
 {

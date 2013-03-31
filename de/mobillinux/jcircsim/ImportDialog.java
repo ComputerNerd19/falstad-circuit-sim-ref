@@ -1,15 +1,11 @@
 package de.mobillinux.jcircsim;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.Scanner;
-
-import javax.swing.JFileChooser;
 
 class ImportDialog extends Dialog implements ActionListener
 {

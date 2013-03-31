@@ -1,6 +1,5 @@
 package de.mobillinux.jcircsim;
 
-import java.awt.*;
 import java.util.StringTokenizer;
 
 class JKFlipFlopElm extends ChipElm

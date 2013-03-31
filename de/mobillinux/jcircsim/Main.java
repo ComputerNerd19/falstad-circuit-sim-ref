@@ -1,9 +1,8 @@
 package de.mobillinux.jcircsim;
 
+import javax.swing.*;
+import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
-import javax.swing.UIManager.*;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
 
 public class Main
 {

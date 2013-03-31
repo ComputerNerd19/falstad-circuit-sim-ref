@@ -1,7 +1,8 @@
 package de.mobillinux.jcircsim;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.util.StringTokenizer;
 
 class PotElm extends CircuitElm implements AdjustmentListener

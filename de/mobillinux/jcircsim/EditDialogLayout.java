@@ -1,7 +1,6 @@
 package de.mobillinux.jcircsim;
 
 import java.awt.*;
-import java.awt.event.*;
 
 class EditDialogLayout implements LayoutManager
 {

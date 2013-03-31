@@ -2,8 +2,8 @@ package de.mobillinux.jcircsim;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.text.NumberFormat;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 class EditDialog extends Dialog implements AdjustmentListener, ActionListener, ItemListener
 {
