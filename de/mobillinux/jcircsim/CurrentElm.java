@@ -18,7 +18,7 @@ class CurrentElm extends CircuitElm
         super(xa, ya, xb, yb, f);
         try
         {
-            currentValue = new Double(st.nextToken()).doubleValue();
+            currentValue = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
             currentValue = .01;

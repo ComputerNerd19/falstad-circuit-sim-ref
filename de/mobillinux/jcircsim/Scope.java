@@ -623,15 +623,15 @@ class Scope
     void undump(StringTokenizer st)
     {
         reset();
-        int e = new Integer(st.nextToken()).intValue();
+        int e = Integer.parseInt(st.nextToken());
         if (e == -1)
             return;
         elm = sim.getElm(e);
-        speed = new Integer(st.nextToken()).intValue();
-        value = new Integer(st.nextToken()).intValue();
-        int flags = new Integer(st.nextToken()).intValue();
-        minMaxV = new Double(st.nextToken()).doubleValue();
-        minMaxI = new Double(st.nextToken()).doubleValue();
+        speed = Integer.parseInt(st.nextToken());
+        value = Integer.parseInt(st.nextToken());
+        int flags = Integer.parseInt(st.nextToken());
+        minMaxV = Double.parseDouble(st.nextToken());
+        minMaxI = Double.parseDouble(st.nextToken());
         if (minMaxV == 0)
             minMaxV = .5;
         if (minMaxI == 0)
@@ -640,11 +640,11 @@ class Scope
         yElm = null;
         try
         {
-            position = new Integer(st.nextToken()).intValue();
+            position = Integer.parseInt(st.nextToken());
             int ye = -1;
             if ((flags & FLAG_YELM) != 0)
             {
-                ye = new Integer(st.nextToken()).intValue();
+                ye = Integer.parseInt(st.nextToken());
                 if (ye != -1)
                     yElm = sim.getElm(ye);
             }

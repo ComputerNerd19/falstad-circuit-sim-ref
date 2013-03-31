@@ -23,7 +23,7 @@ class Switch2Elm extends SwitchElm
     public Switch2Elm(int xa, int ya, int xb, int yb, int f, StringTokenizer st)
     {
         super(xa, ya, xb, yb, f, st);
-        link = new Integer(st.nextToken()).intValue();
+        link = Integer.parseInt(st.nextToken());
         noDiagonal = true;
     }
 

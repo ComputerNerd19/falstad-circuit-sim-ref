@@ -25,7 +25,7 @@ abstract class ChipElm extends CircuitElm
     {
         super(xa, ya, xb, yb, f);
         if (needsBits())
-            bits = new Integer(st.nextToken()).intValue();
+            bits = Integer.parseInt(st.nextToken());
         noDiagonal = true;
         setupPins();
         setSize((f & FLAG_SMALL) != 0 ? 1 : 2);
@@ -34,7 +34,7 @@ abstract class ChipElm extends CircuitElm
         {
             if (pins[i].state)
             {
-                volts[i] = new Double(st.nextToken()).doubleValue();
+                volts[i] = Double.parseDouble(st.nextToken());
                 pins[i].value = volts[i] > 2.5;
             }
         }

@@ -29,7 +29,7 @@ class DiodeElm extends CircuitElm
         {
             try
             {
-                fwdrop = new Double(st.nextToken()).doubleValue();
+                fwdrop = Double.parseDouble(st.nextToken());
             } catch (Exception e)
             {
             }

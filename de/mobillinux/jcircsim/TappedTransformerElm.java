@@ -22,15 +22,15 @@ class TappedTransformerElm extends CircuitElm
     public TappedTransformerElm(int xa, int ya, int xb, int yb, int f, StringTokenizer st)
     {
         super(xa, ya, xb, yb, f);
-        inductance = new Double(st.nextToken()).doubleValue();
-        ratio = new Double(st.nextToken()).doubleValue();
+        inductance = Double.parseDouble(st.nextToken());
+        ratio = Double.parseDouble(st.nextToken());
         current = new double[4];
         curcount = new double[4];
-        current[0] = new Double(st.nextToken()).doubleValue();
-        current[1] = new Double(st.nextToken()).doubleValue();
+        current[0] = Double.parseDouble(st.nextToken());
+        current[1] = Double.parseDouble(st.nextToken());
         try
         {
-            current[2] = new Double(st.nextToken()).doubleValue();
+            current[2] = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
         }

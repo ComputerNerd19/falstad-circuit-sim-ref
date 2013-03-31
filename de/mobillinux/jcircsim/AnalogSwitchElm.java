@@ -22,8 +22,8 @@ class AnalogSwitchElm extends CircuitElm
         r_off = 1e10;
         try
         {
-            r_on = new Double(st.nextToken()).doubleValue();
-            r_off = new Double(st.nextToken()).doubleValue();
+            r_on = Double.parseDouble(st.nextToken());
+            r_off = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
         }

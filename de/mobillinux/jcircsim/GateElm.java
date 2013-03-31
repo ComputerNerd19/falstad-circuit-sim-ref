@@ -20,8 +20,8 @@ abstract class GateElm extends CircuitElm
     public GateElm(int xa, int ya, int xb, int yb, int f, StringTokenizer st)
     {
         super(xa, ya, xb, yb, f);
-        inputCount = new Integer(st.nextToken()).intValue();
-        lastOutput = new Double(st.nextToken()).doubleValue() > 2.5;
+        inputCount = Integer.parseInt(st.nextToken());
+        lastOutput = Double.parseDouble(st.nextToken()) > 2.5;
         noDiagonal = true;
         setSize((f & FLAG_SMALL) != 0 ? 1 : 2);
     }

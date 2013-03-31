@@ -24,8 +24,8 @@ class PhotoResistorElm extends CircuitElm
     public PhotoResistorElm(int xa, int ya, int xb, int yb, int f, StringTokenizer st)
     {
         super(xa, ya, xb, yb, f);
-        minresistance = new Double(st.nextToken()).doubleValue();
-        maxresistance = new Double(st.nextToken()).doubleValue();
+        minresistance = Double.parseDouble(st.nextToken());
+        maxresistance = Double.parseDouble(st.nextToken());
         createSlider();
     }
 

@@ -20,8 +20,8 @@ class InductorElm extends CircuitElm
     {
         super(xa, ya, xb, yb, f);
         ind = new Inductor(sim);
-        inductance = new Double(st.nextToken()).doubleValue();
-        current = new Double(st.nextToken()).doubleValue();
+        inductance = Double.parseDouble(st.nextToken());
+        current = Double.parseDouble(st.nextToken());
         ind.setup(inductance, current, flags);
     }
 

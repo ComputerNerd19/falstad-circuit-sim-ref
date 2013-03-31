@@ -20,7 +20,7 @@ class InverterElm extends CircuitElm
         noDiagonal = true;
         try
         {
-            slewRate = new Double(st.nextToken()).doubleValue();
+            slewRate = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
             slewRate = .5;

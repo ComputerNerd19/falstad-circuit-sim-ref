@@ -33,9 +33,9 @@ class OpAmpElm extends CircuitElm
         gbw = 1e6;
         try
         {
-            maxOut = new Double(st.nextToken()).doubleValue();
-            minOut = new Double(st.nextToken()).doubleValue();
-            gbw = new Double(st.nextToken()).doubleValue();
+            maxOut = Double.parseDouble(st.nextToken());
+            minOut = Double.parseDouble(st.nextToken());
+            gbw = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
         }

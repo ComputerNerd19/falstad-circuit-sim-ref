@@ -22,7 +22,7 @@ class LogicOutputElm extends CircuitElm
         super(xa, ya, xb, yb, f);
         try
         {
-            threshold = new Double(st.nextToken()).doubleValue();
+            threshold = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
             threshold = 2.5;

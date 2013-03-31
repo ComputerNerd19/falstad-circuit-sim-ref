@@ -28,7 +28,7 @@ class MosfetElm extends CircuitElm
         vt = getDefaultThreshold();
         try
         {
-            vt = new Double(st.nextToken()).doubleValue();
+            vt = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
         }

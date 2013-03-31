@@ -216,7 +216,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         isMac = (os.indexOf("Mac ") == 0);
         ctrlMetaKey = (isMac) ? "\u2318" : "Ctrl";
         String jv = System.getProperty("java.class.version");
-        double jvf = new Double(jv).doubleValue();
+        double jvf = Double.parseDouble(jv);
         if (jvf >= 48)
         {
             muString = "\u03bc";
@@ -2432,12 +2432,12 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
                         break;
                     }
                     if (tint >= '0' && tint <= '9')
-                        tint = new Integer(type).intValue();
-                    int x1 = new Integer(st.nextToken()).intValue();
-                    int y1 = new Integer(st.nextToken()).intValue();
-                    int x2 = new Integer(st.nextToken()).intValue();
-                    int y2 = new Integer(st.nextToken()).intValue();
-                    int f = new Integer(st.nextToken()).intValue();
+                        tint = Integer.parseInt(type);
+                    int x1 = Integer.parseInt(st.nextToken());
+                    int y1 = Integer.parseInt(st.nextToken());
+                    int x2 = Integer.parseInt(st.nextToken());
+                    int y2 = Integer.parseInt(st.nextToken());
+                    int f = Integer.parseInt(st.nextToken());
                     CircuitElm ce = null;
                     Class cls = dumpTypes[tint];
                     if (cls == null)
@@ -2487,28 +2487,28 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     void readHint(StringTokenizer st)
     {
-        hintType = new Integer(st.nextToken()).intValue();
-        hintItem1 = new Integer(st.nextToken()).intValue();
-        hintItem2 = new Integer(st.nextToken()).intValue();
+        hintType = Integer.parseInt(st.nextToken());
+        hintItem1 = Integer.parseInt(st.nextToken());
+        hintItem2 = Integer.parseInt(st.nextToken());
     }
 
     void readOptions(StringTokenizer st)
     {
-        int flags = new Integer(st.nextToken()).intValue();
+        int flags = Integer.parseInt(st.nextToken());
         dotsCheckItem.setState((flags & 1) != 0);
         smallGridCheckItem.setState((flags & 2) != 0);
         voltsCheckItem.setState((flags & 4) == 0);
         powerCheckItem.setState((flags & 8) == 8);
         showValuesCheckItem.setState((flags & 16) == 0);
-        timeStep = new Double(st.nextToken()).doubleValue();
-        double sp = new Double(st.nextToken()).doubleValue();
+        timeStep = Double.parseDouble(st.nextToken());
+        double sp = Double.parseDouble(st.nextToken());
         int sp2 = (int) (Math.log(10 * sp) * 24 + 61.5);
         speedBar.setValue(sp2);
-        currentBar.setValue(new Integer(st.nextToken()).intValue());
-        CircuitElm.voltageRange = new Double(st.nextToken()).doubleValue();
+        currentBar.setValue(Integer.parseInt(st.nextToken()));
+        CircuitElm.voltageRange = Double.parseDouble(st.nextToken());
         try
         {
-            powerBar.setValue(new Integer(st.nextToken()).intValue());
+            powerBar.setValue(Integer.parseInt(st.nextToken()));
         } catch (Exception e)
         {
         }

@@ -22,9 +22,9 @@ class LEDElm extends DiodeElm
         if ((f & FLAG_FWDROP) == 0)
             fwdrop = 2.1024259;
         setup();
-        colorR = new Double(st.nextToken()).doubleValue();
-        colorG = new Double(st.nextToken()).doubleValue();
-        colorB = new Double(st.nextToken()).doubleValue();
+        colorR = Double.parseDouble(st.nextToken());
+        colorG = Double.parseDouble(st.nextToken());
+        colorB = Double.parseDouble(st.nextToken());
     }
 
     int getDumpType()

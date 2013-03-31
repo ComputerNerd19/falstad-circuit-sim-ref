@@ -27,16 +27,16 @@ class TransformerElm extends CircuitElm
     {
         super(xa, ya, xb, yb, f);
         width = max(32, abs(yb - ya));
-        inductance = new Double(st.nextToken()).doubleValue();
-        ratio = new Double(st.nextToken()).doubleValue();
+        inductance = Double.parseDouble(st.nextToken());
+        ratio = Double.parseDouble(st.nextToken());
         current = new double[2];
         curcount = new double[2];
-        current[0] = new Double(st.nextToken()).doubleValue();
-        current[1] = new Double(st.nextToken()).doubleValue();
+        current[0] = Double.parseDouble(st.nextToken());
+        current[1] = Double.parseDouble(st.nextToken());
         couplingCoef = .999;
         try
         {
-            couplingCoef = new Double(st.nextToken()).doubleValue();
+            couplingCoef = Double.parseDouble(st.nextToken());
         } catch (Exception e)
         {
         }
