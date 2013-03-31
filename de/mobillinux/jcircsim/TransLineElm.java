@@ -191,7 +191,7 @@ class TransLineElm extends CircuitElm
         voltageL[ptr] = volts[2] - volts[0] + volts[2] - volts[4];
         voltageR[ptr] = volts[3] - volts[1] + volts[3] - volts[5];
         //System.out.println(volts[2] + " " + volts[0] + " " + (volts[2]-volts[0]) + " " + (imped*current1) + " " + voltageL[ptr]);    /*System.out.println("sending fwd  " + currentL[ptr] + " " + current1);
-        System.out.println("sending back " + currentR[ptr] + " " + current2);*/
+        //System.out.println("sending back " + currentR[ptr] + " " + current2);
         //System.out.println("sending back " + voltageR[ptr]);
         ptr = (ptr + 1) % lenSteps;
     }
