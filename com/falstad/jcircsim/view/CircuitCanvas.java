@@ -1,4 +1,6 @@
-package com.falstad.jcircsim;
+package com.falstad.jcircsim.view;
+
+import com.falstad.jcircsim.CirSim;
 
 import java.awt.*;
 

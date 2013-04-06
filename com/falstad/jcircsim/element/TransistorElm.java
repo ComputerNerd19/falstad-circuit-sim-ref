@@ -1,7 +1,7 @@
 package com.falstad.jcircsim.element;
 
 import com.falstad.jcircsim.view.edit.EditInfo;
-import com.falstad.jcircsim.Scope;
+import com.falstad.jcircsim.view.Scope;
 
 import java.awt.*;
 import java.util.StringTokenizer;

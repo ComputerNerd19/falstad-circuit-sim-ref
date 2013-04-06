@@ -4,10 +4,10 @@ package com.falstad.jcircsim;
 // For information about the theory behind this, see Electronic Circuit & System Simulation Methods by Pillage
 
 import com.falstad.jcircsim.element.*;
+import com.falstad.jcircsim.view.*;
 import com.falstad.jcircsim.view.edit.EditDialog;
 import com.falstad.jcircsim.view.edit.EditOptions;
 import com.falstad.jcircsim.view.edit.Editable;
-import com.falstad.jcircsim.view.StatusBar;
 
 import javax.swing.*;
 import java.awt.*;
