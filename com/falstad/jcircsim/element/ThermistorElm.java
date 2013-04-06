@@ -3,7 +3,7 @@ package com.falstad.jcircsim.element;
 // FIXME need to uncomment ThermistorElm line from CirSim.java
 // FIXME need to add ThermistorElm.java to srclist
 
-import com.falstad.jcircsim.EditInfo;
+import com.falstad.jcircsim.view.edit.EditInfo;
 
 import java.awt.*;
 import java.util.StringTokenizer;

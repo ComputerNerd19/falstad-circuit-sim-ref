@@ -1,6 +1,6 @@
 package com.falstad.jcircsim.element;
 
-import com.falstad.jcircsim.EditInfo;
+import com.falstad.jcircsim.view.edit.EditInfo;
 
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;

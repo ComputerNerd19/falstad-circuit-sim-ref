@@ -1,6 +1,9 @@
-package com.falstad.jcircsim;
+package com.falstad.jcircsim.view.edit;
 
+import com.falstad.jcircsim.CirSim;
 import com.falstad.jcircsim.element.CircuitElm;
+import com.falstad.jcircsim.view.edit.EditInfo;
+import com.falstad.jcircsim.view.edit.Editable;
 
 public class EditOptions implements Editable
 {

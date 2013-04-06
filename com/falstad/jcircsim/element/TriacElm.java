@@ -3,7 +3,7 @@ package com.falstad.jcircsim.element;
 // FIXME need to add TriacElm to srclist
 // FIXME need to uncomment TriacElm line from CirSim.java
 
-import com.falstad.jcircsim.EditInfo;
+import com.falstad.jcircsim.view.edit.EditInfo;
 
 import java.awt.*;
 import java.util.StringTokenizer;

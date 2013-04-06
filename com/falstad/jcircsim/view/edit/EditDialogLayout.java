@@ -1,4 +1,4 @@
-package com.falstad.jcircsim;
+package com.falstad.jcircsim.view.edit;
 
 import java.awt.*;
 

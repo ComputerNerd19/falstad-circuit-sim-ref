@@ -1,8 +1,8 @@
 package com.falstad.jcircsim.element;
 
 import com.falstad.jcircsim.CirSim;
-import com.falstad.jcircsim.EditInfo;
-import com.falstad.jcircsim.Editable;
+import com.falstad.jcircsim.view.edit.EditInfo;
+import com.falstad.jcircsim.view.edit.Editable;
 
 import java.awt.*;
 import java.text.DecimalFormat;
