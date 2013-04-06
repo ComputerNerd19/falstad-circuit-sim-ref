@@ -15,11 +15,11 @@ import java.util.StringTokenizer;
 
 public class TriacElm extends CircuitElm
 {
-    final int anode = 0;
-    final int cnode = 1;
-    final int gnode = 2;
-    final int inode = 3;
-    Diode diode;
+    public final int anode = 0;
+    public final int cnode = 1;
+    public final int gnode = 2;
+    public final int inode = 3;
+    public Diode diode;
 
     public TriacElm(int xx, int yy)
     {
@@ -48,52 +48,52 @@ public class TriacElm extends CircuitElm
         setup();
     }
 
-    void setDefaults()
+    public void setDefaults()
     {
         cresistance = 50;
         holdingI = .0082;
         triggerI = .01;
     }
 
-    void setup()
+    public void setup()
     {
         diode = new Diode(sim);
         diode.setup(.8, 0);
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void reset()
+    public void reset()
     {
         volts[anode] = volts[cnode] = volts[gnode] = 0;
         diode.reset();
         lastvag = lastvac = curcount_a = curcount_c = curcount_g = 0;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 183;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + (volts[anode] - volts[cnode]) + " " +
                 (volts[anode] - volts[gnode]) + " " + triggerI + " " + holdingI + " " +
                 cresistance;
     }
 
-    double ia, ic, ig, curcount_a, curcount_c, curcount_g;
-    double lastvac, lastvag;
-    double cresistance, triggerI, holdingI;
+    public double ia, ic, ig, curcount_a, curcount_c, curcount_g;
+    public double lastvac, lastvag;
+    public double cresistance, triggerI, holdingI;
 
-    final int hs = 8;
-    Polygon poly;
-    Point cathode[], gate[];
+    public final int hs = 8;
+    public Polygon poly;
+    public Point cathode[], gate[];
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int dir = 0;
@@ -129,7 +129,7 @@ public class TriacElm extends CircuitElm
         interpPoint(lead2, point2, gate[1], gatelen / leadlen, sim.gridSize * 2 * dir);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, hs);
         adjustBbox(gate[0], gate[1]);
@@ -165,29 +165,29 @@ public class TriacElm extends CircuitElm
     }
 
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 1) ? point2 : gate[1];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    int getInternalNodeCount()
+    public int getInternalNodeCount()
     {
         return 1;
     }
 
-    double getPower()
+    public double getPower()
     {
         return (volts[anode] - volts[gnode]) * ia + (volts[cnode] - volts[gnode]) * ic;
     }
 
-    double aresistance;
+    public double aresistance;
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[anode]);
         sim.stampNonLinear(nodes[cnode]);
@@ -197,7 +197,7 @@ public class TriacElm extends CircuitElm
         diode.stamp(nodes[inode], nodes[gnode]);
     }
 
-    void doStep()
+    public void doStep()
     {
         double vac = volts[anode] - volts[cnode]; // typically negative
         double vag = volts[anode] - volts[gnode]; // typically positive
@@ -214,7 +214,7 @@ public class TriacElm extends CircuitElm
         sim.stampResistor(nodes[anode], nodes[inode], aresistance);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "SCR";
         double vac = volts[anode] - volts[cnode];
@@ -227,7 +227,7 @@ public class TriacElm extends CircuitElm
         arr[5] = "Vgc = " + getVoltageText(vgc);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         ic = (volts[cnode] - volts[gnode]) / cresistance;
         ia = (volts[anode] - volts[inode]) / aresistance;

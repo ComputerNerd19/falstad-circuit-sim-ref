@@ -5,11 +5,11 @@ import java.util.StringTokenizer;
 
 abstract class ChipElm extends CircuitElm
 {
-    int csize, cspc, cspc2;
-    int bits;
-    final int FLAG_SMALL = 1;
-    final int FLAG_FLIP_X = 1024;
-    final int FLAG_FLIP_Y = 2048;
+    public int csize, cspc, cspc2;
+    public int bits;
+    public final int FLAG_SMALL = 1;
+    public final int FLAG_FLIP_X = 1024;
+    public final int FLAG_FLIP_Y = 2048;
 
     public ChipElm(int xx, int yy)
     {
@@ -40,12 +40,12 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return false;
     }
 
-    void setSize(int s)
+    public void setSize(int s)
     {
         csize = s;
         cspc = 8 * s;
@@ -54,14 +54,14 @@ abstract class ChipElm extends CircuitElm
         flags |= (s == 1) ? FLAG_SMALL : 0;
     }
 
-    abstract void setupPins();
+    public abstract void setupPins();
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         drawChip(g);
     }
 
-    void drawChip(Graphics g)
+    public void drawChip(Graphics g)
     {
         int i;
         Font f = new Font("SansSerif", 0, 10 * csize);
@@ -100,13 +100,13 @@ abstract class ChipElm extends CircuitElm
             drawPost(g, pins[i].post.x, pins[i].post.y, nodes[i]);
     }
 
-    int rectPointsX[], rectPointsY[];
-    int clockPointsX[], clockPointsY[];
-    Pin pins[];
-    int sizeX, sizeY;
-    boolean lastClock;
+    public int rectPointsX[], rectPointsY[];
+    public int clockPointsX[], clockPointsY[];
+    public Pin pins[];
+    public int sizeX, sizeY;
+    public boolean lastClock;
 
-    void drag(int xx, int yy)
+    public void drag(int xx, int yy)
     {
         yy = sim.snapGrid(yy);
         if (xx < x)
@@ -121,7 +121,7 @@ abstract class ChipElm extends CircuitElm
         setPoints();
     }
 
-    void setPoints()
+    public void setPoints()
     {
         if (x2 - x > sizeX * cspc2 && this == sim.dragElm)
             setSize(2);
@@ -157,14 +157,14 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return pins[n].post;
     }
 
-    abstract int getVoltageSourceCount(); // output count
+    public abstract int getVoltageSourceCount(); // output count
 
-    void setVoltageSource(int j, int vs)
+    public void setVoltageSource(int j, int vs)
     {
         int i;
         for (i = 0; i != getPostCount(); i++)
@@ -179,7 +179,7 @@ abstract class ChipElm extends CircuitElm
         System.out.println("setVoltageSource failed for " + this);
     }
 
-    void stamp()
+    public void stamp()
     {
         int i;
         for (i = 0; i != getPostCount(); i++)
@@ -190,11 +190,11 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    void execute()
+    public void execute()
     {
     }
 
-    void doStep()
+    public void doStep()
     {
         int i;
         for (i = 0; i != getPostCount(); i++)
@@ -212,7 +212,7 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    void reset()
+    public void reset()
     {
         int i;
         for (i = 0; i != getPostCount(); i++)
@@ -224,7 +224,7 @@ abstract class ChipElm extends CircuitElm
         lastClock = false;
     }
 
-    String dump()
+    public String dump()
     {
         int t = getDumpType();
         String s = super.dump();
@@ -239,7 +239,7 @@ abstract class ChipElm extends CircuitElm
         return s;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = getChipName();
         int i, a = 1;
@@ -261,7 +261,7 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    void setCurrent(int x, double c)
+    public void setCurrent(int x, double c)
     {
         int i;
         for (i = 0; i != getPostCount(); i++)
@@ -269,17 +269,17 @@ abstract class ChipElm extends CircuitElm
                 pins[i].current = c;
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "chip";
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return false;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return pins[n1].output;
     }
@@ -321,12 +321,12 @@ abstract class ChipElm extends CircuitElm
         }
     }
 
-    final int SIDE_N = 0;
-    final int SIDE_S = 1;
-    final int SIDE_W = 2;
-    final int SIDE_E = 3;
+    public final int SIDE_N = 0;
+    public final int SIDE_S = 1;
+    public final int SIDE_W = 2;
+    public final int SIDE_E = 3;
 
-    class Pin
+    public class Pin
     {
         Pin(int p, int s, String t)
         {

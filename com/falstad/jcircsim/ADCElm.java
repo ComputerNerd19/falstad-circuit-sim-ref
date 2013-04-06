@@ -14,17 +14,17 @@ public class ADCElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "ADC";
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return true;
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = bits > 2 ? bits : 2;
@@ -40,7 +40,7 @@ public class ADCElm extends ChipElm
         allocNodes();
     }
 
-    void execute()
+    public void execute()
     {
         int imax = (1 << bits) - 1;
         // if we round, the half-flash doesn't work
@@ -52,17 +52,17 @@ public class ADCElm extends ChipElm
             pins[i].value = ((ival & (1 << i)) != 0);
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return bits;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return bits + 2;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 167;
     }

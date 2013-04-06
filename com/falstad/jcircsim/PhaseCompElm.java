@@ -14,12 +14,12 @@ public class PhaseCompElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "phase comparator";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = 2;
@@ -30,12 +30,12 @@ public class PhaseCompElm extends ChipElm
         pins[2].output = true;
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void stamp()
+    public void stamp()
     {
         int vn = sim.nodeList.size() + pins[2].voltSource;
         sim.stampNonLinear(vn);
@@ -43,9 +43,9 @@ public class PhaseCompElm extends ChipElm
         sim.stampNonLinear(nodes[2]);
     }
 
-    boolean ff1, ff2;
+    public boolean ff1, ff2;
 
-    void doStep()
+    public void doStep()
     {
         boolean v1 = volts[0] > 2.5;
         boolean v2 = volts[1] > 2.5;
@@ -69,17 +69,17 @@ public class PhaseCompElm extends ChipElm
         pins[1].value = v2;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 161;
     }

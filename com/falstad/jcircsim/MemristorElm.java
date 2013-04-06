@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class MemristorElm extends CircuitElm
 {
-    double r_on, r_off, dopeWidth, totalWidth, mobility, resistance;
+    public double r_on, r_off, dopeWidth, totalWidth, mobility, resistance;
 
     public MemristorElm(int xx, int yy)
     {
@@ -29,20 +29,20 @@ public class MemristorElm extends CircuitElm
         resistance = 100;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'm';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + r_on + " " + r_off + " " + dopeWidth + " " +
                 totalWidth + " " + mobility;
     }
 
-    Point ps3, ps4;
+    public Point ps3, ps4;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -50,7 +50,7 @@ public class MemristorElm extends CircuitElm
         ps4 = new Point();
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int segments = 6;
         int i;
@@ -85,22 +85,22 @@ public class MemristorElm extends CircuitElm
         drawPosts(g);
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current = (volts[0] - volts[1]) / resistance;
     }
 
-    void reset()
+    public void reset()
     {
         dopeWidth = 0;
     }
 
-    void startIteration()
+    public void startIteration()
     {
         double wd = dopeWidth / totalWidth;
         dopeWidth += sim.timeStep * mobility * r_on * current / totalWidth;
@@ -111,18 +111,18 @@ public class MemristorElm extends CircuitElm
         resistance = r_on * wd + r_off * (1 - wd);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    void doStep()
+    public void doStep()
     {
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "memristor";
         getBasicInfo(arr);
@@ -130,12 +130,12 @@ public class MemristorElm extends CircuitElm
         arr[4] = "P = " + getUnitText(getPower(), "W");
     }
 
-    double getScopeValue(int x)
+    public double getScopeValue(int x)
     {
         return (x == 2) ? resistance : (x == 1) ? getPower() : getVoltageDiff();
     }
 
-    String getScopeUnits(int x)
+    public String getScopeUnits(int x)
     {
         return (x == 2) ? sim.ohmString : (x == 1) ? "W" : "V";
     }

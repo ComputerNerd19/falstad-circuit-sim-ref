@@ -15,7 +15,7 @@ public class AndGateElm extends GateElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
 
@@ -39,12 +39,12 @@ public class AndGateElm extends GateElm
         gatePoly = createPolygon(triPoints);
     }
 
-    String getGateName()
+    public String getGateName()
     {
         return "AND gate";
     }
 
-    boolean calcFunction()
+    public boolean calcFunction()
     {
         int i;
         boolean f = true;
@@ -53,7 +53,7 @@ public class AndGateElm extends GateElm
         return f;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 150;
     }

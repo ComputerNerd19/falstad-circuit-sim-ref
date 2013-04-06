@@ -15,10 +15,10 @@ public class WireElm extends CircuitElm
         super(xa, ya, xb, yb, f);
     }
 
-    static final int FLAG_SHOWCURRENT = 1;
-    static final int FLAG_SHOWVOLTAGE = 2;
+    public static final int FLAG_SHOWCURRENT = 1;
+    public static final int FLAG_SHOWVOLTAGE = 2;
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setVoltageColor(g, volts[0]);
         drawThickLine(g, point1, point2);
@@ -36,49 +36,49 @@ public class WireElm extends CircuitElm
         drawPosts(g);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampVoltageSource(nodes[0], nodes[1], voltSource, 0);
     }
 
-    boolean mustShowCurrent()
+    public boolean mustShowCurrent()
     {
         return (flags & FLAG_SHOWCURRENT) != 0;
     }
 
-    boolean mustShowVoltage()
+    public boolean mustShowVoltage()
     {
         return (flags & FLAG_SHOWVOLTAGE) != 0;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "wire";
         arr[1] = "I = " + getCurrentDText(getCurrent());
         arr[2] = "V = " + getVoltageText(volts[0]);
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'w';
     }
 
-    double getPower()
+    public double getPower()
     {
         return 0;
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    boolean isWire()
+    public boolean isWire()
     {
         return true;
     }
@@ -118,7 +118,7 @@ public class WireElm extends CircuitElm
         }
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return true;
     }

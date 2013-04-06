@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 
 public class Switch2Elm extends SwitchElm
 {
-    int link;
-    static final int FLAG_CENTER_OFF = 1;
+    public int link;
+    public static final int FLAG_CENTER_OFF = 1;
 
     public Switch2Elm(int xx, int yy)
     {
@@ -14,7 +14,7 @@ public class Switch2Elm extends SwitchElm
         noDiagonal = true;
     }
 
-    Switch2Elm(int xx, int yy, boolean mm)
+    public Switch2Elm(int xx, int yy, boolean mm)
     {
         super(xx, yy, mm);
         noDiagonal = true;
@@ -27,20 +27,20 @@ public class Switch2Elm extends SwitchElm
         noDiagonal = true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'S';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + link;
     }
 
-    final int openhs = 16;
-    Point swposts[], swpoles[];
+    public final int openhs = 16;
+    public Point swposts[], swpoles[];
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -52,7 +52,7 @@ public class Switch2Elm extends SwitchElm
         posCount = hasCenterOff() ? 3 : 2;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, openhs);
 
@@ -80,35 +80,35 @@ public class Switch2Elm extends SwitchElm
         drawPosts(g);
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : swposts[n - 1];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         if (position == 2)
             current = 0;
     }
 
-    void stamp()
+    public void stamp()
     {
         if (position == 2) // in center?
             return;
         sim.stampVoltageSource(nodes[0], nodes[position + 1], voltSource, 0);
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return (position == 2) ? 0 : 1;
     }
 
-    void toggle()
+    public void toggle()
     {
         super.toggle();
         if (link != 0)
@@ -127,14 +127,14 @@ public class Switch2Elm extends SwitchElm
         }
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         if (position == 2)
             return false;
         return comparePair(n1, n2, 0, 1 + position);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = (link == 0) ? "switch (SPDT)" : "switch (DPDT)";
         arr[1] = "I = " + getCurrentDText(getCurrent());
@@ -165,7 +165,7 @@ public class Switch2Elm extends SwitchElm
             super.setEditValue(n, ei);
     }
 
-    boolean hasCenterOff()
+    public boolean hasCenterOff()
     {
         return (flags & FLAG_CENTER_OFF) != 0;
     }

@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class CC2Elm extends ChipElm
 {
-    double gain;
+    public double gain;
 
     public CC2Elm(int xx, int yy)
     {
@@ -25,17 +25,17 @@ public class CC2Elm extends ChipElm
         gain = Double.parseDouble(st.nextToken());
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + gain;
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "CC2";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = 3;
@@ -46,7 +46,7 @@ public class CC2Elm extends ChipElm
         pins[2] = new Pin(1, SIDE_E, "Z");
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = (gain == 1) ? "CCII+" : "CCII-";
         arr[1] = "X,Y = " + getVoltageText(volts[0]);
@@ -55,7 +55,7 @@ public class CC2Elm extends ChipElm
     }
 
     // boolean nonLinear() { return true; }
-    void stamp()
+    public void stamp()
     {
         // X voltage = Y voltage
         sim.stampVoltageSource(0, nodes[0], pins[0].voltSource);
@@ -64,23 +64,23 @@ public class CC2Elm extends ChipElm
         sim.stampCCCS(0, nodes[2], pins[0].voltSource, gain);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         pins[2].current = pins[0].current * gain;
         drawChip(g);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 179;
     }

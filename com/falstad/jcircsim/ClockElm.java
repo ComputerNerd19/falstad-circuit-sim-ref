@@ -11,7 +11,7 @@ public class ClockElm extends RailElm
         flags |= FLAG_CLOCK;
     }
 
-    Class getDumpClass()
+    public Class getDumpClass()
     {
         return RailElm.class;
     }

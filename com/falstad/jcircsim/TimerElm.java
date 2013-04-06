@@ -4,16 +4,16 @@ import java.util.StringTokenizer;
 
 public class TimerElm extends ChipElm
 {
-    final int FLAG_RESET = 2;
-    final int N_DIS = 0;
-    final int N_TRIG = 1;
-    final int N_THRES = 2;
-    final int N_VIN = 3;
-    final int N_CTL = 4;
-    final int N_OUT = 5;
-    final int N_RST = 6;
+    public final int FLAG_RESET = 2;
+    public final int N_DIS = 0;
+    public final int N_TRIG = 1;
+    public final int N_THRES = 2;
+    public final int N_VIN = 3;
+    public final int N_CTL = 4;
+    public final int N_OUT = 5;
+    public final int N_RST = 6;
 
-    int getDefaultFlags()
+    public int getDefaultFlags()
     {
         return FLAG_RESET;
     }
@@ -28,12 +28,12 @@ public class TimerElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "555 Timer";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 3;
         sizeY = 5;
@@ -49,17 +49,17 @@ public class TimerElm extends ChipElm
         pins[N_RST] = new Pin(1, SIDE_E, "rst");
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    boolean hasReset()
+    public boolean hasReset()
     {
         return (flags & FLAG_RESET) != 0;
     }
 
-    void stamp()
+    public void stamp()
     {
         // stamp voltage divider to put ctl pin at 2/3 V
         sim.stampResistor(nodes[N_VIN], nodes[N_CTL], 5000);
@@ -70,7 +70,7 @@ public class TimerElm extends ChipElm
         sim.stampNonLinear(nodes[N_DIS]);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         // need current for V, discharge, control; output current is
         // calculated for us, and other pins have no current
@@ -79,9 +79,9 @@ public class TimerElm extends ChipElm
         pins[N_DIS].current = (!out && !setOut) ? -volts[N_DIS] / 10 : 0;
     }
 
-    boolean setOut, out;
+    public boolean setOut, out;
 
-    void startIteration()
+    public void startIteration()
     {
         out = volts[N_OUT] > volts[N_VIN] / 2;
         setOut = false;
@@ -92,7 +92,7 @@ public class TimerElm extends ChipElm
             out = false;
     }
 
-    void doStep()
+    public void doStep()
     {
         // if output is low, discharge pin 0.  we use a small
         // resistor because it's easier, and sometimes people tie
@@ -105,17 +105,17 @@ public class TimerElm extends ChipElm
         sim.updateVoltageSource(0, nodes[N_OUT], pins[N_OUT].voltSource, out ? volts[N_VIN] : 0);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return hasReset() ? 7 : 6;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 165;
     }

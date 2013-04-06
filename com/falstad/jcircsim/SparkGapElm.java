@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 
 public class SparkGapElm extends CircuitElm
 {
-    double resistance, onresistance, offresistance, breakdown, holdcurrent;
-    boolean state;
+    public double resistance, onresistance, offresistance, breakdown, holdcurrent;
+    public boolean state;
 
     public SparkGapElm(int xx, int yy)
     {
@@ -27,24 +27,24 @@ public class SparkGapElm extends CircuitElm
         holdcurrent = Double.parseDouble(st.nextToken());
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 187;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + onresistance + " " + offresistance + " " + breakdown + " " + holdcurrent;
     }
 
-    Polygon arrow1, arrow2;
+    public Polygon arrow1, arrow2;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int dist = 16;
@@ -56,7 +56,7 @@ public class SparkGapElm extends CircuitElm
         arrow2 = calcArrow(point2, p1, alen, alen);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i;
         double v1 = volts[0];
@@ -73,19 +73,19 @@ public class SparkGapElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double vd = volts[0] - volts[1];
         current = vd / resistance;
     }
 
-    void reset()
+    public void reset()
     {
         super.reset();
         state = false;
     }
 
-    void startIteration()
+    public void startIteration()
     {
         if (Math.abs(current) < holdcurrent)
             state = false;
@@ -94,19 +94,19 @@ public class SparkGapElm extends CircuitElm
             state = true;
     }
 
-    void doStep()
+    public void doStep()
     {
         resistance = (state) ? onresistance : offresistance;
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "spark gap";
         getBasicInfo(arr);
@@ -142,7 +142,7 @@ public class SparkGapElm extends CircuitElm
             holdcurrent = ei.value;
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return false;
     }

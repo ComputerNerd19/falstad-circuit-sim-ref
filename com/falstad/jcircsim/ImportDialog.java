@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 public class ImportDialog extends Dialog implements ActionListener
 {
-    CirSim cframe;
-    Button importButton, closeButton, exportButton, importFileButton;
-    TextArea text;
-    boolean isURL;
+    public CirSim cframe;
+    public Button importButton, closeButton, exportButton, importFileButton;
+    public TextArea text;
+    public boolean isURL;
 
-    ImportDialog(CirSim f, String str, boolean url, boolean imp)
+    public ImportDialog(CirSim f, String str, boolean url, boolean imp)
     {
         super(f, (str.length() > 0) ? "Export" : "Import", false);
         isURL = url;

@@ -19,12 +19,12 @@ import java.util.Vector;
 public class CirSim extends JFrame implements ComponentListener, ActionListener, AdjustmentListener, MouseMotionListener, MouseListener, ItemListener, KeyListener
 {
 
-    Thread engine = null;
+    public Thread engine = null;
 
-    Dimension winSize;
-    Image dbimage;
+    public Dimension winSize;
+    public Image dbimage;
 
-    Random random;
+    public Random random;
     public static final int sourceRadius = 7;
     public static final double freqMult = 3.14159265 * 2 * 4;
 
@@ -33,117 +33,117 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return "Circuit by Paul Falstad";
     }
 
-    static Container main;
-    Label titleLabel;
-    Button resetButton;
-    Button dumpMatrixButton;
-    MenuItem exportItem, exportLinkItem, importItem, exitItem, undoItem, redoItem, cutItem, copyItem, pasteItem, selectAllItem, optionsItem;
-    Menu optionsMenu;
-    Checkbox stoppedCheck;
-    CheckboxMenuItem dotsCheckItem;
-    CheckboxMenuItem voltsCheckItem;
-    CheckboxMenuItem powerCheckItem;
-    CheckboxMenuItem smallGridCheckItem;
-    CheckboxMenuItem showValuesCheckItem;
-    CheckboxMenuItem conductanceCheckItem;
-    CheckboxMenuItem euroResistorCheckItem;
-    CheckboxMenuItem printableCheckItem;
-    CheckboxMenuItem conventionCheckItem;
-    Scrollbar speedBar;
-    Scrollbar currentBar;
-    Label powerLabel;
-    Scrollbar powerBar;
-    PopupMenu elmMenu;
-    MenuItem elmEditMenuItem;
-    MenuItem elmCutMenuItem;
-    MenuItem elmCopyMenuItem;
-    MenuItem elmDeleteMenuItem;
-    MenuItem elmScopeMenuItem;
-    PopupMenu scopeMenu;
-    PopupMenu transScopeMenu;
-    PopupMenu mainMenu;
-    CheckboxMenuItem scopeVMenuItem;
-    CheckboxMenuItem scopeIMenuItem;
-    CheckboxMenuItem scopeMaxMenuItem;
-    CheckboxMenuItem scopeMinMenuItem;
-    CheckboxMenuItem scopeFreqMenuItem;
-    CheckboxMenuItem scopePowerMenuItem;
-    CheckboxMenuItem scopeIbMenuItem;
-    CheckboxMenuItem scopeIcMenuItem;
-    CheckboxMenuItem scopeIeMenuItem;
-    CheckboxMenuItem scopeVbeMenuItem;
-    CheckboxMenuItem scopeVbcMenuItem;
-    CheckboxMenuItem scopeVceMenuItem;
-    CheckboxMenuItem scopeVIMenuItem;
-    CheckboxMenuItem scopeXYMenuItem;
-    CheckboxMenuItem scopeResistMenuItem;
-    CheckboxMenuItem scopeVceIcMenuItem;
-    MenuItem scopeSelectYMenuItem;
-    Class addingClass;
-    int mouseMode = MODE_SELECT;
-    int tempMouseMode = MODE_SELECT;
-    String mouseModeStr = "Select";
-    static final double pi = 3.14159265358979323846;
-    static final int MODE_ADD_ELM = 0;
-    static final int MODE_DRAG_ALL = 1;
-    static final int MODE_DRAG_ROW = 2;
-    static final int MODE_DRAG_COLUMN = 3;
-    static final int MODE_DRAG_SELECTED = 4;
-    static final int MODE_DRAG_POST = 5;
-    static final int MODE_SELECT = 6;
-    static final int infoWidth = 120;
-    int dragX, dragY, initDragX, initDragY;
-    int selectedSource;
-    Rectangle selectedArea;
-    int gridSize, gridMask, gridRound;
-    boolean dragging;
-    boolean analyzeFlag;
-    boolean dumpMatrix;
-    boolean useBufferedImage;
-    boolean isMac;
-    String ctrlMetaKey;
-    double t;
-    int pause = 10;
-    int scopeSelected = -1;
-    int menuScope = -1;
-    int hintType = -1, hintItem1, hintItem2;
-    String stopMessage;
-    double timeStep;
-    static final int HINT_LC = 1;
-    static final int HINT_RC = 2;
-    static final int HINT_3DB_C = 3;
-    static final int HINT_TWINT = 4;
-    static final int HINT_3DB_L = 5;
-    Vector elmList;
-    Vector setupList;
-    CircuitElm dragElm, menuElm, mouseElm, stopElm;
-    int mousePost = -1;
-    CircuitElm plotXElm, plotYElm;
-    int draggingPost;
-    SwitchElm heldSwitchElm;
-    double circuitMatrix[][], circuitRightSide[], origRightSide[], origMatrix[][];
-    RowInfo circuitRowInfo[];
-    int circuitPermute[];
-    boolean circuitNonLinear;
-    int voltageSourceCount;
-    int circuitMatrixSize, circuitMatrixFullSize;
-    boolean circuitNeedsMap;
+    public static Container main;
+    public Label titleLabel;
+    public Button resetButton;
+    public Button dumpMatrixButton;
+    public MenuItem exportItem, exportLinkItem, importItem, exitItem, undoItem, redoItem, cutItem, copyItem, pasteItem, selectAllItem, optionsItem;
+    public Menu optionsMenu;
+    public Checkbox stoppedCheck;
+    public CheckboxMenuItem dotsCheckItem;
+    public CheckboxMenuItem voltsCheckItem;
+    public CheckboxMenuItem powerCheckItem;
+    public CheckboxMenuItem smallGridCheckItem;
+    public CheckboxMenuItem showValuesCheckItem;
+    public CheckboxMenuItem conductanceCheckItem;
+    public CheckboxMenuItem euroResistorCheckItem;
+    public CheckboxMenuItem printableCheckItem;
+    public CheckboxMenuItem conventionCheckItem;
+    public Scrollbar speedBar;
+    public Scrollbar currentBar;
+    public Label powerLabel;
+    public Scrollbar powerBar;
+    public PopupMenu elmMenu;
+    public MenuItem elmEditMenuItem;
+    public MenuItem elmCutMenuItem;
+    public MenuItem elmCopyMenuItem;
+    public MenuItem elmDeleteMenuItem;
+    public MenuItem elmScopeMenuItem;
+    public PopupMenu scopeMenu;
+    public PopupMenu transScopeMenu;
+    public PopupMenu mainMenu;
+    public CheckboxMenuItem scopeVMenuItem;
+    public CheckboxMenuItem scopeIMenuItem;
+    public CheckboxMenuItem scopeMaxMenuItem;
+    public CheckboxMenuItem scopeMinMenuItem;
+    public CheckboxMenuItem scopeFreqMenuItem;
+    public CheckboxMenuItem scopePowerMenuItem;
+    public CheckboxMenuItem scopeIbMenuItem;
+    public CheckboxMenuItem scopeIcMenuItem;
+    public CheckboxMenuItem scopeIeMenuItem;
+    public CheckboxMenuItem scopeVbeMenuItem;
+    public CheckboxMenuItem scopeVbcMenuItem;
+    public CheckboxMenuItem scopeVceMenuItem;
+    public CheckboxMenuItem scopeVIMenuItem;
+    public CheckboxMenuItem scopeXYMenuItem;
+    public CheckboxMenuItem scopeResistMenuItem;
+    public CheckboxMenuItem scopeVceIcMenuItem;
+    public MenuItem scopeSelectYMenuItem;
+    public Class addingClass;
+    public int mouseMode = MODE_SELECT;
+    public int tempMouseMode = MODE_SELECT;
+    public String mouseModeStr = "Select";
+    public static final double pi = 3.14159265358979323846;
+    public static final int MODE_ADD_ELM = 0;
+    public static final int MODE_DRAG_ALL = 1;
+    public static final int MODE_DRAG_ROW = 2;
+    public static final int MODE_DRAG_COLUMN = 3;
+    public static final int MODE_DRAG_SELECTED = 4;
+    public static final int MODE_DRAG_POST = 5;
+    public static final int MODE_SELECT = 6;
+    public static final int infoWidth = 120;
+    public int dragX, dragY, initDragX, initDragY;
+    public int selectedSource;
+    public Rectangle selectedArea;
+    public int gridSize, gridMask, gridRound;
+    public boolean dragging;
+    public boolean analyzeFlag;
+    public boolean dumpMatrix;
+    public boolean useBufferedImage;
+    public boolean isMac;
+    public String ctrlMetaKey;
+    public double t;
+    public int pause = 10;
+    public int scopeSelected = -1;
+    public int menuScope = -1;
+    public int hintType = -1, hintItem1, hintItem2;
+    public String stopMessage;
+    public double timeStep;
+    public static final int HINT_LC = 1;
+    public static final int HINT_RC = 2;
+    public static final int HINT_3DB_C = 3;
+    public static final int HINT_TWINT = 4;
+    public static final int HINT_3DB_L = 5;
+    public Vector elmList;
+    public Vector setupList;
+    public CircuitElm dragElm, menuElm, mouseElm, stopElm;
+    public int mousePost = -1;
+    public CircuitElm plotXElm, plotYElm;
+    public int draggingPost;
+    public SwitchElm heldSwitchElm;
+    public double circuitMatrix[][], circuitRightSide[], origRightSide[], origMatrix[][];
+    public RowInfo circuitRowInfo[];
+    public int circuitPermute[];
+    public boolean circuitNonLinear;
+    public int voltageSourceCount;
+    public int circuitMatrixSize, circuitMatrixFullSize;
+    public boolean circuitNeedsMap;
     public boolean useFrame;
-    int scopeCount;
-    Scope scopes[];
-    int scopeColCount[];
-    static EditDialog editDialog;
-    static ImportDialog impDialog;
-    Class dumpTypes[];
-    static String muString = "u";
-    static String ohmString = "ohm";
-    String clipboard;
-    Rectangle circuitArea;
-    int circuitBottom;
-    Vector undoStack, redoStack;
-    static final String appVersion = "jCircSim v0.2";
+    public int scopeCount;
+    public Scope scopes[];
+    public int scopeColCount[];
+    public static EditDialog editDialog;
+    public static ImportDialog impDialog;
+    public Class dumpTypes[];
+    public static String muString = "u";
+    public static String ohmString = "ohm";
+    public String clipboard;
+    public Rectangle circuitArea;
+    public int circuitBottom;
+    public Vector undoStack, redoStack;
+    public static final String appVersion = "jCircSim v0.2";
 
-    int getrand(int x)
+    public int getrand(int x)
     {
         int q = random.nextInt();
         if (q < 0)
@@ -151,18 +151,18 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return q % x;
     }
 
-    CircuitCanvas cv;
+    public CircuitCanvas cv;
 
-    CirSim()
+    public CirSim()
     {
         super(appVersion);
         useFrame = true;
     }
 
-    String startCircuit = null;
-    String startLabel = null;
-    String startCircuitText = null;
-    String baseURL = "http://www.falstad.com/circuit/";
+    public String startCircuit = null;
+    public String startLabel = null;
+    public String startCircuitText = null;
+    public String baseURL = "http://www.falstad.com/circuit/";
 
     public void init()
     {
@@ -496,7 +496,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         main.requestFocus();
     }
 
-    boolean shown = false;
+    public boolean shown = false;
 
     public void triggerShow()
     {
@@ -505,7 +505,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         shown = true;
     }
 
-    PopupMenu buildScopeMenu(boolean t)
+    public PopupMenu buildScopeMenu(boolean t)
     {
         PopupMenu m = new PopupMenu();
         m.add(getMenuItem("Remove", "remove"));
@@ -542,14 +542,14 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return m;
     }
 
-    MenuItem getMenuItem(String s)
+    public MenuItem getMenuItem(String s)
     {
         MenuItem mi = new MenuItem(s);
         mi.addActionListener(this);
         return mi;
     }
 
-    MenuItem getMenuItem(String s, String ac)
+    public MenuItem getMenuItem(String s, String ac)
     {
         MenuItem mi = new MenuItem(s);
         mi.setActionCommand(ac);
@@ -557,7 +557,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    CheckboxMenuItem getCheckItem(String s)
+    public CheckboxMenuItem getCheckItem(String s)
     {
         CheckboxMenuItem mi = new CheckboxMenuItem(s);
         mi.addItemListener(this);
@@ -565,7 +565,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    CheckboxMenuItem getClassCheckItem(String s, String t)
+    public CheckboxMenuItem getClassCheckItem(String s, String t)
     {
         try
         {
@@ -586,7 +586,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return getCheckItem(s, t);
     }
 
-    CheckboxMenuItem getCheckItem(String s, String t)
+    public CheckboxMenuItem getCheckItem(String s, String t)
     {
         CheckboxMenuItem mi = new CheckboxMenuItem(s);
         mi.addItemListener(this);
@@ -594,7 +594,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    void register(Class c, CircuitElm elm)
+    public void register(Class c, CircuitElm elm)
     {
         int t = elm.getDumpType();
         if (t == 0)
@@ -613,7 +613,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         dumpTypes[t] = dclass;
     }
 
-    void handleResize()
+    public void handleResize()
     {
         winSize = cv.getSize();
         if (winSize.width == 0)
@@ -655,7 +655,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         circuitBottom = 0;
     }
 
-    void destroyFrame()
+    public void destroyFrame()
     {
         dispose();
     }
@@ -675,11 +675,11 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         cv.repaint();
     }
 
-    static final int resct = 6;
-    long lastTime = 0, lastFrameTime, lastIterTime, secTime = 0;
-    int frames = 0;
-    int steps = 0;
-    int framerate = 0, steprate = 0;
+    public static final int resct = 6;
+    public long lastTime = 0, lastFrameTime, lastIterTime, secTime = 0;
+    public int frames = 0;
+    public int steps = 0;
+    public int framerate = 0, steprate = 0;
 
     public void updateCircuit(Graphics realg)
     {
@@ -755,8 +755,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         for (i = 0; i != elmList.size(); i++)
         {
             if (powerCheckItem.getState())
-                g.setColor(Color.gray);
-			/*
+                g.setColor(Color.gray);            /*
 			 * else if (conductanceCheckItem.getState())
 			 * g.setColor(Color.white);
 			 */
@@ -894,7 +893,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         lastFrameTime = lastTime;
     }
 
-    void setupScopes()
+    public void setupScopes()
     {
         int i;
 
@@ -963,7 +962,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    String getHint()
+    public String getHint()
     {
         CircuitElm c1 = getElm(hintItem1);
         CircuitElm c2 = getElm(hintItem2);
@@ -1042,14 +1041,14 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void needAnalyze()
+    public void needAnalyze()
     {
         analyzeFlag = true;
         cv.repaint();
     }
 
-    Vector nodeList;
-    CircuitElm voltageSources[];
+    public Vector nodeList;
+    public CircuitElm voltageSources[];
 
     public CircuitNode getCircuitNode(int n)
     {
@@ -1065,7 +1064,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return (CircuitElm) elmList.elementAt(n);
     }
 
-    void analyzeCircuit()
+    public void analyzeCircuit()
     {
         calcCircuitBottom();
         if (elmList.isEmpty())
@@ -1551,7 +1550,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void calcCircuitBottom()
+    public void calcCircuitBottom()
     {
         int i;
         circuitBottom = 0;
@@ -1564,7 +1563,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    class FindPathInfo
+    public class FindPathInfo
     {
         static final int INDUCT = 1;
         static final int VOLTAGE = 2;
@@ -1683,7 +1682,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void stop(String s, CircuitElm ce)
+    public void stop(String s, CircuitElm ce)
     {
         stopMessage = s;
         circuitMatrix = null;
@@ -1695,7 +1694,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     // control voltage source vs with voltage from n1 to n2 (must
     // also call stampVoltageSource())
-    void stampVCVS(int n1, int n2, double coef, int vs)
+    public void stampVCVS(int n1, int n2, double coef, int vs)
     {
         int vn = nodeList.size() + vs;
         stampMatrix(vn, n1, coef);
@@ -1703,7 +1702,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     }
 
     // stamp independent voltage source #vs, from n1 to n2, amount v
-    void stampVoltageSource(int n1, int n2, int vs, double v)
+    public void stampVoltageSource(int n1, int n2, int vs, double v)
     {
         int vn = nodeList.size() + vs;
         stampMatrix(vn, n1, -1);
@@ -1714,7 +1713,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     }
 
     // use this if the amount of voltage is going to be updated in doStep()
-    void stampVoltageSource(int n1, int n2, int vs)
+    public void stampVoltageSource(int n1, int n2, int vs)
     {
         int vn = nodeList.size() + vs;
         stampMatrix(vn, n1, -1);
@@ -1724,13 +1723,13 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         stampMatrix(n2, vn, -1);
     }
 
-    void updateVoltageSource(int n1, int n2, int vs, double v)
+    public void updateVoltageSource(int n1, int n2, int vs, double v)
     {
         int vn = nodeList.size() + vs;
         stampRightSide(vn, v);
     }
 
-    void stampResistor(int n1, int n2, double r)
+    public void stampResistor(int n1, int n2, double r)
     {
         double r0 = 1 / r;
         if (Double.isNaN(r0) || Double.isInfinite(r0))
@@ -1745,7 +1744,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         stampMatrix(n2, n1, -r0);
     }
 
-    void stampConductance(int n1, int n2, double r0)
+    public void stampConductance(int n1, int n2, double r0)
     {
         stampMatrix(n1, n1, r0);
         stampMatrix(n2, n2, r0);
@@ -1754,7 +1753,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     }
 
     // current from cn1 to cn2 is equal to voltage from vn1 to 2, divided by g
-    void stampVCCurrentSource(int cn1, int cn2, int vn1, int vn2, double g)
+    public void stampVCCurrentSource(int cn1, int cn2, int vn1, int vn2, double g)
     {
         stampMatrix(cn1, vn1, g);
         stampMatrix(cn2, vn2, g);
@@ -1762,14 +1761,14 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         stampMatrix(cn2, vn1, -g);
     }
 
-    void stampCurrentSource(int n1, int n2, double i)
+    public void stampCurrentSource(int n1, int n2, double i)
     {
         stampRightSide(n1, -i);
         stampRightSide(n2, i);
     }
 
     // stamp a current source from n1 to n2 depending on current through vs
-    void stampCCCS(int n1, int n2, int vs, double gain)
+    public void stampCCCS(int n1, int n2, int vs, double gain)
     {
         int vn = nodeList.size() + vs;
         stampMatrix(n1, vn, gain);
@@ -1779,7 +1778,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     // stamp value x in row i, column j, meaning that a voltage change
     // of dv in node j will increase the current into node i by x dv.
     // (Unless i or j is a voltage source node.)
-    void stampMatrix(int i, int j, double x)
+    public void stampMatrix(int i, int j, double x)
     {
         if (i > 0 && j > 0)
         {
@@ -1807,7 +1806,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     // stamp value x on the right side of row i, representing an
     // independent current source flowing into node i
-    void stampRightSide(int i, double x)
+    public void stampRightSide(int i, double x)
     {
         if (i > 0)
         {
@@ -1822,7 +1821,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     }
 
     // indicate that the value on the right side of row i changes in doStep()
-    void stampRightSide(int i)
+    public void stampRightSide(int i)
     {
         // System.out.println("rschanges true " + (i-1));
         if (i > 0)
@@ -1830,13 +1829,13 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     }
 
     // indicate that the values on the left side of row i change in doStep()
-    void stampNonLinear(int i)
+    public void stampNonLinear(int i)
     {
         if (i > 0)
             circuitRowInfo[i - 1].lsChanges = true;
     }
 
-    double getIterCount()
+    public double getIterCount()
     {
         if (speedBar.getValue() == 0)
             return 0;
@@ -1844,10 +1843,10 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return .1 * Math.exp((speedBar.getValue() - 61) / 24.);
     }
 
-    boolean converged;
-    int subIterations;
+    public boolean converged;
+    public int subIterations;
 
-    void runCircuit()
+    public void runCircuit()
     {
         if (circuitMatrix == null || elmList.size() == 0)
         {
@@ -1985,17 +1984,17 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         // iter);
     }
 
-    int min(int a, int b)
+    public int min(int a, int b)
     {
         return (a < b) ? a : b;
     }
 
-    int max(int a, int b)
+    public int max(int a, int b)
     {
         return (a > b) ? a : b;
     }
 
-    void editFuncPoint(int x, int y)
+    public void editFuncPoint(int x, int y)
     {
         // XXX
         cv.repaint(pause);
@@ -2133,7 +2132,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void stackScope(int s)
+    public void stackScope(int s)
     {
         if (s == 0)
         {
@@ -2148,7 +2147,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             scopes[s].position--;
     }
 
-    void unstackScope(int s)
+    public void unstackScope(int s)
     {
         if (s == 0)
         {
@@ -2162,7 +2161,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             scopes[s].position++;
     }
 
-    void stackAll()
+    public void stackAll()
     {
         int i;
         for (i = 0; i != scopeCount; i++)
@@ -2172,7 +2171,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void unstackAll()
+    public void unstackAll()
     {
         int i;
         for (i = 0; i != scopeCount; i++)
@@ -2182,7 +2181,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void doEdit(Editable eable)
+    public void doEdit(Editable eable)
     {
         clearSelection();
         pushUndo();
@@ -2196,7 +2195,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         editDialog.show();
     }
 
-    void doImport(boolean imp, boolean url)
+    public void doImport(boolean imp, boolean url)
     {
         if (impDialog != null)
         {
@@ -2212,7 +2211,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         pushUndo();
     }
 
-    String dumpCircuit()
+    public String dumpCircuit()
     {
         int i;
         int f = (dotsCheckItem.getState()) ? 1 : 0;
@@ -2240,7 +2239,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         System.out.print(((Scrollbar) e.getSource()).getValue() + "\n");
     }
 
-    ByteArrayOutputStream readUrlData(URL url) throws java.io.IOException
+    public ByteArrayOutputStream readUrlData(URL url) throws java.io.IOException
     {
         Object o = url.getContent();
         FilterInputStream fis = (FilterInputStream) o;
@@ -2257,7 +2256,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return ba;
     }
 
-    URL getCodeBase()
+    public URL getCodeBase()
     {
         try
         {
@@ -2270,7 +2269,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void getSetupList(Menu menu, boolean retry)
+    public void getSetupList(Menu menu, boolean retry)
     {
         Menu stack[] = new Menu[6];
         int stackptr = 0;
@@ -2334,18 +2333,18 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void readSetup(String text)
+    public void readSetup(String text)
     {
         readSetup(text, false);
     }
 
-    void readSetup(String text, boolean retain)
+    public void readSetup(String text, boolean retain)
     {
         readSetup(text.getBytes(), text.length(), retain);
         titleLabel.setText("untitled");
     }
 
-    void readSetupFile(String str, String title)
+    public void readSetupFile(String str, String title)
     {
         t = 0;
         System.out.println(str);
@@ -2361,7 +2360,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         super.setTitle(appVersion + " - " + title);
     }
 
-    void readSetup(byte b[], int len, boolean retain)
+    public void readSetup(byte b[], int len, boolean retain)
     {
         int i;
         if (!retain)
@@ -2485,14 +2484,14 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         needAnalyze();
     }
 
-    void readHint(StringTokenizer st)
+    public void readHint(StringTokenizer st)
     {
         hintType = Integer.parseInt(st.nextToken());
         hintItem1 = Integer.parseInt(st.nextToken());
         hintItem2 = Integer.parseInt(st.nextToken());
     }
 
-    void readOptions(StringTokenizer st)
+    public void readOptions(StringTokenizer st)
     {
         int flags = Integer.parseInt(st.nextToken());
         dotsCheckItem.setState((flags & 1) != 0);
@@ -2515,12 +2514,12 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         setGrid();
     }
 
-    int snapGrid(int x)
+    public int snapGrid(int x)
     {
         return (x + gridRound) & gridMask;
     }
 
-    boolean doSwitch(int x, int y)
+    public boolean doSwitch(int x, int y)
     {
         if (mouseElm == null || !(mouseElm instanceof SwitchElm))
             return false;
@@ -2532,7 +2531,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return true;
     }
 
-    int locateElm(CircuitElm elm)
+    public int locateElm(CircuitElm elm)
     {
         int i;
         for (i = 0; i != elmList.size(); i++)
@@ -2599,7 +2598,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         cv.repaint(pause);
     }
 
-    void dragAll(int x, int y)
+    public void dragAll(int x, int y)
     {
         int dx = x - dragX;
         int dy = y - dragY;
@@ -2614,7 +2613,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         removeZeroLengthElements();
     }
 
-    void dragRow(int x, int y)
+    public void dragRow(int x, int y)
     {
         int dy = y - dragY;
         if (dy == 0)
@@ -2631,7 +2630,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         removeZeroLengthElements();
     }
 
-    void dragColumn(int x, int y)
+    public void dragColumn(int x, int y)
     {
         int dx = x - dragX;
         if (dx == 0)
@@ -2648,7 +2647,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         removeZeroLengthElements();
     }
 
-    boolean dragSelected(int x, int y)
+    public boolean dragSelected(int x, int y)
     {
         boolean me = false;
         if (mouseElm != null && !mouseElm.isSelected())
@@ -2705,7 +2704,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return allowed;
     }
 
-    void dragPost(int x, int y)
+    public void dragPost(int x, int y)
     {
         if (draggingPost == -1)
         {
@@ -2719,7 +2718,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         needAnalyze();
     }
 
-    void selectArea(int x, int y)
+    public void selectArea(int x, int y)
     {
         int x1 = min(x, initDragX);
         int x2 = max(x, initDragX);
@@ -2734,7 +2733,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void setSelectedElm(CircuitElm cs)
+    public void setSelectedElm(CircuitElm cs)
     {
         int i;
         for (i = 0; i != elmList.size(); i++)
@@ -2745,7 +2744,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         mouseElm = cs;
     }
 
-    void removeZeroLengthElements()
+    public void removeZeroLengthElements()
     {
         int i;
         boolean changed = false;
@@ -2854,7 +2853,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             cv.repaint();
     }
 
-    int distanceSq(int x1, int y1, int x2, int y2)
+    public int distanceSq(int x1, int y1, int x2, int y2)
     {
         x2 -= x1;
         y2 -= y1;
@@ -2933,7 +2932,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         dragElm = constructElement(addingClass, x0, y0);
     }
 
-    CircuitElm constructElement(Class c, int x0, int y0)
+    public CircuitElm constructElement(Class c, int x0, int y0)
     {
         // find element class
         Class carr[] = new Class[2];
@@ -2967,7 +2966,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return null;
     }
 
-    void doPopupMenu(MouseEvent e)
+    public void doPopupMenu(MouseEvent e)
     {
         menuElm = mouseElm;
         menuScope = -1;
@@ -2989,7 +2988,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void doMainMenuChecks(Menu m)
+    public void doMainMenuChecks(Menu m)
     {
         int i;
         if (m == optionsMenu)
@@ -3045,7 +3044,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         cv.repaint();
     }
 
-    void enableItems()
+    public void enableItems()
     {
         if (powerCheckItem.getState())
         {
@@ -3116,14 +3115,14 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void setGrid()
+    public void setGrid()
     {
         gridSize = (smallGridCheckItem.getState()) ? 8 : 16;
         gridMask = ~(gridSize - 1);
         gridRound = gridSize / 2 - 1;
     }
 
-    void pushUndo()
+    public void pushUndo()
     {
         redoStack.removeAllElements();
         String s = dumpCircuit();
@@ -3133,7 +3132,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         enableUndoRedo();
     }
 
-    void doUndo()
+    public void doUndo()
     {
         if (undoStack.size() == 0)
             return;
@@ -3143,7 +3142,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         enableUndoRedo();
     }
 
-    void doRedo()
+    public void doRedo()
     {
         if (redoStack.size() == 0)
             return;
@@ -3153,13 +3152,13 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         enableUndoRedo();
     }
 
-    void enableUndoRedo()
+    public void enableUndoRedo()
     {
         redoItem.setEnabled(redoStack.size() > 0);
         undoItem.setEnabled(undoStack.size() > 0);
     }
 
-    void setMenuSelection()
+    public void setMenuSelection()
     {
         if (menuElm != null)
         {
@@ -3170,7 +3169,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void doCut()
+    public void doCut()
     {
         int i;
         pushUndo();
@@ -3190,7 +3189,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         needAnalyze();
     }
 
-    void doDelete()
+    public void doDelete()
     {
         int i;
         pushUndo();
@@ -3207,7 +3206,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         needAnalyze();
     }
 
-    void doCopy()
+    public void doCopy()
     {
         int i;
         clipboard = "";
@@ -3221,12 +3220,12 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         enablePaste();
     }
 
-    void enablePaste()
+    public void enablePaste()
     {
         pasteItem.setEnabled(clipboard.length() > 0);
     }
 
-    void doPaste()
+    public void doPaste()
     {
         pushUndo();
         clearSelection();
@@ -3277,7 +3276,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         needAnalyze();
     }
 
-    void clearSelection()
+    public void clearSelection()
     {
         int i;
         for (i = 0; i != elmList.size(); i++)
@@ -3287,7 +3286,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         }
     }
 
-    void doSelectAll()
+    public void doSelectAll()
     {
         int i;
         for (i = 0; i != elmList.size(); i++)
@@ -3334,7 +3333,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     // gaussian elimination. On entry, a[0..n-1][0..n-1] is the
     // matrix to be factored. ipvt[] returns an integer vector of pivot
     // indices, used in the lu_solve() routine.
-    boolean lu_factor(double a[][], int n, int ipvt[])
+    public boolean lu_factor(double a[][], int n, int ipvt[])
     {
         double scaleFactors[];
         int i, j, k;
@@ -3424,7 +3423,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     // Solves the set of n linear equations using a LU factorization
     // previously performed by lu_factor. On input, b[0..n-1] is the right
     // hand side of the equations, and on output, contains the solution.
-    void lu_solve(double a[][], int n, int ipvt[], double b[])
+    public void lu_solve(double a[][], int n, int ipvt[], double b[])
     {
         int i;
 

@@ -7,7 +7,7 @@ public class NJfetElm extends JfetElm
         super(xx, yy, false);
     }
 
-    Class getDumpClass()
+    public Class getDumpClass()
     {
         return JfetElm.class;
     }

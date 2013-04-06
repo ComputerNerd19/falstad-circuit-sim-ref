@@ -5,10 +5,10 @@ import java.util.StringTokenizer;
 
 public class DiodeElm extends CircuitElm
 {
-    Diode diode;
-    static final int FLAG_FWDROP = 1;
-    final double defaultdrop = .805904783;
-    double fwdrop, zvoltage;
+    public Diode diode;
+    public static final int FLAG_FWDROP = 1;
+    public final double defaultdrop = .805904783;
+    public double fwdrop, zvoltage;
 
     public DiodeElm(int xx, int yy)
     {
@@ -37,32 +37,32 @@ public class DiodeElm extends CircuitElm
         setup();
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void setup()
+    public void setup()
     {
         diode.setup(fwdrop, zvoltage);
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'd';
     }
 
-    String dump()
+    public String dump()
     {
         flags |= FLAG_FWDROP;
         return super.dump() + " " + fwdrop;
     }
 
-    final int hs = 8;
-    Polygon poly;
-    Point cathode[];
+    public final int hs = 8;
+    public Polygon poly;
+    public Point cathode[];
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(16);
@@ -73,20 +73,20 @@ public class DiodeElm extends CircuitElm
         poly = createPolygon(pa[0], pa[1], lead2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         drawDiode(g);
         doDots(g);
         drawPosts(g);
     }
 
-    void reset()
+    public void reset()
     {
         diode.reset();
         volts[0] = volts[1] = curcount = 0;
     }
 
-    void drawDiode(Graphics g)
+    public void drawDiode(Graphics g)
     {
         setBbox(point1, point2, hs);
 
@@ -105,22 +105,22 @@ public class DiodeElm extends CircuitElm
         drawThickLine(g, cathode[0], cathode[1]);
     }
 
-    void stamp()
+    public void stamp()
     {
         diode.stamp(nodes[0], nodes[1]);
     }
 
-    void doStep()
+    public void doStep()
     {
         diode.doStep(volts[0] - volts[1]);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current = diode.calculateCurrent(volts[0] - volts[1]);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "diode";
         arr[1] = "I = " + getCurrentText(getCurrent());
@@ -142,7 +142,7 @@ public class DiodeElm extends CircuitElm
         setup();
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return getClass() == DiodeElm.class;
     }

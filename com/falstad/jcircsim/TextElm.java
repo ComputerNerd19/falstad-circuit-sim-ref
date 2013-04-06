@@ -6,11 +6,11 @@ import java.util.Vector;
 
 public class TextElm extends CircuitElm
 {
-    String text;
-    Vector lines;
-    int size;
-    final int FLAG_CENTER = 1;
-    final int FLAG_BAR = 2;
+    public String text;
+    public Vector lines;
+    public int size;
+    public final int FLAG_CENTER = 1;
+    public final int FLAG_BAR = 2;
 
     public TextElm(int xx, int yy)
     {
@@ -31,7 +31,7 @@ public class TextElm extends CircuitElm
         split();
     }
 
-    void split()
+    public void split()
     {
         int i;
         lines = new Vector();
@@ -55,17 +55,17 @@ public class TextElm extends CircuitElm
         lines.add(sb.toString());
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + size + " " + text;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'x';
     }
 
-    void drag(int xx, int yy)
+    public void drag(int xx, int yy)
     {
         x = xx;
         y = yy;
@@ -73,7 +73,7 @@ public class TextElm extends CircuitElm
         y2 = yy;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         g.setColor(needsHighlight() ? selectColor : lightGrayColor);
         Font f = new Font("SansSerif", 0, size);
@@ -157,17 +157,17 @@ public class TextElm extends CircuitElm
         }
     }
 
-    boolean isCenteredText()
+    public boolean isCenteredText()
     {
         return (flags & FLAG_CENTER) != 0;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = text;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 0;
     }

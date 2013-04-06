@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class TransLineElm extends CircuitElm
 {
-    double delay, imped;
-    double voltageL[], voltageR[];
-    int lenSteps, ptr, width;
+    public double delay, imped;
+    public double voltageL[], voltageR[];
+    public int lenSteps, ptr, width;
 
     public TransLineElm(int xx, int yy)
     {
@@ -30,27 +30,27 @@ public class TransLineElm extends CircuitElm
         reset();
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 171;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 4;
     }
 
-    int getInternalNodeCount()
+    public int getInternalNodeCount()
     {
         return 2;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + delay + " " + imped + " " + width + " " + 0.;
     }
 
-    void drag(int xx, int yy)
+    public void drag(int xx, int yy)
     {
         xx = sim.snapGrid(xx);
         yy = sim.snapGrid(yy);
@@ -70,9 +70,9 @@ public class TransLineElm extends CircuitElm
         setPoints();
     }
 
-    Point posts[], inner[];
+    public Point posts[], inner[];
 
-    void reset()
+    public void reset()
     {
         if (sim.timeStep == 0)
             return;
@@ -89,7 +89,7 @@ public class TransLineElm extends CircuitElm
         super.reset();
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int ds = (dy == 0) ? sign(dx) : -sign(dy);
@@ -109,7 +109,7 @@ public class TransLineElm extends CircuitElm
         inner = new Point[]{p7, p8, p5, p6};
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(posts[0], posts[3], 0);
         int segments = (int) (dn / 2);
@@ -153,10 +153,10 @@ public class TransLineElm extends CircuitElm
         }
     }
 
-    int voltSource1, voltSource2;
-    double current1, current2, curCount1, curCount2;
+    public int voltSource1, voltSource2;
+    public double current1, current2, curCount1, curCount2;
 
-    void setVoltageSource(int n, int v)
+    public void setVoltageSource(int n, int v)
     {
         if (n == 0)
             voltSource1 = v;
@@ -164,7 +164,7 @@ public class TransLineElm extends CircuitElm
             voltSource2 = v;
     }
 
-    void setCurrent(int v, double c)
+    public void setCurrent(int v, double c)
     {
         if (v == voltSource1)
             current1 = c;
@@ -172,7 +172,7 @@ public class TransLineElm extends CircuitElm
             current2 = c;
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampVoltageSource(nodes[4], nodes[0], voltSource1);
         sim.stampVoltageSource(nodes[5], nodes[1], voltSource2);
@@ -180,7 +180,7 @@ public class TransLineElm extends CircuitElm
         sim.stampResistor(nodes[3], nodes[5], imped);
     }
 
-    void startIteration()
+    public void startIteration()
     {
         // calculate voltages, currents sent over wire
         if (voltageL == null)
@@ -196,7 +196,7 @@ public class TransLineElm extends CircuitElm
         ptr = (ptr + 1) % lenSteps;
     }
 
-    void doStep()
+    public void doStep()
     {
         if (voltageL == null)
         {
@@ -212,33 +212,32 @@ public class TransLineElm extends CircuitElm
         }
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return posts[n];
     }
 
     //double getVoltageDiff() { return volts[0]; }
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 2;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return false;
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
-        return false;
-	/*if (comparePair(n1, n2, 0, 1))
+        return false;    /*if (comparePair(n1, n2, 0, 1))
 	  return true;
 	  if (comparePair(n1, n2, 2, 3))
 	  return true;
 	  return false;*/
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "transmission line";
         arr[1] = getUnitText(imped, sim.ohmString);

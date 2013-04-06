@@ -5,13 +5,13 @@ import java.util.StringTokenizer;
 
 public class MosfetElm extends CircuitElm
 {
-    int pnp;
-    int FLAG_PNP = 1;
-    int FLAG_SHOWVT = 2;
-    int FLAG_DIGITAL = 4;
-    double vt;
+    public int pnp;
+    public int FLAG_PNP = 1;
+    public int FLAG_SHOWVT = 2;
+    public int FLAG_DIGITAL = 4;
+    public double vt;
 
-    MosfetElm(int xx, int yy, boolean pnpflag)
+    public MosfetElm(int xx, int yy, boolean pnpflag)
     {
         super(xx, yy);
         pnp = (pnpflag) ? -1 : 1;
@@ -34,44 +34,44 @@ public class MosfetElm extends CircuitElm
         }
     }
 
-    double getDefaultThreshold()
+    public double getDefaultThreshold()
     {
         return 1.5;
     }
 
-    double getBeta()
+    public double getBeta()
     {
         return .02;
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    boolean drawDigital()
+    public boolean drawDigital()
     {
         return (flags & FLAG_DIGITAL) != 0;
     }
 
-    void reset()
+    public void reset()
     {
         lastv1 = lastv2 = volts[0] = volts[1] = volts[2] = curcount = 0;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + vt;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'f';
     }
 
-    final int hs = 16;
+    public final int hs = 16;
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, hs);
         setVoltageColor(g, volts[1]);
@@ -129,31 +129,31 @@ public class MosfetElm extends CircuitElm
         drawPosts(g);
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 1) ? src[0] : drn[0];
     }
 
-    double getCurrent()
+    public double getCurrent()
     {
         return ids;
     }
 
-    double getPower()
+    public double getPower()
     {
         return ids * (volts[2] - volts[1]);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    int pcircler;
-    Point src[], drn[], gate[], pcircle;
-    Polygon arrowPoly;
+    public int pcircler;
+    public Point src[], drn[], gate[], pcircle;
+    public Polygon arrowPoly;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
 
@@ -185,18 +185,18 @@ public class MosfetElm extends CircuitElm
         }
     }
 
-    double lastv1, lastv2;
-    double ids;
-    int mode = 0;
-    double gm = 0;
+    public double lastv1, lastv2;
+    public double ids;
+    public int mode = 0;
+    public double gm = 0;
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[1]);
         sim.stampNonLinear(nodes[2]);
     }
 
-    void doStep()
+    public void doStep()
     {
         double vs[] = new double[3];
         vs[0] = volts[0];
@@ -276,7 +276,7 @@ public class MosfetElm extends CircuitElm
             ids = -ids;
     }
 
-    void getFetInfo(String arr[], String n)
+    public void getFetInfo(String arr[], String n)
     {
         arr[0] = ((pnp == -1) ? "p-" : "n-") + n;
         arr[0] += " (Vt = " + getVoltageText(pnp * vt) + ")";
@@ -287,22 +287,22 @@ public class MosfetElm extends CircuitElm
         arr[5] = "gm = " + getUnitText(gm, "A/V");
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         getFetInfo(arr, "MOSFET");
     }
 
-    boolean canViewInScope()
+    public boolean canViewInScope()
     {
         return true;
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[2] - volts[1];
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return !(n1 == 0 || n2 == 0);
     }

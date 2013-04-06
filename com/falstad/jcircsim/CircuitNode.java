@@ -4,11 +4,11 @@ import java.util.Vector;
 
 public class CircuitNode
 {
-    int x, y;
-    Vector links;
-    boolean internal;
+    public int x, y;
+    public Vector links;
+    public boolean internal;
 
-    CircuitNode()
+    public CircuitNode()
     {
         links = new Vector();
     }

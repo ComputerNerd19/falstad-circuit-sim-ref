@@ -5,13 +5,13 @@ import java.util.StringTokenizer;
 
 public class TransistorElm extends CircuitElm
 {
-    int pnp;
-    double beta;
-    double fgain;
-    double gmin;
-    final int FLAG_FLIP = 1;
+    public int pnp;
+    public double beta;
+    public double fgain;
+    public double gmin;
+    public final int FLAG_FLIP = 1;
 
-    TransistorElm(int xx, int yy, boolean pnpflag)
+    public TransistorElm(int xx, int yy, boolean pnpflag)
     {
         super(xx, yy);
         pnp = (pnpflag) ? -1 : 1;
@@ -38,39 +38,39 @@ public class TransistorElm extends CircuitElm
         setup();
     }
 
-    void setup()
+    public void setup()
     {
         vcrit = vt * Math.log(vt / (Math.sqrt(2) * leakage));
         fgain = beta / (beta + 1);
         noDiagonal = true;
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void reset()
+    public void reset()
     {
         volts[0] = volts[1] = volts[2] = 0;
         lastvbc = lastvbe = curcount_c = curcount_e = curcount_b = 0;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 't';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + pnp + " " + (volts[0] - volts[1]) + " " +
                 (volts[0] - volts[2]) + " " + beta;
     }
 
-    double ic, ie, ib, curcount_c, curcount_e, curcount_b;
-    Polygon rectPoly, arrowPoly;
+    public double ic, ie, ib, curcount_c, curcount_e, curcount_b;
+    public Polygon rectPoly, arrowPoly;
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, 16);
         setPowerColor(g, true);
@@ -112,24 +112,24 @@ public class TransistorElm extends CircuitElm
         drawPosts(g);
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 1) ? coll[0] : emit[0];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    double getPower()
+    public double getPower()
     {
         return (volts[0] - volts[2]) * ib + (volts[1] - volts[2]) * ic;
     }
 
-    Point rect[], coll[], emit[], base;
+    public Point rect[], coll[], emit[], base;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int hs = 16;
@@ -163,14 +163,14 @@ public class TransistorElm extends CircuitElm
         }
     }
 
-    static final double leakage = 1e-13; // 1e-6;
-    static final double vt = .025;
-    static final double vdcoef = 1 / vt;
-    static final double rgain = .5;
-    double vcrit;
-    double lastvbc, lastvbe;
+    public static final double leakage = 1e-13; // 1e-6;
+    public static final double vt = .025;
+    public static final double vdcoef = 1 / vt;
+    public static final double rgain = .5;
+    public double vcrit;
+    public double lastvbc, lastvbe;
 
-    double limitStep(double vnew, double vold)
+    public double limitStep(double vnew, double vold)
     {
         double arg;
         double oo = vnew;
@@ -197,14 +197,14 @@ public class TransistorElm extends CircuitElm
         return (vnew);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
         sim.stampNonLinear(nodes[2]);
     }
 
-    void doStep()
+    public void doStep()
     {
         double vbc = volts[0] - volts[1]; // typically negative
         double vbe = volts[0] - volts[2]; // typically positive
@@ -230,8 +230,7 @@ public class TransistorElm extends CircuitElm
           expbc = 1e13;*/
         double expbe = Math.exp(vbe * pcoef);
         if (expbe < 1)
-            expbe = 1;
-	    /*if (expbe > 1e13 || Double.isInfinite(expbe))
+            expbe = 1;        /*if (expbe > 1e13 || Double.isInfinite(expbe))
 	      expbe = 1e13;*/
         ie = pnp * leakage * (-(expbe - 1) + rgain * (expbc - 1));
         ic = pnp * leakage * (fgain * (expbe - 1) - (expbc - 1));
@@ -270,7 +269,7 @@ public class TransistorElm extends CircuitElm
         sim.stampRightSide(nodes[2], -ie + gee * vbe + gec * vbc);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "transistor (" + ((pnp == -1) ? "PNP)" : "NPN)") + " beta=" +
                 showFormat.format(beta);
@@ -288,7 +287,7 @@ public class TransistorElm extends CircuitElm
         arr[6] = "Vce = " + getVoltageText(vce);
     }
 
-    double getScopeValue(int x)
+    public double getScopeValue(int x)
     {
         switch (x)
         {
@@ -308,7 +307,7 @@ public class TransistorElm extends CircuitElm
         return 0;
     }
 
-    String getScopeUnits(int x)
+    public String getScopeUnits(int x)
     {
         switch (x)
         {
@@ -352,7 +351,7 @@ public class TransistorElm extends CircuitElm
         }
     }
 
-    boolean canViewInScope()
+    public boolean canViewInScope()
     {
         return true;
     }

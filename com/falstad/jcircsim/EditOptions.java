@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 public class EditOptions implements Editable
 {
-    CirSim sim;
+    public CirSim sim;
 
     public EditOptions(CirSim s)
     {

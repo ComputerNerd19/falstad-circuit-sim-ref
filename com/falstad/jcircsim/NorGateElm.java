@@ -14,17 +14,17 @@ public class NorGateElm extends OrGateElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getGateName()
+    public String getGateName()
     {
         return "NOR gate";
     }
 
-    boolean isInverting()
+    public boolean isInverting()
     {
         return true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 153;
     }

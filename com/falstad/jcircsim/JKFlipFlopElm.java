@@ -15,12 +15,12 @@ public class JKFlipFlopElm extends ChipElm
         pins[4].value = !pins[3].value;
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "JK flip-flop";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = 3;
@@ -37,17 +37,17 @@ public class JKFlipFlopElm extends ChipElm
         pins[4].lineOver = true;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 5;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 2;
     }
 
-    void execute()
+    public void execute()
     {
         if (!pins[1].value && lastClock)
         {
@@ -66,7 +66,7 @@ public class JKFlipFlopElm extends ChipElm
         lastClock = pins[1].value;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 156;
     }

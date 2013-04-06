@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class LampElm extends CircuitElm
 {
-    double resistance;
-    final double roomTemp = 300;
-    double temp, nom_pow, nom_v, warmTime, coolTime;
+    public double resistance;
+    public final double roomTemp = 300;
+    public double temp, nom_pow, nom_v, warmTime, coolTime;
 
     public LampElm(int xx, int yy)
     {
@@ -29,29 +29,29 @@ public class LampElm extends CircuitElm
         coolTime = Double.parseDouble(st.nextToken());
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + temp + " " + nom_pow + " " + nom_v +
                 " " + warmTime + " " + coolTime;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 181;
     }
 
-    Point bulbLead[], filament[], bulb;
-    int bulbR;
+    public Point bulbLead[], filament[], bulb;
+    public int bulbR;
 
-    void reset()
+    public void reset()
     {
         super.reset();
         temp = roomTemp;
     }
 
-    final int filament_len = 24;
+    public final int filament_len = 24;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int llen = 16;
@@ -67,7 +67,7 @@ public class LampElm extends CircuitElm
         bulb = interpPoint(filament[0], filament[1], .5);
     }
 
-    Color getTempColor()
+    public Color getTempColor()
     {
         if (temp < 1200)
         {
@@ -93,7 +93,7 @@ public class LampElm extends CircuitElm
         return Color.white;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         double v1 = volts[0];
         double v2 = volts[1];
@@ -128,24 +128,24 @@ public class LampElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current = (volts[0] - volts[1]) / resistance;
         //System.out.print(this + " res current set to " + current + "\n");
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void startIteration()
+    public void startIteration()
     {
         // based on http://www.intusoft.com/nlpdf/nl11.pdf
         double nom_r = nom_v * nom_v / nom_pow;
@@ -164,12 +164,12 @@ public class LampElm extends CircuitElm
         //System.out.println(capw + " " + capc + " " + temp + " " +resistance);
     }
 
-    void doStep()
+    public void doStep()
     {
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "lamp";
         getBasicInfo(arr);

@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class InverterElm extends CircuitElm
 {
-    double slewRate; // V/ns
+    public double slewRate; // V/ns
 
     public InverterElm(int xx, int yy)
     {
@@ -27,17 +27,17 @@ public class InverterElm extends CircuitElm
         }
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + slewRate;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'I';
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         drawPosts(g);
         draw2Leads(g);
@@ -48,10 +48,10 @@ public class InverterElm extends CircuitElm
         drawDots(g, lead2, point2, curcount);
     }
 
-    Polygon gatePoly;
-    Point pcircle;
+    public Polygon gatePoly;
+    public Point pcircle;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int hs = 16;
@@ -68,17 +68,17 @@ public class InverterElm extends CircuitElm
         setBbox(point1, point2, hs);
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampVoltageSource(0, nodes[1], voltSource);
     }
 
-    void doStep()
+    public void doStep()
     {
         double v0 = volts[1];
         double out = volts[0] > 2.5 ? 0 : 5;
@@ -87,12 +87,12 @@ public class InverterElm extends CircuitElm
         sim.updateVoltageSource(0, nodes[1], voltSource, out);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "inverter";
         arr[1] = "Vi = " + getVoltageText(volts[0]);
@@ -113,12 +113,12 @@ public class InverterElm extends CircuitElm
 
     // there is no current path through the inverter input, but there
     // is an indirect path through the output to ground.
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return false;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return (n1 == 1);
     }

@@ -4,9 +4,9 @@ import java.awt.*;
 
 public class CircuitCanvas extends Canvas
 {
-    CirSim pg;
+    public CirSim pg;
 
-    CircuitCanvas(CirSim p)
+    public CircuitCanvas(CirSim p)
     {
         pg = p;
     }

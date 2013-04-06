@@ -2,6 +2,6 @@ package com.falstad.jcircsim;
 
 public class CircuitNodeLink
 {
-    int num;
-    CircuitElm elm;
+    public int num;
+    public CircuitElm elm;
 }

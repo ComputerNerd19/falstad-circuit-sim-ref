@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class LogicInputElm extends SwitchElm
 {
-    final int FLAG_TERNARY = 1;
-    final int FLAG_NUMERIC = 2;
-    double hiV, loV;
+    public final int FLAG_TERNARY = 1;
+    public final int FLAG_NUMERIC = 2;
+    public double hiV, loV;
 
     public LogicInputElm(int xx, int yy)
     {
@@ -32,38 +32,38 @@ public class LogicInputElm extends SwitchElm
             posCount = 3;
     }
 
-    boolean isTernary()
+    public boolean isTernary()
     {
         return (flags & FLAG_TERNARY) != 0;
     }
 
-    boolean isNumeric()
+    public boolean isNumeric()
     {
         return (flags & (FLAG_TERNARY | FLAG_NUMERIC)) != 0;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'L';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + hiV + " " + loV;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 1;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         lead1 = interpPoint(point1, point2, 1 - 12 / dn);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         Font f = new Font("SansSerif", Font.BOLD, 20);
         g.setFont(f);
@@ -80,12 +80,12 @@ public class LogicInputElm extends SwitchElm
         drawPosts(g);
     }
 
-    void setCurrent(int vs, double c)
+    public void setCurrent(int vs, double c)
     {
         current = -c;
     }
 
-    void stamp()
+    public void stamp()
     {
         double v = (position == 0) ? loV : hiV;
         if (isTernary())
@@ -93,17 +93,17 @@ public class LogicInputElm extends SwitchElm
         sim.stampVoltageSource(0, nodes[0], voltSource, v);
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "logic input";
         arr[1] = (position == 0) ? "low" : "high";
@@ -113,7 +113,7 @@ public class LogicInputElm extends SwitchElm
         arr[2] = "I = " + getCurrentText(getCurrent());
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return true;
     }

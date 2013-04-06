@@ -15,14 +15,14 @@ public class SevenSegElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "7-segment driver/display";
     }
 
-    Color darkred;
+    public Color darkred;
 
-    void setupPins()
+    public void setupPins()
     {
         darkred = new Color(30, 0, 0);
         sizeX = 4;
@@ -37,7 +37,7 @@ public class SevenSegElm extends ChipElm
         pins[6] = new Pin(3, SIDE_S, "g");
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         drawChip(g);
         g.setColor(Color.red);
@@ -59,22 +59,22 @@ public class SevenSegElm extends ChipElm
         drawThickLine(g, xl, yl + cspc, xl + cspc, yl + cspc);
     }
 
-    void setColor(Graphics g, int p)
+    public void setColor(Graphics g, int p)
     {
         g.setColor(pins[p].value ? Color.red : sim.printableCheckItem.getState() ? Color.white : darkred);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 7;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 0;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 157;
     }

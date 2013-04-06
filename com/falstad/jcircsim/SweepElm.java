@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class SweepElm extends CircuitElm
 {
-    double maxV, maxF, minF, sweepTime, frequency;
-    final int FLAG_LOG = 1;
-    final int FLAG_BIDIR = 2;
+    public double maxV, maxF, minF, sweepTime, frequency;
+    public final int FLAG_LOG = 1;
+    public final int FLAG_BIDIR = 2;
 
     public SweepElm(int xx, int yy)
     {
@@ -30,31 +30,31 @@ public class SweepElm extends CircuitElm
         reset();
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 170;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 1;
     }
 
-    final int circleSize = 17;
+    public final int circleSize = 17;
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + minF + " " + maxF + " " + maxV + " " +
                 sweepTime;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         lead1 = interpPoint(point1, point2, 1 - circleSize / dn);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, circleSize);
         setVoltageColor(g, volts[0]);
@@ -98,15 +98,15 @@ public class SweepElm extends CircuitElm
             drawDots(g, point1, lead1, curcount);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampVoltageSource(0, nodes[0], voltSource);
     }
 
-    double fadd, fmul, freqTime, savedTimeStep;
-    int dir = 1;
+    public double fadd, fmul, freqTime, savedTimeStep;
+    public int dir = 1;
 
-    void setParams()
+    public void setParams()
     {
         if (frequency < minF || frequency > maxF)
         {
@@ -126,7 +126,7 @@ public class SweepElm extends CircuitElm
         savedTimeStep = sim.timeStep;
     }
 
-    void reset()
+    public void reset()
     {
         frequency = minF;
         freqTime = 0;
@@ -134,9 +134,9 @@ public class SweepElm extends CircuitElm
         setParams();
     }
 
-    double v;
+    public double v;
 
-    void startIteration()
+    public void startIteration()
     {
         // has timestep been changed?
         if (sim.timeStep != savedTimeStep)
@@ -162,27 +162,27 @@ public class SweepElm extends CircuitElm
         }
     }
 
-    void doStep()
+    public void doStep()
     {
         sim.updateVoltageSource(0, nodes[0], voltSource, v);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return true;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "sweep " + (((flags & FLAG_LOG) == 0) ? "(linear)" : "(log)");
         arr[1] = "I = " + getCurrentDText(getCurrent());

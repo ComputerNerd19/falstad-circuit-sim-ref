@@ -13,21 +13,21 @@ import java.util.StringTokenizer;
 
 public class RelayElm extends CircuitElm
 {
-    double inductance;
-    Inductor ind;
-    double r_on, r_off, onCurrent;
-    Point coilPosts[], coilLeads[], swposts[][], swpoles[][], ptSwitch[];
-    Point lines[];
-    double coilCurrent, switchCurrent[], coilCurCount, switchCurCount[];
-    double d_position, coilR;
-    int i_position;
-    int poleCount;
-    int openhs;
-    final int nSwitch0 = 0;
-    final int nSwitch1 = 1;
-    final int nSwitch2 = 2;
-    int nCoil1, nCoil2, nCoil3;
-    final int FLAG_SWAP_COIL = 1;
+    public double inductance;
+    public Inductor ind;
+    public double r_on, r_off, onCurrent;
+    public Point coilPosts[], coilLeads[], swposts[][], swpoles[][], ptSwitch[];
+    public Point lines[];
+    public double coilCurrent, switchCurrent[], coilCurCount, switchCurCount[];
+    public double d_position, coilR;
+    public int i_position;
+    public int poleCount;
+    public int openhs;
+    public final int nSwitch0 = 0;
+    public final int nSwitch1 = 1;
+    public final int nSwitch2 = 2;
+    public int nCoil1, nCoil2, nCoil3;
+    public final int FLAG_SWAP_COIL = 1;
 
     public RelayElm(int xx, int yy)
     {
@@ -61,7 +61,7 @@ public class RelayElm extends CircuitElm
         setupPoles();
     }
 
-    void setupPoles()
+    public void setupPoles()
     {
         nCoil1 = 3 * poleCount;
         nCoil2 = nCoil1 + 1;
@@ -73,19 +73,19 @@ public class RelayElm extends CircuitElm
         }
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 178;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + poleCount + " " +
                 inductance + " " + coilCurrent + " " +
                 r_on + " " + r_off + " " + onCurrent + " " + coilR;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i, p;
         for (i = 0; i != 2; i++)
@@ -140,7 +140,7 @@ public class RelayElm extends CircuitElm
         adjustBbox(swpoles[poleCount - 1][0], swposts[poleCount - 1][1]); // XXX
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         setupPoles();
@@ -182,24 +182,24 @@ public class RelayElm extends CircuitElm
         lines = newPointArray(poleCount * 2);
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         if (n < 3 * poleCount)
             return swposts[n / 3][n % 3];
         return coilPosts[n - 3 * poleCount];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 2 + poleCount * 3;
     }
 
-    int getInternalNodeCount()
+    public int getInternalNodeCount()
     {
         return 1;
     }
 
-    void reset()
+    public void reset()
     {
         super.reset();
         ind.reset();
@@ -209,9 +209,9 @@ public class RelayElm extends CircuitElm
             switchCurrent[i] = switchCurCount[i] = 0;
     }
 
-    double a1, a2, a3, a4;
+    public double a1, a2, a3, a4;
 
-    void stamp()
+    public void stamp()
     {
         // inductor from coil post 1 to internal node
         ind.stamp(nodes[nCoil1], nodes[nCoil3]);
@@ -223,7 +223,7 @@ public class RelayElm extends CircuitElm
             sim.stampNonLinear(nodes[nSwitch0 + i]);
     }
 
-    void startIteration()
+    public void startIteration()
     {
         ind.startIteration(volts[nCoil1] - volts[nCoil3]);
 
@@ -246,12 +246,12 @@ public class RelayElm extends CircuitElm
     }
 
     // we need this to be able to change the matrix for each step
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void doStep()
+    public void doStep()
     {
         double voltdiff = volts[nCoil1] - volts[nCoil3];
         ind.doStep(voltdiff);
@@ -263,7 +263,7 @@ public class RelayElm extends CircuitElm
         }
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double voltdiff = volts[nCoil1] - volts[nCoil3];
         coilCurrent = ind.calculateCurrent(voltdiff);
@@ -280,7 +280,7 @@ public class RelayElm extends CircuitElm
         }
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = i_position == 0 ? "relay (off)" : i_position == 1 ? "relay (on)" : "relay";
         int i;
@@ -345,7 +345,7 @@ public class RelayElm extends CircuitElm
         }
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return (n1 / 3 == n2 / 3);
     }

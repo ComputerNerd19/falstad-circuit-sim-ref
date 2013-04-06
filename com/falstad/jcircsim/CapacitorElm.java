@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class CapacitorElm extends CircuitElm
 {
-    double capacitance;
-    double compResistance, voltdiff;
-    Point plate1[], plate2[];
+    public double capacitance;
+    public double compResistance, voltdiff;
+    public Point plate1[], plate2[];
     public static final int FLAG_BACK_EULER = 2;
 
     public CapacitorElm(int xx, int yy)
@@ -23,35 +23,35 @@ public class CapacitorElm extends CircuitElm
         voltdiff = Double.parseDouble(st.nextToken());
     }
 
-    boolean isTrapezoidal()
+    public boolean isTrapezoidal()
     {
         return (flags & FLAG_BACK_EULER) == 0;
     }
 
-    void setNodeVoltage(int n, double c)
+    public void setNodeVoltage(int n, double c)
     {
         super.setNodeVoltage(n, c);
         voltdiff = volts[0] - volts[1];
     }
 
-    void reset()
+    public void reset()
     {
         current = curcount = 0;
         // put small charge on caps when reset to start oscillators
         voltdiff = 1e-3;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'c';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + capacitance + " " + voltdiff;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         double f = (dn / 2 - 4) / dn;
@@ -65,7 +65,7 @@ public class CapacitorElm extends CircuitElm
         interpPoint2(point1, point2, plate2[0], plate2[1], 1 - f, 12);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int hs = 12;
         setBbox(point1, point2, hs);
@@ -98,7 +98,7 @@ public class CapacitorElm extends CircuitElm
         }
     }
 
-    void stamp()
+    public void stamp()
     {
         // capacitor companion model using trapezoidal approximation
         // (Norton equivalent) consists of a current source in
@@ -114,7 +114,7 @@ public class CapacitorElm extends CircuitElm
         sim.stampRightSide(nodes[1]);
     }
 
-    void startIteration()
+    public void startIteration()
     {
         if (isTrapezoidal())
             curSourceValue = -voltdiff / compResistance - current;
@@ -124,7 +124,7 @@ public class CapacitorElm extends CircuitElm
         // " " + current + " " + voltdiff);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double voltdiff = volts[0] - volts[1];
         // we check compResistance because this might get called
@@ -134,14 +134,14 @@ public class CapacitorElm extends CircuitElm
             current = voltdiff / compResistance + curSourceValue;
     }
 
-    double curSourceValue;
+    public double curSourceValue;
 
-    void doStep()
+    public void doStep()
     {
         sim.stampCurrentSource(nodes[0], nodes[1], curSourceValue);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "capacitor";
         getBasicInfo(arr);
@@ -177,7 +177,7 @@ public class CapacitorElm extends CircuitElm
         }
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return true;
     }

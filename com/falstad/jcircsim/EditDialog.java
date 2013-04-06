@@ -7,15 +7,15 @@ import java.text.NumberFormat;
 
 public class EditDialog extends Dialog implements AdjustmentListener, ActionListener, ItemListener
 {
-    Editable elm;
-    CirSim cframe;
-    Button applyButton, okButton;
-    EditInfo einfos[];
-    int einfocount;
-    final int barmax = 1000;
-    NumberFormat noCommaFormat;
+    public Editable elm;
+    public CirSim cframe;
+    public Button applyButton, okButton;
+    public EditInfo einfos[];
+    public int einfocount;
+    public final int barmax = 1000;
+    public NumberFormat noCommaFormat;
 
-    EditDialog(Editable ce, CirSim f)
+    public EditDialog(Editable ce, CirSim f)
     {
         super(f, "Edit Component", false);
         cframe = f;
@@ -65,7 +65,7 @@ public class EditDialog extends Dialog implements AdjustmentListener, ActionList
         setLocation(x.x + (cframe.winSize.width - d.width) / 2, x.y + (cframe.winSize.height - d.height) / 2);
     }
 
-    String unitString(EditInfo ei)
+    public String unitString(EditInfo ei)
     {
         double v = ei.value;
         double va = Math.abs(v);
@@ -90,7 +90,7 @@ public class EditDialog extends Dialog implements AdjustmentListener, ActionList
         return noCommaFormat.format(v * 1e-9) + "G";
     }
 
-    double parseUnits(EditInfo ei) throws java.text.ParseException
+    public double parseUnits(EditInfo ei) throws java.text.ParseException
     {
         String s = ei.textf.getText();
         s = s.trim();
@@ -134,7 +134,7 @@ public class EditDialog extends Dialog implements AdjustmentListener, ActionList
         return noCommaFormat.parse(s).doubleValue() * mult;
     }
 
-    void apply()
+    public void apply()
     {
         int i;
         for (i = 0; i != einfocount; i++)
@@ -258,7 +258,7 @@ public class EditDialog extends Dialog implements AdjustmentListener, ActionList
         return super.handleEvent(ev);
     }
 
-    void setBar(EditInfo ei)
+    public void setBar(EditInfo ei)
     {
         int x = (int) (barmax * (ei.value - ei.minval) / (ei.maxval - ei.minval));
         ei.bar.setValue(x);

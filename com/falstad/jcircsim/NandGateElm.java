@@ -14,17 +14,17 @@ public class NandGateElm extends AndGateElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    boolean isInverting()
+    public boolean isInverting()
     {
         return true;
     }
 
-    String getGateName()
+    public String getGateName()
     {
         return "NAND gate";
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 151;
     }

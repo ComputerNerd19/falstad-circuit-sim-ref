@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 
 public class AnalogSwitchElm extends CircuitElm
 {
-    final int FLAG_INVERT = 1;
-    double resistance, r_on, r_off;
+    public final int FLAG_INVERT = 1;
+    public double resistance, r_on, r_off;
 
     public AnalogSwitchElm(int xx, int yy)
     {
@@ -30,21 +30,21 @@ public class AnalogSwitchElm extends CircuitElm
 
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + r_on + " " + r_off;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 159;
     }
 
-    boolean open;
+    public boolean open;
 
-    Point ps, point3, lead3;
+    public Point ps, point3, lead3;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -54,7 +54,7 @@ public class AnalogSwitchElm extends CircuitElm
         lead3 = interpPoint(point1, point2, .5, -openhs / 2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int openhs = 16;
         int hs = (open) ? openhs : 0;
@@ -74,24 +74,24 @@ public class AnalogSwitchElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current = (volts[0] - volts[1]) / resistance;
     }
 
     // we need this to be able to change the matrix for each step
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    void doStep()
+    public void doStep()
     {
         open = (volts[2] < 2.5);
         if ((flags & FLAG_INVERT) != 0)
@@ -100,7 +100,7 @@ public class AnalogSwitchElm extends CircuitElm
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void drag(int xx, int yy)
+    public void drag(int xx, int yy)
     {
         xx = sim.snapGrid(xx);
         yy = sim.snapGrid(yy);
@@ -117,17 +117,17 @@ public class AnalogSwitchElm extends CircuitElm
         setPoints();
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 1) ? point2 : point3;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "analog switch";
         arr[1] = open ? "open" : "closed";
@@ -138,7 +138,7 @@ public class AnalogSwitchElm extends CircuitElm
 
     // we have to just assume current will flow either way, even though that
     // might cause singular matrix errors
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         if (n1 == 2 || n2 == 2)
             return false;

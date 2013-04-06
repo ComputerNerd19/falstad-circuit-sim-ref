@@ -15,10 +15,10 @@ public class AnalogSwitch2Elm extends AnalogSwitchElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    final int openhs = 16;
-    Point swposts[], swpoles[], ctlPoint;
+    public final int openhs = 16;
+    public Point swposts[], swpoles[], ctlPoint;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -29,12 +29,12 @@ public class AnalogSwitch2Elm extends AnalogSwitchElm
         ctlPoint = interpPoint(point1, point2, .5, openhs);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 4;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, openhs);
 
@@ -61,17 +61,17 @@ public class AnalogSwitch2Elm extends AnalogSwitchElm
         drawPosts(g);
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 3) ? ctlPoint : swposts[n - 1];
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 160;
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         if (open)
             current = (volts[0] - volts[2]) / r_on;
@@ -79,14 +79,14 @@ public class AnalogSwitch2Elm extends AnalogSwitchElm
             current = (volts[0] - volts[1]) / r_on;
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
         sim.stampNonLinear(nodes[2]);
     }
 
-    void doStep()
+    public void doStep()
     {
         open = (volts[3] < 2.5);
         if ((flags & FLAG_INVERT) != 0)
@@ -102,14 +102,14 @@ public class AnalogSwitch2Elm extends AnalogSwitchElm
         }
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         if (n1 == 3 || n2 == 3)
             return false;
         return true;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "analog switch (SPDT)";
         arr[1] = "I = " + getCurrentDText(getCurrent());

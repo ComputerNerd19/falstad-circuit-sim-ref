@@ -17,25 +17,25 @@ public class TunnelDiodeElm extends CircuitElm
         setup();
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void setup()
+    public void setup()
     {
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 175;
     }
 
-    final int hs = 8;
-    Polygon poly;
-    Point cathode[];
+    public final int hs = 8;
+    public Polygon poly;
+    public Point cathode[];
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(16);
@@ -47,7 +47,7 @@ public class TunnelDiodeElm extends CircuitElm
         poly = createPolygon(pa[0], pa[1], lead2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, hs);
 
@@ -71,14 +71,14 @@ public class TunnelDiodeElm extends CircuitElm
         drawPosts(g);
     }
 
-    void reset()
+    public void reset()
     {
         lastvoltdiff = volts[0] = volts[1] = curcount = 0;
     }
 
-    double lastvoltdiff;
+    public double lastvoltdiff;
 
-    double limitStep(double vnew, double vold)
+    public double limitStep(double vnew, double vold)
     {
         // Prevent voltage changes of more than 1V when iterating.  Wow, I thought it would be
         // much harder than this to prevent convergence problems.
@@ -89,20 +89,20 @@ public class TunnelDiodeElm extends CircuitElm
         return vnew;
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    static final double pvp = .1;
-    static final double pip = 4.7e-3;
-    static final double pvv = .37;
-    static final double pvt = .026;
-    static final double pvpp = .525;
-    static final double piv = 370e-6;
+    public static final double pvp = .1;
+    public static final double pip = 4.7e-3;
+    public static final double pvv = .37;
+    public static final double pvt = .026;
+    public static final double pvpp = .525;
+    public static final double piv = 370e-6;
 
-    void doStep()
+    public void doStep()
     {
         double voltdiff = volts[0] - volts[1];
         if (Math.abs(voltdiff - lastvoltdiff) > .01)
@@ -121,7 +121,7 @@ public class TunnelDiodeElm extends CircuitElm
         sim.stampCurrentSource(nodes[0], nodes[1], nc);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double voltdiff = volts[0] - volts[1];
         current = pip * Math.exp(-pvpp / pvt) * (Math.exp(voltdiff / pvt) - 1) +
@@ -129,7 +129,7 @@ public class TunnelDiodeElm extends CircuitElm
                 piv * Math.exp(voltdiff - pvv);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "tunnel diode";
         arr[1] = "I = " + getCurrentText(getCurrent());

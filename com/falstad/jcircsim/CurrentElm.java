@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class CurrentElm extends CircuitElm
 {
-    double currentValue;
+    public double currentValue;
 
     public CurrentElm(int xx, int yy)
     {
@@ -25,20 +25,20 @@ public class CurrentElm extends CircuitElm
         }
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + currentValue;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'i';
     }
 
-    Polygon arrow;
-    Point ashaft1, ashaft2, center;
+    public Polygon arrow;
+    public Point ashaft1, ashaft2, center;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(26);
@@ -49,7 +49,7 @@ public class CurrentElm extends CircuitElm
         arrow = calcArrow(center, p2, 4, 4);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int cr = 12;
         draw2Leads(g);
@@ -71,7 +71,7 @@ public class CurrentElm extends CircuitElm
         drawPosts(g);
     }
 
-    void stamp()
+    public void stamp()
     {
         current = currentValue;
         sim.stampCurrentSource(nodes[0], nodes[1], current);
@@ -89,13 +89,13 @@ public class CurrentElm extends CircuitElm
         currentValue = ei.value;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "current source";
         getBasicInfo(arr);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[1] - volts[0];
     }

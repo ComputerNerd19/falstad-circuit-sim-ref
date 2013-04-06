@@ -15,12 +15,12 @@ public class OrGateElm extends GateElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getGateName()
+    public String getGateName()
     {
         return "OR gate";
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
 
@@ -54,7 +54,7 @@ public class OrGateElm extends GateElm
         gatePoly = createPolygon(triPoints);
     }
 
-    boolean calcFunction()
+    public boolean calcFunction()
     {
         int i;
         boolean f = false;
@@ -63,7 +63,7 @@ public class OrGateElm extends GateElm
         return f;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 152;
     }

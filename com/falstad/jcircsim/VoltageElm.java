@@ -5,18 +5,18 @@ import java.util.StringTokenizer;
 
 public class VoltageElm extends CircuitElm
 {
-    static final int FLAG_COS = 2;
-    int waveform;
-    static final int WF_DC = 0;
-    static final int WF_AC = 1;
-    static final int WF_SQUARE = 2;
-    static final int WF_TRIANGLE = 3;
-    static final int WF_SAWTOOTH = 4;
-    static final int WF_PULSE = 5;
-    static final int WF_VAR = 6;
-    double frequency, maxVoltage, freqTimeZero, bias, phaseShift, dutyCycle;
+    public static final int FLAG_COS = 2;
+    public int waveform;
+    public static final int WF_DC = 0;
+    public static final int WF_AC = 1;
+    public static final int WF_SQUARE = 2;
+    public static final int WF_TRIANGLE = 3;
+    public static final int WF_SAWTOOTH = 4;
+    public static final int WF_PULSE = 5;
+    public static final int WF_VAR = 6;
+    public double frequency, maxVoltage, freqTimeZero, bias, phaseShift, dutyCycle;
 
-    VoltageElm(int xx, int yy, int wf)
+    public VoltageElm(int xx, int yy, int wf)
     {
         super(xx, yy);
         waveform = wf;
@@ -52,12 +52,12 @@ public class VoltageElm extends CircuitElm
         reset();
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'v';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + waveform + " " + frequency + " " +
                 maxVoltage + " " + bias + " " + phaseShift + " " +
@@ -68,20 +68,20 @@ public class VoltageElm extends CircuitElm
       System.out.print("v current set to " + c + "\n");
       }*/
 
-    void reset()
+    public void reset()
     {
         freqTimeZero = 0;
         curcount = 0;
     }
 
-    double triangleFunc(double x)
+    public double triangleFunc(double x)
     {
         if (x < pi)
             return x * (2 / pi) - 1;
         return 1 - (x - pi) * (2 / pi);
     }
 
-    void stamp()
+    public void stamp()
     {
         if (waveform == WF_DC)
             sim.stampVoltageSource(nodes[0], nodes[1], voltSource, getVoltage());
@@ -89,13 +89,13 @@ public class VoltageElm extends CircuitElm
             sim.stampVoltageSource(nodes[0], nodes[1], voltSource);
     }
 
-    void doStep()
+    public void doStep()
     {
         if (waveform != WF_DC)
             sim.updateVoltageSource(nodes[0], nodes[1], voltSource, getVoltage());
     }
 
-    double getVoltage()
+    public double getVoltage()
     {
         double w = 2 * pi * (sim.t - freqTimeZero) * frequency + phaseShift;
         switch (waveform)
@@ -117,15 +117,15 @@ public class VoltageElm extends CircuitElm
         }
     }
 
-    final int circleSize = 17;
+    public final int circleSize = 17;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads((waveform == WF_DC || waveform == WF_VAR) ? 8 : circleSize * 2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(x, y, x2, y2);
         draw2Leads(g);
@@ -160,7 +160,7 @@ public class VoltageElm extends CircuitElm
         drawPosts(g);
     }
 
-    void drawWaveform(Graphics g, Point center)
+    public void drawWaveform(Graphics g, Point center)
     {
         g.setColor(needsHighlight() ? selectColor : Color.gray);
         setPowerColor(g, false);
@@ -230,22 +230,22 @@ public class VoltageElm extends CircuitElm
         }
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    double getPower()
+    public double getPower()
     {
         return -getVoltageDiff() * current;
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[1] - volts[0];
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         switch (waveform)
         {

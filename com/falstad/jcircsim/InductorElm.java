@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 
 public class InductorElm extends CircuitElm
 {
-    Inductor ind;
-    double inductance;
+    public Inductor ind;
+    public double inductance;
 
     public InductorElm(int xx, int yy)
     {
@@ -25,23 +25,23 @@ public class InductorElm extends CircuitElm
         ind.setup(inductance, current, flags);
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'l';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + inductance + " " + current;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         double v1 = volts[0];
         double v2 = volts[1];
@@ -60,40 +60,40 @@ public class InductorElm extends CircuitElm
         drawPosts(g);
     }
 
-    void reset()
+    public void reset()
     {
         current = volts[0] = volts[1] = curcount = 0;
         ind.reset();
     }
 
-    void stamp()
+    public void stamp()
     {
         ind.stamp(nodes[0], nodes[1]);
     }
 
-    void startIteration()
+    public void startIteration()
     {
         ind.startIteration(volts[0] - volts[1]);
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return ind.nonLinear();
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double voltdiff = volts[0] - volts[1];
         current = ind.calculateCurrent(voltdiff);
     }
 
-    void doStep()
+    public void doStep()
     {
         double voltdiff = volts[0] - volts[1];
         ind.doStep(voltdiff);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "inductor";
         getBasicInfo(arr);

@@ -7,12 +7,12 @@ import java.util.StringTokenizer;
 
 public class PotElm extends CircuitElm implements AdjustmentListener
 {
-    double position, maxResistance, resistance1, resistance2;
-    double current1, current2, current3;
-    double curcount1, curcount2, curcount3;
-    Scrollbar slider;
-    Label label;
-    String sliderText;
+    public double position, maxResistance, resistance1, resistance2;
+    public double current1, current2, current3;
+    public double curcount1, curcount2, curcount3;
+    public Scrollbar slider;
+    public Label label;
+    public String sliderText;
 
     public PotElm(int xx, int yy)
     {
@@ -35,32 +35,32 @@ public class PotElm extends CircuitElm implements AdjustmentListener
         createSlider();
     }
 
-    void setup()
+    public void setup()
     {
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 174;
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? point1 : (n == 1) ? point2 : post3;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + maxResistance + " " +
                 position + " " + sliderText;
     }
 
-    void createSlider()
+    public void createSlider()
     {
         sim.main.add(label = new Label(sliderText, Label.CENTER));
         int value = (int) (position * 100);
@@ -75,17 +75,17 @@ public class PotElm extends CircuitElm implements AdjustmentListener
         setPoints();
     }
 
-    void delete()
+    public void delete()
     {
         sim.main.remove(label);
         sim.main.remove(slider);
     }
 
-    Point post3, corner2, arrowPoint, midpoint, arrow1, arrow2;
-    Point ps3, ps4;
-    int bodyLen;
+    public Point post3, corner2, arrowPoint, midpoint, arrow1, arrow2;
+    public Point ps3, ps4;
+    public int bodyLen;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int offset = 0;
@@ -122,7 +122,7 @@ public class PotElm extends CircuitElm implements AdjustmentListener
         ps4 = new Point();
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int segments = 16;
         int i;
@@ -201,14 +201,14 @@ public class PotElm extends CircuitElm implements AdjustmentListener
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current1 = (volts[0] - volts[2]) / resistance1;
         current2 = (volts[1] - volts[2]) / resistance2;
         current3 = -current1 - current2;
     }
 
-    void stamp()
+    public void stamp()
     {
         resistance1 = maxResistance * position;
         resistance2 = maxResistance * (1 - position);
@@ -216,7 +216,7 @@ public class PotElm extends CircuitElm implements AdjustmentListener
         sim.stampResistor(nodes[2], nodes[1], resistance2);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "potentiometer";
         arr[1] = "Vd = " + getVoltageDText(getVoltageDiff());

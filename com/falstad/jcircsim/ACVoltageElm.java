@@ -7,7 +7,7 @@ public class ACVoltageElm extends VoltageElm
         super(xx, yy, WF_AC);
     }
 
-    Class getDumpClass()
+    public Class getDumpClass()
     {
         return VoltageElm.class;
     }

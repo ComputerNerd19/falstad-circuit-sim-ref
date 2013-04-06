@@ -10,71 +10,71 @@ import java.util.StringTokenizer;
 
 public class Scope
 {
-    final int FLAG_YELM = 32;
-    static final int VAL_POWER = 1;
-    static final int VAL_IB = 1;
-    static final int VAL_IC = 2;
-    static final int VAL_IE = 3;
-    static final int VAL_VBE = 4;
-    static final int VAL_VBC = 5;
-    static final int VAL_VCE = 6;
-    static final int VAL_R = 2;
-    double minV[], maxV[], minMaxV;
-    double minI[], maxI[], minMaxI;
-    int scopePointCount = 128;
-    int ptr, ctr, speed, position;
-    int value, ivalue;
-    String text;
-    Rectangle rect;
-    boolean showI, showV, showMax, showMin, showFreq, lockScale, plot2d, plotXY;
-    CircuitElm elm, xElm, yElm;
-    MemoryImageSource imageSource;
-    Image image;
-    int pixels[];
-    int draw_ox, draw_oy;
-    float dpixels[];
-    CirSim sim;
+    public final int FLAG_YELM = 32;
+    public static final int VAL_POWER = 1;
+    public static final int VAL_IB = 1;
+    public static final int VAL_IC = 2;
+    public static final int VAL_IE = 3;
+    public static final int VAL_VBE = 4;
+    public static final int VAL_VBC = 5;
+    public static final int VAL_VCE = 6;
+    public static final int VAL_R = 2;
+    public double minV[], maxV[], minMaxV;
+    public double minI[], maxI[], minMaxI;
+    public int scopePointCount = 128;
+    public int ptr, ctr, speed, position;
+    public int value, ivalue;
+    public String text;
+    public Rectangle rect;
+    public boolean showI, showV, showMax, showMin, showFreq, lockScale, plot2d, plotXY;
+    public CircuitElm elm, xElm, yElm;
+    public MemoryImageSource imageSource;
+    public Image image;
+    public int pixels[];
+    public int draw_ox, draw_oy;
+    public float dpixels[];
+    public CirSim sim;
 
-    Scope(CirSim s)
+    public Scope(CirSim s)
     {
         rect = new Rectangle();
         reset();
         sim = s;
     }
 
-    void showCurrent(boolean b)
+    public void showCurrent(boolean b)
     {
         showI = b;
         value = ivalue = 0;
     }
 
-    void showVoltage(boolean b)
+    public void showVoltage(boolean b)
     {
         showV = b;
         value = ivalue = 0;
     }
 
-    void showMax(boolean b)
+    public void showMax(boolean b)
     {
         showMax = b;
     }
 
-    void showMin(boolean b)
+    public void showMin(boolean b)
     {
         showMin = b;
     }
 
-    void showFreq(boolean b)
+    public void showFreq(boolean b)
     {
         showFreq = b;
     }
 
-    void setLockScale(boolean b)
+    public void setLockScale(boolean b)
     {
         lockScale = b;
     }
 
-    void resetGraph()
+    public void resetGraph()
     {
         scopePointCount = 1;
         while (scopePointCount <= rect.width)
@@ -87,12 +87,12 @@ public class Scope
         allocImage();
     }
 
-    boolean active()
+    public boolean active()
     {
         return elm != null;
     }
 
-    void reset()
+    public void reset()
     {
         resetGraph();
         minMaxV = 5;
@@ -111,29 +111,29 @@ public class Scope
             value = VAL_VCE;
     }
 
-    void setRect(Rectangle r)
+    public void setRect(Rectangle r)
     {
         rect = r;
         resetGraph();
     }
 
-    int getWidth()
+    public int getWidth()
     {
         return rect.width;
     }
 
-    int rightEdge()
+    public int rightEdge()
     {
         return rect.x + rect.width;
     }
 
-    void setElm(CircuitElm ce)
+    public void setElm(CircuitElm ce)
     {
         elm = ce;
         reset();
     }
 
-    void timeStep()
+    public void timeStep()
     {
         if (elm == null)
             return;
@@ -188,7 +188,7 @@ public class Scope
         }
     }
 
-    void drawTo(int x2, int y2)
+    public void drawTo(int x2, int y2)
     {
         if (draw_ox == -1)
         {
@@ -226,7 +226,7 @@ public class Scope
         draw_oy = y2;
     }
 
-    void clear2dView()
+    public void clear2dView()
     {
         int i;
         for (i = 0; i != dpixels.length; i++)
@@ -234,13 +234,13 @@ public class Scope
         draw_ox = draw_oy = -1;
     }
 
-    void adjustScale(double x)
+    public void adjustScale(double x)
     {
         minMaxV *= x;
         minMaxI *= x;
     }
 
-    void draw2d(Graphics g)
+    public void draw2d(Graphics g)
     {
         int i;
         if (pixels == null || dpixels == null)
@@ -272,7 +272,7 @@ public class Scope
         }
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         if (elm == null)
             return;
@@ -546,7 +546,7 @@ public class Scope
         }
     }
 
-    void speedUp()
+    public void speedUp()
     {
         if (speed > 1)
         {
@@ -555,13 +555,13 @@ public class Scope
         }
     }
 
-    void slowDown()
+    public void slowDown()
     {
         speed *= 2;
         resetGraph();
     }
 
-    PopupMenu getMenu()
+    public PopupMenu getMenu()
     {
         if (elm == null)
             return null;
@@ -592,13 +592,13 @@ public class Scope
         }
     }
 
-    void setValue(int x)
+    public void setValue(int x)
     {
         reset();
         value = x;
     }
 
-    String dump()
+    public String dump()
     {
         if (elm == null)
             return null;
@@ -620,7 +620,7 @@ public class Scope
         return x;
     }
 
-    void undump(StringTokenizer st)
+    public void undump(StringTokenizer st)
     {
         reset();
         int e = Integer.parseInt(st.nextToken());
@@ -668,7 +668,7 @@ public class Scope
         showMin = (flags & 256) != 0;
     }
 
-    void allocImage()
+    public void allocImage()
     {
         pixels = null;
         int w = rect.width;
@@ -716,7 +716,7 @@ public class Scope
         draw_ox = draw_oy = -1;
     }
 
-    void handleMenu(ItemEvent e, Object mi)
+    public void handleMenu(ItemEvent e, Object mi)
     {
         if (mi == sim.scopeVMenuItem)
             showVoltage(sim.scopeVMenuItem.getState());
@@ -768,7 +768,7 @@ public class Scope
             setValue(VAL_R);
     }
 
-    void select()
+    public void select()
     {
         sim.mouseElm = elm;
         if (plotXY)
@@ -778,7 +778,7 @@ public class Scope
         }
     }
 
-    void selectY()
+    public void selectY()
     {
         int e = yElm == null ? -1 : sim.locateElm(yElm);
         int firstE = e;

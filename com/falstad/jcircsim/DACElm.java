@@ -14,17 +14,17 @@ public class DACElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "DAC";
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return true;
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = bits > 2 ? bits : 2;
@@ -38,7 +38,7 @@ public class DACElm extends ChipElm
         allocNodes();
     }
 
-    void doStep()
+    public void doStep()
     {
         int ival = 0;
         int i;
@@ -50,17 +50,17 @@ public class DACElm extends ChipElm
         sim.updateVoltageSource(0, nodes[bits], pins[bits].voltSource, v);
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return bits + 2;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 166;
     }

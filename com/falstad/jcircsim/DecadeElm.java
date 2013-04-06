@@ -14,17 +14,17 @@ public class DecadeElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "decade counter";
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return true;
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = bits > 2 ? bits : 2;
         sizeY = 2;
@@ -43,17 +43,17 @@ public class DecadeElm extends ChipElm
         allocNodes();
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return bits + 2;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return bits;
     }
 
-    void execute()
+    public void execute()
     {
         int i;
         if (pins[0].value && !lastClock)
@@ -75,7 +75,7 @@ public class DecadeElm extends ChipElm
         lastClock = pins[0].value;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 163;
     }

@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class DFlipFlopElm extends ChipElm
 {
-    final int FLAG_RESET = 2;
+    public final int FLAG_RESET = 2;
 
-    boolean hasReset()
+    public boolean hasReset()
     {
         return (flags & FLAG_RESET) != 0;
     }
@@ -23,12 +23,12 @@ public class DFlipFlopElm extends ChipElm
         pins[2].value = !pins[1].value;
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "D flip-flop";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = 3;
@@ -45,17 +45,17 @@ public class DFlipFlopElm extends ChipElm
             pins[4] = new Pin(2, SIDE_W, "R");
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return hasReset() ? 5 : 4;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 2;
     }
 
-    void execute()
+    public void execute()
     {
         if (pins[3].value && !lastClock)
         {
@@ -70,7 +70,7 @@ public class DFlipFlopElm extends ChipElm
         lastClock = pins[3].value;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 155;
     }

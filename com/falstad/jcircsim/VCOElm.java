@@ -15,12 +15,12 @@ public class VCOElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "VCO";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = 4;
@@ -36,12 +36,12 @@ public class VCOElm extends ChipElm
         pins[5].output = true;
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void stamp()
+    public void stamp()
     {
         // output pin
         sim.stampVoltageSource(0, nodes[1], pins[1].voltSource);
@@ -56,11 +56,11 @@ public class VCOElm extends ChipElm
         sim.stampNonLinear(nodes[3]);
     }
 
-    final double cResistance = 1e6;
-    double cCurrent;
-    int cDir;
+    public final double cResistance = 1e6;
+    public double cCurrent;
+    public int cDir;
 
-    void doStep()
+    public void doStep()
     {
         double vc = volts[3] - volts[2];
         double vo = volts[1];
@@ -93,7 +93,7 @@ public class VCOElm extends ChipElm
 
     // can't do this in calculateCurrent() because it's called before
     // we get pins[4].current and pins[5].current, which we need
-    void computeCurrent()
+    public void computeCurrent()
     {
         if (cResistance == 0)
         {
@@ -106,23 +106,23 @@ public class VCOElm extends ChipElm
         }
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         computeCurrent();
         drawChip(g);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 6;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 3;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 158;
     }

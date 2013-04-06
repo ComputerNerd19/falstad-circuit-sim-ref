@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 
 public class CounterElm extends ChipElm
 {
-    final int FLAG_ENABLE = 2;
+    public final int FLAG_ENABLE = 2;
 
     public CounterElm(int xx, int yy)
     {
@@ -16,17 +16,17 @@ public class CounterElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return true;
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "Counter";
     }
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = bits > 2 ? bits : 2;
@@ -47,24 +47,24 @@ public class CounterElm extends ChipElm
         allocNodes();
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         if (hasEnable())
             return bits + 3;
         return bits + 2;
     }
 
-    boolean hasEnable()
+    public boolean hasEnable()
     {
         return (flags & FLAG_ENABLE) != 0;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return bits;
     }
 
-    void execute()
+    public void execute()
     {
         boolean en = true;
         if (hasEnable())
@@ -92,7 +92,7 @@ public class CounterElm extends ChipElm
         lastClock = pins[0].value;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 164;
     }

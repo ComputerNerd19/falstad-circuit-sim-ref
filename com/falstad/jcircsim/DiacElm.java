@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 public class DiacElm extends CircuitElm
 {
-    double onresistance, offresistance, breakdown, holdcurrent;
-    boolean state;
+    public double onresistance, offresistance, breakdown, holdcurrent;
+    public boolean state;
 
     public DiacElm(int xx, int yy)
     {
@@ -31,24 +31,24 @@ public class DiacElm extends CircuitElm
         holdcurrent = Double.parseDouble(st.nextToken());
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 185;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + onresistance + " " + offresistance + " " + breakdown + " " + holdcurrent;
     }
 
-    Point ps3, ps4;
+    public Point ps3, ps4;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -56,7 +56,7 @@ public class DiacElm extends CircuitElm
         ps4 = new Point();
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         // FIXME need to draw Diac
         int i;
@@ -69,7 +69,7 @@ public class DiacElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double vd = volts[0] - volts[1];
         if (state)
@@ -78,7 +78,7 @@ public class DiacElm extends CircuitElm
             current = vd / offresistance;
     }
 
-    void startIteration()
+    public void startIteration()
     {
         double vd = volts[0] - volts[1];
         if (Math.abs(current) < holdcurrent)
@@ -88,7 +88,7 @@ public class DiacElm extends CircuitElm
         // System.out.print(this + " res current set to " + current + "\n");
     }
 
-    void doStep()
+    public void doStep()
     {
         if (state)
             sim.stampResistor(nodes[0], nodes[1], onresistance);
@@ -96,13 +96,13 @@ public class DiacElm extends CircuitElm
             sim.stampResistor(nodes[0], nodes[1], offresistance);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         // FIXME
         arr[0] = "spark gap";
@@ -139,7 +139,7 @@ public class DiacElm extends CircuitElm
             holdcurrent = ei.value;
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return false;
     }

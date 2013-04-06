@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class TappedTransformerElm extends CircuitElm
 {
-    double inductance, ratio;
-    Point ptEnds[], ptCoil[], ptCore[];
-    double current[], curcount[];
+    public double inductance, ratio;
+    public Point ptEnds[], ptCoil[], ptCore[];
+    public double current[], curcount[];
 
     public TappedTransformerElm(int xx, int yy)
     {
@@ -37,18 +37,18 @@ public class TappedTransformerElm extends CircuitElm
         noDiagonal = true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 169;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + inductance + " " + ratio + " " +
                 current[0] + " " + current[1] + " " + current[2];
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i;
         for (i = 0; i != 5; i++)
@@ -89,7 +89,7 @@ public class TappedTransformerElm extends CircuitElm
         setBbox(ptEnds[0], ptEnds[4], 0);
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int hs = 32;
@@ -117,24 +117,24 @@ public class TappedTransformerElm extends CircuitElm
         }
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return ptEnds[n];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 5;
     }
 
-    void reset()
+    public void reset()
     {
         current[0] = current[1] = volts[0] = volts[1] = volts[2] = volts[3] = curcount[0] = curcount[1] = 0;
     }
 
-    double a[];
+    public double a[];
 
-    void stamp()
+    public void stamp()
     {
         // equations for transformer:
         //   v1 = L1 di1/dt + M1 di2/dt + M1 di3/dt
@@ -194,7 +194,7 @@ public class TappedTransformerElm extends CircuitElm
         curSourceValue = new double[3];
     }
 
-    void startIteration()
+    public void startIteration()
     {
         voltdiff[0] = volts[0] - volts[1];
         voltdiff[1] = volts[2] - volts[3];
@@ -208,16 +208,16 @@ public class TappedTransformerElm extends CircuitElm
         }
     }
 
-    double curSourceValue[], voltdiff[];
+    public double curSourceValue[], voltdiff[];
 
-    void doStep()
+    public void doStep()
     {
         sim.stampCurrentSource(nodes[0], nodes[1], curSourceValue[0]);
         sim.stampCurrentSource(nodes[2], nodes[3], curSourceValue[1]);
         sim.stampCurrentSource(nodes[3], nodes[4], curSourceValue[2]);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         voltdiff[0] = volts[0] - volts[1];
         voltdiff[1] = volts[2] - volts[3];
@@ -231,7 +231,7 @@ public class TappedTransformerElm extends CircuitElm
         }
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "transformer";
         arr[1] = "L = " + getUnitText(inductance, "H");
@@ -242,7 +242,7 @@ public class TappedTransformerElm extends CircuitElm
         arr[4] = "Vd2 = " + getVoltageText(volts[1] - volts[3]);
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         if (comparePair(n1, n2, 0, 1))
             return true;

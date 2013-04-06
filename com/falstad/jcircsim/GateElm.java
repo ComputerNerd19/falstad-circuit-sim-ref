@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 abstract class GateElm extends CircuitElm
 {
-    final int FLAG_SMALL = 1;
-    int inputCount = 2;
-    boolean lastOutput;
+    public final int FLAG_SMALL = 1;
+    public int inputCount = 2;
+    public boolean lastOutput;
 
     public GateElm(int xx, int yy)
     {
@@ -26,14 +26,14 @@ abstract class GateElm extends CircuitElm
         setSize((f & FLAG_SMALL) != 0 ? 1 : 2);
     }
 
-    boolean isInverting()
+    public boolean isInverting()
     {
         return false;
     }
 
-    int gsize, gwidth, gwidth2, gheight, hs2;
+    public int gsize, gwidth, gwidth2, gheight, hs2;
 
-    void setSize(int s)
+    public void setSize(int s)
     {
         gsize = s;
         gwidth = 7 * s;
@@ -42,15 +42,15 @@ abstract class GateElm extends CircuitElm
         flags = (s == 1) ? FLAG_SMALL : 0;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + inputCount + " " + volts[inputCount];
     }
 
-    Point inPosts[], inGates[];
-    int ww;
+    public Point inPosts[], inGates[];
+    public int ww;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         if (dn > 150 && this == sim.dragElm)
@@ -79,7 +79,7 @@ abstract class GateElm extends CircuitElm
         setBbox(point1, point2, hs2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i;
         for (i = 0; i != inputCount; i++)
@@ -101,48 +101,48 @@ abstract class GateElm extends CircuitElm
         drawPosts(g);
     }
 
-    Polygon gatePoly;
-    Point pcircle, linePoints[];
+    public Polygon gatePoly;
+    public Point pcircle, linePoints[];
 
-    int getPostCount()
+    public int getPostCount()
     {
         return inputCount + 1;
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         if (n == inputCount)
             return point2;
         return inPosts[n];
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    abstract String getGateName();
+    public abstract String getGateName();
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = getGateName();
         arr[1] = "Vout = " + getVoltageText(volts[inputCount]);
         arr[2] = "Iout = " + getCurrentText(getCurrent());
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampVoltageSource(0, nodes[inputCount], voltSource);
     }
 
-    boolean getInput(int x)
+    public boolean getInput(int x)
     {
         return volts[x] > 2.5;
     }
 
-    abstract boolean calcFunction();
+    public abstract boolean calcFunction();
 
-    void doStep()
+    public void doStep()
     {
         int i;
         boolean f = calcFunction();
@@ -169,12 +169,12 @@ abstract class GateElm extends CircuitElm
 
     // there is no current path through the gate inputs, but there
     // is an indirect path through the output to ground.
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return false;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return (n1 == inputCount);
     }

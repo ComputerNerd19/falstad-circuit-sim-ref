@@ -8,10 +8,10 @@ import java.util.StringTokenizer;
 
 public class PhotoResistorElm extends CircuitElm
 {
-    double minresistance, maxresistance;
-    double resistance;
-    Scrollbar slider;
-    Label label;
+    public double minresistance, maxresistance;
+    public double resistance;
+    public Scrollbar slider;
+    public Label label;
 
     public PhotoResistorElm(int xx, int yy)
     {
@@ -29,24 +29,24 @@ public class PhotoResistorElm extends CircuitElm
         createSlider();
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 186;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + minresistance + " " + maxresistance;
     }
 
-    Point ps3, ps4;
+    public Point ps3, ps4;
 
-    void createSlider()
+    public void createSlider()
     {
         sim.main.add(label = new Label("Light Level", Label.CENTER));
         int value = 50;
@@ -54,7 +54,7 @@ public class PhotoResistorElm extends CircuitElm
         sim.main.validate();
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -62,13 +62,13 @@ public class PhotoResistorElm extends CircuitElm
         ps4 = new Point();
     }
 
-    void delete()
+    public void delete()
     {
         sim.main.remove(label);
         sim.main.remove(slider);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i;
         double v1 = volts[0];
@@ -81,13 +81,13 @@ public class PhotoResistorElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double vd = volts[0] - volts[1];
         current = vd / resistance;
     }
 
-    void startIteration()
+    public void startIteration()
     {
         double vd = volts[0] - volts[1];
         // FIXME set resistance as appropriate, using slider.getValue()
@@ -95,18 +95,18 @@ public class PhotoResistorElm extends CircuitElm
         //System.out.print(this + " res current set to " + current + "\n");
     }
 
-    void doStep()
+    public void doStep()
     {
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampNonLinear(nodes[0]);
         sim.stampNonLinear(nodes[1]);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         // FIXME
         arr[0] = "spark gap";

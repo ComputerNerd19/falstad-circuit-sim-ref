@@ -10,7 +10,7 @@ public class RailElm extends VoltageElm
         super(xx, yy, WF_DC);
     }
 
-    RailElm(int xx, int yy, int wf)
+    public RailElm(int xx, int yy, int wf)
     {
         super(xx, yy, wf);
     }
@@ -20,25 +20,25 @@ public class RailElm extends VoltageElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    final int FLAG_CLOCK = 1;
+    public final int FLAG_CLOCK = 1;
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'R';
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 1;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         lead1 = interpPoint(point1, point2, 1 - circleSize / dn);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, circleSize);
         setVoltageColor(g, volts[0]);
@@ -71,12 +71,12 @@ public class RailElm extends VoltageElm
             drawDots(g, point1, lead1, curcount);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    void stamp()
+    public void stamp()
     {
         if (waveform == WF_DC)
             sim.stampVoltageSource(0, nodes[0], voltSource, getVoltage());
@@ -84,13 +84,13 @@ public class RailElm extends VoltageElm
             sim.stampVoltageSource(0, nodes[0], voltSource);
     }
 
-    void doStep()
+    public void doStep()
     {
         if (waveform != WF_DC)
             sim.updateVoltageSource(0, nodes[0], voltSource, getVoltage());
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return true;
     }

@@ -14,12 +14,12 @@ public class XorGateElm extends OrGateElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getGateName()
+    public String getGateName()
     {
         return "XOR gate";
     }
 
-    boolean calcFunction()
+    public boolean calcFunction()
     {
         int i;
         boolean f = false;
@@ -28,7 +28,7 @@ public class XorGateElm extends OrGateElm
         return f;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 154;
     }

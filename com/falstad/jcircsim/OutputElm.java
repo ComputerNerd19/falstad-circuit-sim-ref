@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class OutputElm extends CircuitElm
 {
-    final int FLAG_VALUE = 1;
+    public final int FLAG_VALUE = 1;
 
     public OutputElm(int xx, int yy)
     {
@@ -17,23 +17,23 @@ public class OutputElm extends CircuitElm
         super(xa, ya, xb, yb, f);
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'O';
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 1;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         lead1 = new Point();
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         boolean selected = (needsHighlight() || sim.plotYElm == this);
         Font f = new Font("SansSerif", selected ? Font.BOLD : 0, 14);
@@ -55,12 +55,12 @@ public class OutputElm extends CircuitElm
         drawPosts(g);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "output";
         arr[1] = "V = " + getVoltageText(volts[0]);

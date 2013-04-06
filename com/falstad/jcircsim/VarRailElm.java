@@ -5,9 +5,9 @@ import java.util.StringTokenizer;
 
 public class VarRailElm extends RailElm
 {
-    Scrollbar slider;
-    Label label;
-    String sliderText;
+    public Scrollbar slider;
+    public Label label;
+    public String sliderText;
 
     public VarRailElm(int xx, int yy)
     {
@@ -26,17 +26,17 @@ public class VarRailElm extends RailElm
         createSlider();
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + sliderText;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 172;
     }
 
-    void createSlider()
+    public void createSlider()
     {
         waveform = WF_VAR;
         sim.main.add(label = new Label(sliderText, Label.CENTER));
@@ -45,13 +45,13 @@ public class VarRailElm extends RailElm
         sim.main.validate();
     }
 
-    double getVoltage()
+    public double getVoltage()
     {
         frequency = slider.getValue() * (maxVoltage - bias) / 100. + bias;
         return frequency;
     }
 
-    void delete()
+    public void delete()
     {
         sim.main.remove(label);
         sim.main.remove(slider);

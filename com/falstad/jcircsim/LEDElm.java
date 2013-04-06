@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class LEDElm extends DiodeElm
 {
-    double colorR, colorG, colorB;
+    public double colorR, colorG, colorB;
 
     public LEDElm(int xx, int yy)
     {
@@ -27,19 +27,19 @@ public class LEDElm extends DiodeElm
         colorB = Double.parseDouble(st.nextToken());
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 162;
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + colorR + " " + colorG + " " + colorB;
     }
 
-    Point ledLead1, ledLead2, ledCenter;
+    public Point ledLead1, ledLead2, ledCenter;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         int cr = 12;
@@ -48,7 +48,7 @@ public class LEDElm extends DiodeElm
         ledCenter = interpPoint(point1, point2, .5);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         if (needsHighlight() || this == sim.dragElm)
         {
@@ -77,7 +77,7 @@ public class LEDElm extends DiodeElm
         drawPosts(g);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         super.getInfo(arr);
         arr[0] = "LED";

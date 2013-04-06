@@ -5,10 +5,10 @@ import java.util.StringTokenizer;
 
 public class TransformerElm extends CircuitElm
 {
-    double inductance, ratio, couplingCoef;
-    Point ptEnds[], ptCoil[], ptCore[];
-    double current[], curcount[];
-    int width;
+    public double inductance, ratio, couplingCoef;
+    public Point ptEnds[], ptCoil[], ptCore[];
+    public double current[], curcount[];
+    public int width;
     public static final int FLAG_BACK_EULER = 2;
 
     public TransformerElm(int xx, int yy)
@@ -43,7 +43,7 @@ public class TransformerElm extends CircuitElm
         noDiagonal = true;
     }
 
-    void drag(int xx, int yy)
+    public void drag(int xx, int yy)
     {
         xx = sim.snapGrid(xx);
         yy = sim.snapGrid(yy);
@@ -55,23 +55,23 @@ public class TransformerElm extends CircuitElm
         setPoints();
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'T';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + inductance + " " + ratio + " " +
                 current[0] + " " + current[1] + " " + couplingCoef;
     }
 
-    boolean isTrapezoidal()
+    public boolean isTrapezoidal()
     {
         return (flags & FLAG_BACK_EULER) == 0;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int i;
         for (i = 0; i != 4; i++)
@@ -101,7 +101,7 @@ public class TransformerElm extends CircuitElm
         setBbox(ptEnds[0], ptEnds[3], 0);
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         point2.y = point1.y;
@@ -124,24 +124,24 @@ public class TransformerElm extends CircuitElm
         }
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return ptEnds[n];
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 4;
     }
 
-    void reset()
+    public void reset()
     {
         current[0] = current[1] = volts[0] = volts[1] = volts[2] = volts[3] = curcount[0] = curcount[1] = 0;
     }
 
-    double a1, a2, a3, a4;
+    public double a1, a2, a3, a4;
 
-    void stamp()
+    public void stamp()
     {
         // equations for transformer:
         //   v1 = L1 di1/dt + M  di2/dt
@@ -190,7 +190,7 @@ public class TransformerElm extends CircuitElm
         sim.stampRightSide(nodes[3]);
     }
 
-    void startIteration()
+    public void startIteration()
     {
         double voltdiff1 = volts[0] - volts[2];
         double voltdiff2 = volts[1] - volts[3];
@@ -205,15 +205,15 @@ public class TransformerElm extends CircuitElm
         }
     }
 
-    double curSourceValue1, curSourceValue2;
+    public double curSourceValue1, curSourceValue2;
 
-    void doStep()
+    public void doStep()
     {
         sim.stampCurrentSource(nodes[0], nodes[2], curSourceValue1);
         sim.stampCurrentSource(nodes[1], nodes[3], curSourceValue2);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         double voltdiff1 = volts[0] - volts[2];
         double voltdiff2 = volts[1] - volts[3];
@@ -221,7 +221,7 @@ public class TransformerElm extends CircuitElm
         current[1] = voltdiff1 * a3 + voltdiff2 * a4 + curSourceValue2;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "transformer";
         arr[1] = "L = " + getUnitText(inductance, "H");
@@ -232,7 +232,7 @@ public class TransformerElm extends CircuitElm
         arr[6] = "I2 = " + getCurrentText(current[1]);
     }
 
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         if (comparePair(n1, n2, 0, 2))
             return true;

@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class ResistorElm extends CircuitElm
 {
-    double resistance;
+    public double resistance;
 
     public ResistorElm(int xx, int yy)
     {
@@ -19,19 +19,19 @@ public class ResistorElm extends CircuitElm
         resistance = Double.parseDouble(st.nextToken());
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'r';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + resistance;
     }
 
-    Point ps3, ps4;
+    public Point ps3, ps4;
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(32);
@@ -39,7 +39,7 @@ public class ResistorElm extends CircuitElm
         ps4 = new Point();
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         int segments = 16;
         int i;
@@ -103,18 +103,18 @@ public class ResistorElm extends CircuitElm
         drawPosts(g);
     }
 
-    void calculateCurrent()
+    public void calculateCurrent()
     {
         current = (volts[0] - volts[1]) / resistance;
         //System.out.print(this + " res current set to " + current + "\n");
     }
 
-    void stamp()
+    public void stamp()
     {
         sim.stampResistor(nodes[0], nodes[1], resistance);
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "resistor";
         getBasicInfo(arr);
@@ -136,7 +136,7 @@ public class ResistorElm extends CircuitElm
             resistance = ei.value;
     }
 
-    boolean needsShortcut()
+    public boolean needsShortcut()
     {
         return true;
     }

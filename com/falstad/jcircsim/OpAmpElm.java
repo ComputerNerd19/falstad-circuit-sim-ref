@@ -5,12 +5,12 @@ import java.util.StringTokenizer;
 
 public class OpAmpElm extends CircuitElm
 {
-    int opsize, opheight, opwidth, opaddtext;
-    double maxOut, minOut, gain, gbw;
-    boolean reset;
-    final int FLAG_SWAP = 1;
-    final int FLAG_SMALL = 2;
-    final int FLAG_LOWGAIN = 4;
+    public int opsize, opheight, opwidth, opaddtext;
+    public double maxOut, minOut, gain, gbw;
+    public boolean reset;
+    public final int FLAG_SWAP = 1;
+    public final int FLAG_SMALL = 2;
+    public final int FLAG_LOWGAIN = 4;
 
     public OpAmpElm(int xx, int yy)
     {
@@ -44,7 +44,7 @@ public class OpAmpElm extends CircuitElm
         setGain();
     }
 
-    void setGain()
+    public void setGain()
     {
         // gain of 100000 breaks e-amp-dfdx.txt
         // gain was 1000, but it broke amp-schmitt.txt
@@ -52,17 +52,17 @@ public class OpAmpElm extends CircuitElm
 
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + maxOut + " " + minOut + " " + gbw;
     }
 
-    boolean nonLinear()
+    public boolean nonLinear()
     {
         return true;
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, opheight * 2);
         setVoltageColor(g, volts[0]);
@@ -82,16 +82,16 @@ public class OpAmpElm extends CircuitElm
         drawPosts(g);
     }
 
-    double getPower()
+    public double getPower()
     {
         return volts[2] * current;
     }
 
-    Point in1p[], in2p[], textp[];
-    Polygon triangle;
-    Font plusFont;
+    public Point in1p[], in2p[], textp[];
+    public Polygon triangle;
+    public Font plusFont;
 
-    void setSize(int s)
+    public void setSize(int s)
     {
         opsize = s;
         opheight = 8 * s;
@@ -99,7 +99,7 @@ public class OpAmpElm extends CircuitElm
         flags = (flags & ~FLAG_SMALL) | ((s == 1) ? FLAG_SMALL : 0);
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         if (dn > 150 && this == sim.dragElm)
@@ -123,22 +123,22 @@ public class OpAmpElm extends CircuitElm
         plusFont = new Font("SansSerif", 0, opsize == 2 ? 14 : 10);
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 3;
     }
 
-    Point getPost(int n)
+    public Point getPost(int n)
     {
         return (n == 0) ? in1p[0] : (n == 1) ? in2p[0] : point2;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return 1;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "op-amp";
         arr[1] = "V+ = " + getVoltageText(volts[1]);
@@ -152,16 +152,16 @@ public class OpAmpElm extends CircuitElm
                 getVoltageText(maxOut);
     }
 
-    double lastvd;
+    public double lastvd;
 
-    void stamp()
+    public void stamp()
     {
         int vn = sim.nodeList.size() + voltSource;
         sim.stampNonLinear(vn);
         sim.stampMatrix(nodes[2], vn, 1);
     }
 
-    void doStep()
+    public void doStep()
     {
         double vd = volts[1] - volts[0];
         if (Math.abs(lastvd - vd) > .1)
@@ -195,22 +195,22 @@ public class OpAmpElm extends CircuitElm
 
     // there is no current path through the op-amp inputs, but there
     // is an indirect path through the output to ground.
-    boolean getConnection(int n1, int n2)
+    public boolean getConnection(int n1, int n2)
     {
         return false;
     }
 
-    boolean hasGroundConnection(int n1)
+    public boolean hasGroundConnection(int n1)
     {
         return (n1 == 2);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[2] - volts[1];
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'a';
     }

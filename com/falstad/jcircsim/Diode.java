@@ -2,16 +2,16 @@ package com.falstad.jcircsim;
 
 public class Diode
 {
-    int nodes[];
-    CirSim sim;
+    public int nodes[];
+    public CirSim sim;
 
-    Diode(CirSim s)
+    public Diode(CirSim s)
     {
         sim = s;
         nodes = new int[2];
     }
 
-    void setup(double fw, double zv)
+    public void setup(double fw, double zv)
     {
         fwdrop = fw;
         zvoltage = zv;
@@ -30,17 +30,17 @@ public class Diode
         }
     }
 
-    void reset()
+    public void reset()
     {
         lastvoltdiff = 0;
     }
 
     public double leakage = 1e-14; // was 1e-9;
-    double vt, vdcoef, fwdrop, zvoltage, zoffset;
-    double lastvoltdiff;
-    double vcrit;
+    public double vt, vdcoef, fwdrop, zvoltage, zoffset;
+    public double lastvoltdiff;
+    public double vcrit;
 
-    double limitStep(double vnew, double vold)
+    public double limitStep(double vnew, double vold)
     {
         double arg;
         double oo = vnew;
@@ -105,7 +105,7 @@ public class Diode
         return vnew;
     }
 
-    void stamp(int n0, int n1)
+    public void stamp(int n0, int n1)
     {
         nodes[0] = n0;
         nodes[1] = n1;
@@ -113,7 +113,7 @@ public class Diode
         sim.stampNonLinear(nodes[1]);
     }
 
-    void doStep(double voltdiff)
+    public void doStep(double voltdiff)
     {
         // used to have .1 here, but needed .01 for peak detector
         if (Math.abs(voltdiff - lastvoltdiff) > .01)
@@ -151,7 +151,7 @@ public class Diode
         }
     }
 
-    double calculateCurrent(double voltdiff)
+    public double calculateCurrent(double voltdiff)
     {
         if (voltdiff >= 0 || zvoltage == 0)
             return leakage * (Math.exp(voltdiff * vdcoef) - 1);

@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class JfetElm extends MosfetElm
 {
-    JfetElm(int xx, int yy, boolean pnpflag)
+    public JfetElm(int xx, int yy, boolean pnpflag)
     {
         super(xx, yy, pnpflag);
         noDiagonal = true;
@@ -17,11 +17,11 @@ public class JfetElm extends MosfetElm
         noDiagonal = true;
     }
 
-    Polygon gatePoly;
-    Polygon arrowPoly;
-    Point gatePt;
+    public Polygon gatePoly;
+    public Polygon arrowPoly;
+    public Point gatePt;
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, hs);
         setVoltageColor(g, volts[1]);
@@ -46,7 +46,7 @@ public class JfetElm extends MosfetElm
         drawPosts(g);
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
 
@@ -73,23 +73,23 @@ public class JfetElm extends MosfetElm
             arrowPoly = calcArrow(point1, gatePt, 8, 3);
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'j';
     }
 
     // these values are taken from Hayes+Horowitz p155
-    double getDefaultThreshold()
+    public double getDefaultThreshold()
     {
         return -4;
     }
 
-    double getBeta()
+    public double getBeta()
     {
         return .00125;
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         getFetInfo(arr, "JFET");
     }

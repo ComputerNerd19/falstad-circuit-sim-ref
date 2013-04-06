@@ -7,7 +7,7 @@ public class ACRailElm extends RailElm
         super(xx, yy, WF_AC);
     }
 
-    Class getDumpClass()
+    public Class getDumpClass()
     {
         return RailElm.class;
     }

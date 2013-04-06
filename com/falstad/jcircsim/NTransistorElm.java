@@ -7,7 +7,7 @@ public class NTransistorElm extends TransistorElm
         super(xx, yy, false);
     }
 
-    Class getDumpClass()
+    public Class getDumpClass()
     {
         return TransistorElm.class;
     }

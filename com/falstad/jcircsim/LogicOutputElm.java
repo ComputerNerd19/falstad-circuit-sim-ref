@@ -5,11 +5,11 @@ import java.util.StringTokenizer;
 
 public class LogicOutputElm extends CircuitElm
 {
-    final int FLAG_TERNARY = 1;
-    final int FLAG_NUMERIC = 2;
-    final int FLAG_PULLDOWN = 4;
-    double threshold;
-    String value;
+    public final int FLAG_TERNARY = 1;
+    public final int FLAG_NUMERIC = 2;
+    public final int FLAG_PULLDOWN = 4;
+    public double threshold;
+    public String value;
 
     public LogicOutputElm(int xx, int yy)
     {
@@ -29,43 +29,43 @@ public class LogicOutputElm extends CircuitElm
         }
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + threshold;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'M';
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return 1;
     }
 
-    boolean isTernary()
+    public boolean isTernary()
     {
         return (flags & FLAG_TERNARY) != 0;
     }
 
-    boolean isNumeric()
+    public boolean isNumeric()
     {
         return (flags & (FLAG_TERNARY | FLAG_NUMERIC)) != 0;
     }
 
-    boolean needsPullDown()
+    public boolean needsPullDown()
     {
         return (flags & FLAG_PULLDOWN) != 0;
     }
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         lead1 = interpPoint(point1, point2, 1 - 12 / dn);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         Font f = new Font("SansSerif", Font.BOLD, 20);
         g.setFont(f);
@@ -90,18 +90,18 @@ public class LogicOutputElm extends CircuitElm
         drawPosts(g);
     }
 
-    void stamp()
+    public void stamp()
     {
         if (needsPullDown())
             sim.stampResistor(nodes[0], 0, 1e6);
     }
 
-    double getVoltageDiff()
+    public double getVoltageDiff()
     {
         return volts[0];
     }
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         arr[0] = "logic output";
         arr[1] = (volts[0] < threshold) ? "low" : "high";

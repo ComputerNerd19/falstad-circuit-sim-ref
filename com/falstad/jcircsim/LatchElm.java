@@ -14,19 +14,19 @@ public class LatchElm extends ChipElm
         super(xa, ya, xb, yb, f, st);
     }
 
-    String getChipName()
+    public String getChipName()
     {
         return "Latch";
     }
 
-    boolean needsBits()
+    public boolean needsBits()
     {
         return true;
     }
 
-    int loadPin;
+    public int loadPin;
 
-    void setupPins()
+    public void setupPins()
     {
         sizeX = 2;
         sizeY = bits + 1;
@@ -43,9 +43,9 @@ public class LatchElm extends ChipElm
         allocNodes();
     }
 
-    boolean lastLoad = false;
+    public boolean lastLoad = false;
 
-    void execute()
+    public void execute()
     {
         int i;
         if (pins[loadPin].value && !lastLoad)
@@ -54,17 +54,17 @@ public class LatchElm extends ChipElm
         lastLoad = pins[loadPin].value;
     }
 
-    int getVoltageSourceCount()
+    public int getVoltageSourceCount()
     {
         return bits;
     }
 
-    int getPostCount()
+    public int getPostCount()
     {
         return bits * 2 + 1;
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 168;
     }

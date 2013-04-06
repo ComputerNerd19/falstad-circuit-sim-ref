@@ -21,28 +21,28 @@ public class ZenerElm extends DiodeElm
         setup();
     }
 
-    void setup()
+    public void setup()
     {
         diode.leakage = 5e-6; // 1N4004 is 5.0 uAmp
         super.setup();
     }
 
-    int getDumpType()
+    public int getDumpType()
     {
         return 'z';
     }
 
-    String dump()
+    public String dump()
     {
         return super.dump() + " " + zvoltage;
     }
 
-    final int hs = 8;
-    Polygon poly;
-    Point cathode[];
-    Point wing[];
+    public final int hs = 8;
+    public Polygon poly;
+    public Point cathode[];
+    public Point wing[];
 
-    void setPoints()
+    public void setPoints()
     {
         super.setPoints();
         calcLeads(16);
@@ -56,7 +56,7 @@ public class ZenerElm extends DiodeElm
         poly = createPolygon(pa[0], pa[1], lead2);
     }
 
-    void draw(Graphics g)
+    public void draw(Graphics g)
     {
         setBbox(point1, point2, hs);
 
@@ -82,9 +82,9 @@ public class ZenerElm extends DiodeElm
         drawPosts(g);
     }
 
-    final double default_zvoltage = 5.6;
+    public final double default_zvoltage = 5.6;
 
-    void getInfo(String arr[])
+    public void getInfo(String arr[])
     {
         super.getInfo(arr);
         arr[0] = "Zener diode";
