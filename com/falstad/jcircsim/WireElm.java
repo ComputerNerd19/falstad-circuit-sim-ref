@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class WireElm extends CircuitElm
+public class WireElm extends CircuitElm
 {
     public WireElm(int xx, int yy)
     {

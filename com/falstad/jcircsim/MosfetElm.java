@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class MosfetElm extends CircuitElm
+public class MosfetElm extends CircuitElm
 {
     int pnp;
     int FLAG_PNP = 1;

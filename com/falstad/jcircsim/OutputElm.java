@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class OutputElm extends CircuitElm
+public class OutputElm extends CircuitElm
 {
     final int FLAG_VALUE = 1;
 

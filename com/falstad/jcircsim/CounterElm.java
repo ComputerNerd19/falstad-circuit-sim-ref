@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class CounterElm extends ChipElm
+public class CounterElm extends ChipElm
 {
     final int FLAG_ENABLE = 2;
 

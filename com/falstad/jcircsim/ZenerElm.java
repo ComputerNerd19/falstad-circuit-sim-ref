@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 // Zener code contributed by J. Mike Rollins
 // http://www.camotruck.net/rollins/simulator.html
-class ZenerElm extends DiodeElm
+public class ZenerElm extends DiodeElm
 {
     public ZenerElm(int xx, int yy)
     {

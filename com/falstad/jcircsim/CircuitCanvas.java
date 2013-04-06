@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.awt.*;
 
-class CircuitCanvas extends Canvas
+public class CircuitCanvas extends Canvas
 {
     CirSim pg;
 

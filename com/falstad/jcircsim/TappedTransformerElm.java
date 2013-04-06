@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class TappedTransformerElm extends CircuitElm
+public class TappedTransformerElm extends CircuitElm
 {
     double inductance, ratio;
     Point ptEnds[], ptCoil[], ptCore[];

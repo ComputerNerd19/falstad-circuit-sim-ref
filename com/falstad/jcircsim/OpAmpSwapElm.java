@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class OpAmpSwapElm extends OpAmpElm
+public class OpAmpSwapElm extends OpAmpElm
 {
     public OpAmpSwapElm(int xx, int yy)
     {

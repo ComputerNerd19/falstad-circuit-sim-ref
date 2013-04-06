@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class SweepElm extends CircuitElm
+public class SweepElm extends CircuitElm
 {
     double maxV, maxF, minF, sweepTime, frequency;
     final int FLAG_LOG = 1;

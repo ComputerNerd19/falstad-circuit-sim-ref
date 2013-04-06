@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class DFlipFlopElm extends ChipElm
+public class DFlipFlopElm extends ChipElm
 {
     final int FLAG_RESET = 2;
 

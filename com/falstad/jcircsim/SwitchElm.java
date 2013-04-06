@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class SwitchElm extends CircuitElm
+public class SwitchElm extends CircuitElm
 {
     boolean momentary;
     // position 0 == closed, position 1 == open

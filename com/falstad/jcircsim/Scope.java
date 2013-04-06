@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.StringTokenizer;
 
-class Scope
+public class Scope
 {
     final int FLAG_YELM = 32;
     static final int VAL_POWER = 1;

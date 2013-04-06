@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class ACRailElm extends RailElm
+public class ACRailElm extends RailElm
 {
     public ACRailElm(int xx, int yy)
     {

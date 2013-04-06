@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class LatchElm extends ChipElm
+public class LatchElm extends ChipElm
 {
     public LatchElm(int xx, int yy)
     {

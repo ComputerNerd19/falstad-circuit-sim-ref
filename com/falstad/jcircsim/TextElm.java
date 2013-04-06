@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-class TextElm extends CircuitElm
+public class TextElm extends CircuitElm
 {
     String text;
     Vector lines;

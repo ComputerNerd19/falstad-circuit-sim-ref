@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class ProbeElm extends CircuitElm
+public class ProbeElm extends CircuitElm
 {
     static final int FLAG_SHOWVOLTAGE = 1;
 

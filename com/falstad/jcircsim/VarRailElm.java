@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class VarRailElm extends RailElm
+public class VarRailElm extends RailElm
 {
     Scrollbar slider;
     Label label;

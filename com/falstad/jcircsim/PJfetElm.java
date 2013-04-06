@@ -1,14 +1,14 @@
 package com.falstad.jcircsim;
 
-public class PMosfetElm extends MosfetElm
+public class PJfetElm extends JfetElm
 {
-    public PMosfetElm(int xx, int yy)
+    public PJfetElm(int xx, int yy)
     {
         super(xx, yy, true);
     }
 
     Class getDumpClass()
     {
-        return MosfetElm.class;
+        return JfetElm.class;
     }
 }

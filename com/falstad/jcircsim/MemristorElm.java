@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class MemristorElm extends CircuitElm
+public class MemristorElm extends CircuitElm
 {
     double r_on, r_off, dopeWidth, totalWidth, mobility, resistance;
 

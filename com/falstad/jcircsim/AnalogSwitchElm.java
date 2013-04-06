@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class AnalogSwitchElm extends CircuitElm
+public class AnalogSwitchElm extends CircuitElm
 {
     final int FLAG_INVERT = 1;
     double resistance, r_on, r_off;

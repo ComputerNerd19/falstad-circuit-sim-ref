@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class Diode
+public class Diode
 {
     int nodes[];
     CirSim sim;

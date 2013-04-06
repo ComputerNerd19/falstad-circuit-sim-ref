@@ -5,7 +5,7 @@ import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.StringTokenizer;
 
-class PotElm extends CircuitElm implements AdjustmentListener
+public class PotElm extends CircuitElm implements AdjustmentListener
 {
     double position, maxResistance, resistance1, resistance2;
     double current1, current2, current3;

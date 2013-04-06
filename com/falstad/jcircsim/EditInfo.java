@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.awt.*;
 
-class EditInfo
+public class EditInfo
 {
     EditInfo(String n, double val, double mn, double mx)
     {

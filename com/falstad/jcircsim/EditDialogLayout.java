@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.awt.*;
 
-class EditDialogLayout implements LayoutManager
+public class EditDialogLayout implements LayoutManager
 {
     public EditDialogLayout()
     {

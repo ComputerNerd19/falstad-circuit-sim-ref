@@ -6,7 +6,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class ThermistorElm extends CircuitElm
+public class ThermistorElm extends CircuitElm
 {
     double minresistance, maxresistance;
     double resistance;

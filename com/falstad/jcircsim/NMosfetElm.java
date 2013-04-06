@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class NMosfetElm extends MosfetElm
+public class NMosfetElm extends MosfetElm
 {
     public NMosfetElm(int xx, int yy)
     {

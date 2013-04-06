@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.awt.*;
 
-class CircuitLayout implements LayoutManager
+public class CircuitLayout implements LayoutManager
 {
     public CircuitLayout()
     {

@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class TransistorElm extends CircuitElm
+public class TransistorElm extends CircuitElm
 {
     int pnp;
     double beta;

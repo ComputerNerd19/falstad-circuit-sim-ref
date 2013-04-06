@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class SevenSegElm extends ChipElm
+public class SevenSegElm extends ChipElm
 {
     public SevenSegElm(int xx, int yy)
     {

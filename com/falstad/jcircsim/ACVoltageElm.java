@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class ACVoltageElm extends VoltageElm
+public class ACVoltageElm extends VoltageElm
 {
     public ACVoltageElm(int xx, int yy)
     {

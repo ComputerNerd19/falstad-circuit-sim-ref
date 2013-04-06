@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-class EditDialog extends Dialog implements AdjustmentListener, ActionListener, ItemListener
+public class EditDialog extends Dialog implements AdjustmentListener, ActionListener, ItemListener
 {
     Editable elm;
     CirSim cframe;

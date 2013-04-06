@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class NandGateElm extends AndGateElm
+public class NandGateElm extends AndGateElm
 {
     public NandGateElm(int xx, int yy)
     {

@@ -6,7 +6,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class PhotoResistorElm extends CircuitElm
+public class PhotoResistorElm extends CircuitElm
 {
     double minresistance, maxresistance;
     double resistance;

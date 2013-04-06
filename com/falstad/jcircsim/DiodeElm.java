@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class DiodeElm extends CircuitElm
+public class DiodeElm extends CircuitElm
 {
     Diode diode;
     static final int FLAG_FWDROP = 1;

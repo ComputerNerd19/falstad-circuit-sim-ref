@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class RailElm extends VoltageElm
+public class RailElm extends VoltageElm
 {
     public RailElm(int xx, int yy)
     {

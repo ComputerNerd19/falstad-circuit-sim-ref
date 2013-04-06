@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class ADCElm extends ChipElm
+public class ADCElm extends ChipElm
 {
     public ADCElm(int xx, int yy)
     {

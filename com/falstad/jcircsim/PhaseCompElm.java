@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class PhaseCompElm extends ChipElm
+public class PhaseCompElm extends ChipElm
 {
     public PhaseCompElm(int xx, int yy)
     {

@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class ResistorElm extends CircuitElm
+public class ResistorElm extends CircuitElm
 {
     double resistance;
 

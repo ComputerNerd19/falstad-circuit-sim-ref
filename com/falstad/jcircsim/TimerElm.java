@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class TimerElm extends ChipElm
+public class TimerElm extends ChipElm
 {
     final int FLAG_RESET = 2;
     final int N_DIS = 0;

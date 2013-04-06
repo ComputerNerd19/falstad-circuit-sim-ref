@@ -2,7 +2,7 @@ package com.falstad.jcircsim;
 
 import java.util.StringTokenizer;
 
-class AntennaElm extends RailElm
+public class AntennaElm extends RailElm
 {
     public AntennaElm(int xx, int yy)
     {

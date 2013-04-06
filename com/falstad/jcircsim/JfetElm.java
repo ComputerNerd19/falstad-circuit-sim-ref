@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class JfetElm extends MosfetElm
+public class JfetElm extends MosfetElm
 {
     JfetElm(int xx, int yy, boolean pnpflag)
     {

@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class CurrentElm extends CircuitElm
+public class CurrentElm extends CircuitElm
 {
     double currentValue;
 

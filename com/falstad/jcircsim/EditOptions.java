@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class EditOptions implements Editable
+public class EditOptions implements Editable
 {
     CirSim sim;
 

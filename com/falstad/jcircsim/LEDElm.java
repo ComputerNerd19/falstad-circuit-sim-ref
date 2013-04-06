@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class LEDElm extends DiodeElm
+public class LEDElm extends DiodeElm
 {
     double colorR, colorG, colorB;
 

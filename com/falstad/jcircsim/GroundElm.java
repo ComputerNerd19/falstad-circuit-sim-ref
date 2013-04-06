@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class GroundElm extends CircuitElm
+public class GroundElm extends CircuitElm
 {
     public GroundElm(int xx, int yy)
     {

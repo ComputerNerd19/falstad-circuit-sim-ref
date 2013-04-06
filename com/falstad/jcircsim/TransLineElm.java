@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class TransLineElm extends CircuitElm
+public class TransLineElm extends CircuitElm
 {
     double delay, imped;
     double voltageL[], voltageR[];

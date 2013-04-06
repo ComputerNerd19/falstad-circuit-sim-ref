@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class VCOElm extends ChipElm
+public class VCOElm extends ChipElm
 {
     public VCOElm(int xx, int yy)
     {

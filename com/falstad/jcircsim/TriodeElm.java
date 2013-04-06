@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class TriodeElm extends CircuitElm
+public class TriodeElm extends CircuitElm
 {
     double mu, kg1;
     double curcountp, curcountc, curcountg, currentp, currentg, currentc;

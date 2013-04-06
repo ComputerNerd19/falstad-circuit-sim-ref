@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class TunnelDiodeElm extends CircuitElm
+public class TunnelDiodeElm extends CircuitElm
 {
     public TunnelDiodeElm(int xx, int yy)
     {

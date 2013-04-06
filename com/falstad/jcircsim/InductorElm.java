@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class InductorElm extends CircuitElm
+public class InductorElm extends CircuitElm
 {
     Inductor ind;
     double inductance;

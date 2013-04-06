@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import javax.swing.*;
 import java.awt.*;
 
-class StatusBar extends JPanel
+public class StatusBar extends JPanel
 {
 
     public StatusBar()

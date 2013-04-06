@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class LampElm extends CircuitElm
+public class LampElm extends CircuitElm
 {
     double resistance;
     final double roomTemp = 300;

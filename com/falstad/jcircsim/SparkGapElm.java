@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class SparkGapElm extends CircuitElm
+public class SparkGapElm extends CircuitElm
 {
     double resistance, onresistance, offresistance, breakdown, holdcurrent;
     boolean state;

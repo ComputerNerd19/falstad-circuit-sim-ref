@@ -1,6 +1,6 @@
 package com.falstad.jcircsim;
 
-class PTransistorElm extends TransistorElm
+public class PTransistorElm extends TransistorElm
 {
     public PTransistorElm(int xx, int yy)
     {

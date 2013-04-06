@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class CapacitorElm extends CircuitElm
+public class CapacitorElm extends CircuitElm
 {
     double capacitance;
     double compResistance, voltdiff;

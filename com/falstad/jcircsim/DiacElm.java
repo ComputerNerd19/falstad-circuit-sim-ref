@@ -6,7 +6,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class DiacElm extends CircuitElm
+public class DiacElm extends CircuitElm
 {
     double onresistance, offresistance, breakdown, holdcurrent;
     boolean state;

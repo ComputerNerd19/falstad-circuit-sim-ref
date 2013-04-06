@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class AnalogSwitch2Elm extends AnalogSwitchElm
+public class AnalogSwitch2Elm extends AnalogSwitchElm
 {
     public AnalogSwitch2Elm(int xx, int yy)
     {

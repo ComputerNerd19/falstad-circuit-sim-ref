@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 // 3n+1 = coil
 // 3n+2 = end of coil resistor
 
-class RelayElm extends CircuitElm
+public class RelayElm extends CircuitElm
 {
     double inductance;
     Inductor ind;

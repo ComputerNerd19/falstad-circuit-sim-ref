@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class Switch2Elm extends SwitchElm
+public class Switch2Elm extends SwitchElm
 {
     int link;
     static final int FLAG_CENTER_OFF = 1;

@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class InverterElm extends CircuitElm
+public class InverterElm extends CircuitElm
 {
     double slewRate; // V/ns
 

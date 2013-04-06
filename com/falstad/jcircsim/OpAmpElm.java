@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class OpAmpElm extends CircuitElm
+public class OpAmpElm extends CircuitElm
 {
     int opsize, opheight, opwidth, opaddtext;
     double maxOut, minOut, gain, gbw;

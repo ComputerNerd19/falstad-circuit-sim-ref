@@ -3,7 +3,7 @@ package com.falstad.jcircsim;
 import java.awt.*;
 import java.util.StringTokenizer;
 
-class AndGateElm extends GateElm
+public class AndGateElm extends GateElm
 {
     public AndGateElm(int xx, int yy)
     {
