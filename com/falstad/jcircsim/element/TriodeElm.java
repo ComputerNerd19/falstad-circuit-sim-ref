@@ -5,7 +5,8 @@ import java.util.StringTokenizer;
 
 public class TriodeElm extends CircuitElm
 {
-    public double mu, kg1;
+    public final double mu;
+    public final double kg1;
     public double curcountp, curcountc, curcountg, currentp, currentg, currentc;
     public final double gridCurrentR = 6000;
 

@@ -5,9 +5,9 @@ import com.falstad.jcircsim.CirSim;
 public class Inductor
 {
     public static final int FLAG_BACK_EULER = 2;
-    public int nodes[];
+    public final int[] nodes;
     public int flags;
-    public CirSim sim;
+    public final CirSim sim;
 
     public double inductance;
     public double compResistance, current;

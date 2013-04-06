@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class TransistorElm extends CircuitElm
 {
-    public int pnp;
+    public final int pnp;
     public double beta;
     public double fgain;
     public double gmin;

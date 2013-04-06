@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class DiodeElm extends CircuitElm
 {
-    public Diode diode;
+    public final Diode diode;
     public static final int FLAG_FWDROP = 1;
     public final double defaultdrop = .805904783;
     public double fwdrop, zvoltage;

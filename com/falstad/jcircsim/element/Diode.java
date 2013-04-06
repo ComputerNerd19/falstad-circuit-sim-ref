@@ -4,8 +4,8 @@ import com.falstad.jcircsim.CirSim;
 
 public class Diode
 {
-    public int nodes[];
-    public CirSim sim;
+    public final int[] nodes;
+    public final CirSim sim;
 
     public Diode(CirSim s)
     {

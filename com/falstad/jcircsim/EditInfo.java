@@ -29,13 +29,16 @@ public class EditInfo
         return this;
     }
 
-    public String name, text;
-    public double value, minval, maxval;
+    public final String name;
+    public String text;
+    public double value;
+    public double minval;
+    public final double maxval;
     public TextField textf;
     public Scrollbar bar;
     public Choice choice;
     public Checkbox checkbox;
     public boolean newDialog;
-    public boolean forceLargeM;
+    public final boolean forceLargeM;
     public boolean dimensionless;
 }

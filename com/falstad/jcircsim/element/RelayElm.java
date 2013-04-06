@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
 public class RelayElm extends CircuitElm
 {
     public double inductance;
-    public Inductor ind;
+    public final Inductor ind;
     public double r_on, r_off, onCurrent;
     public Point coilPosts[], coilLeads[], swposts[][], swpoles[][], ptSwitch[];
     public Point lines[];

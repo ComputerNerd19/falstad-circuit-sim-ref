@@ -4,7 +4,7 @@ import com.falstad.jcircsim.element.CircuitElm;
 
 public class EditOptions implements Editable
 {
-    public CirSim sim;
+    public final CirSim sim;
 
     public EditOptions(CirSim s)
     {

@@ -7,13 +7,14 @@ import java.text.NumberFormat;
 
 public class EditDialog extends Dialog implements AdjustmentListener, ActionListener, ItemListener
 {
-    public Editable elm;
-    public CirSim cframe;
-    public Button applyButton, okButton;
-    public EditInfo einfos[];
-    public int einfocount;
+    public final Editable elm;
+    public final CirSim cframe;
+    public final Button applyButton;
+    public final Button okButton;
+    public final EditInfo[] einfos;
+    public final int einfocount;
     public final int barmax = 1000;
-    public NumberFormat noCommaFormat;
+    public final NumberFormat noCommaFormat;
 
     public EditDialog(Editable ce, CirSim f)
     {

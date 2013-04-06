@@ -105,7 +105,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public boolean isMac;
     public String ctrlMetaKey;
     public double t;
-    public int pause = 10;
+    public final int pause = 10;
     public int scopeSelected = -1;
     public int menuScope = -1;
     public int hintType = -1, hintItem1, hintItem2;
@@ -163,8 +163,8 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     public String startCircuit = null;
     public String startLabel = null;
-    public String startCircuitText = null;
-    public String baseURL = "http://www.falstad.com/circuit/";
+    public final String startCircuitText = null;
+    public final String baseURL = "http://www.falstad.com/circuit/";
 
     public void init()
     {
@@ -1571,10 +1571,10 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         static final int VOLTAGE = 2;
         static final int SHORT = 3;
         static final int CAP_V = 4;
-        boolean used[];
-        int dest;
-        CircuitElm firstElm;
-        int type;
+        final boolean[] used;
+        final int dest;
+        final CircuitElm firstElm;
+        final int type;
 
         FindPathInfo(int t, CircuitElm e, int d)
         {

@@ -9,7 +9,8 @@ public class TappedTransformerElm extends CircuitElm
 {
     public double inductance, ratio;
     public Point ptEnds[], ptCoil[], ptCore[];
-    public double current[], curcount[];
+    public final double[] current;
+    public final double[] curcount;
 
     public TappedTransformerElm(int xx, int yy)
     {

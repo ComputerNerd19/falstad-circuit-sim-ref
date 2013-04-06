@@ -35,7 +35,7 @@ public class Scope
     public int pixels[];
     public int draw_ox, draw_oy;
     public float dpixels[];
-    public CirSim sim;
+    public final CirSim sim;
 
     public Scope(CirSim s)
     {

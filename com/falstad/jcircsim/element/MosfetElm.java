@@ -7,10 +7,10 @@ import java.util.StringTokenizer;
 
 public class MosfetElm extends CircuitElm
 {
-    public int pnp;
-    public int FLAG_PNP = 1;
-    public int FLAG_SHOWVT = 2;
-    public int FLAG_DIGITAL = 4;
+    public final int pnp;
+    public final int FLAG_PNP = 1;
+    public final int FLAG_SHOWVT = 2;
+    public final int FLAG_DIGITAL = 4;
     public double vt;
 
     public MosfetElm(int xx, int yy, boolean pnpflag)

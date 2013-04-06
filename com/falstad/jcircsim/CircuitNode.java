@@ -5,7 +5,7 @@ import java.util.Vector;
 public class CircuitNode
 {
     public int x, y;
-    public Vector links;
+    public final Vector links;
     public boolean internal;
 
     public CircuitNode()

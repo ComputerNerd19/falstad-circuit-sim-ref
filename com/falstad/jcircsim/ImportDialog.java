@@ -9,10 +9,13 @@ import java.util.Scanner;
 
 public class ImportDialog extends Dialog implements ActionListener
 {
-    public CirSim cframe;
-    public Button importButton, closeButton, exportButton, importFileButton;
-    public TextArea text;
-    public boolean isURL;
+    public final CirSim cframe;
+    public final Button importButton;
+    public final Button closeButton;
+    public final Button exportButton;
+    public final Button importFileButton;
+    public final TextArea text;
+    public final boolean isURL;
 
     public ImportDialog(CirSim f, String str, boolean url, boolean imp)
     {

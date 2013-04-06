@@ -9,7 +9,8 @@ public class TransformerElm extends CircuitElm
 {
     public double inductance, ratio, couplingCoef;
     public Point ptEnds[], ptCoil[], ptCore[];
-    public double current[], curcount[];
+    public final double[] current;
+    public final double[] curcount;
     public int width;
     public static final int FLAG_BACK_EULER = 2;
 
