@@ -1,5 +1,7 @@
 package com.falstad.jcircsim;
 
+import com.falstad.jcircsim.element.*;
+
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.image.BufferedImage;

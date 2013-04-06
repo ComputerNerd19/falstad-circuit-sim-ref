@@ -1,5 +1,7 @@
 package com.falstad.jcircsim;
 
+import com.falstad.jcircsim.element.CircuitElm;
+
 public class EditOptions implements Editable
 {
     public CirSim sim;
