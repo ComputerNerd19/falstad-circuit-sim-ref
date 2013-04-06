@@ -567,32 +567,32 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    public CheckboxMenuItem getClassCheckItem(String s, String t)
+    public CheckboxMenuItem getClassCheckItem(String text, String type)
     {
         try
         {
-            Class c = Class.forName(t);
-            CircuitElm elm = constructElement(c, 0, 0);
-            register(c, elm);
+            Class elmClass = Class.forName(type);
+            CircuitElm elm = constructElement(elmClass, 0, 0);
+            register(elmClass, elm);
             int dt = 0;
-            if (elm.needsShortcut() && elm.getDumpClass() == c)
+            if (elm.needsShortcut() && elm.getDumpClass() == elmClass)
             {
                 dt = elm.getDumpType();
-                s += " (" + (char) dt + ")";
+                text += " (" + (char) dt + ")";
             }
             elm.delete();
         } catch (Exception ee)
         {
             ee.printStackTrace();
         }
-        return getCheckItem(s, t);
+        return getCheckItem(text, type);
     }
 
-    public CheckboxMenuItem getCheckItem(String s, String t)
+    public CheckboxMenuItem getCheckItem(String text, String type)
     {
-        CheckboxMenuItem mi = new CheckboxMenuItem(s);
+        CheckboxMenuItem mi = new CheckboxMenuItem(text);
         mi.addItemListener(this);
-        mi.setActionCommand(t);
+        mi.setActionCommand(type);
         return mi;
     }
 
