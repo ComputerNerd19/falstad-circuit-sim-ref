@@ -6,7 +6,7 @@ GOAL: Separate presentation from logic
     {
         extract all menus to view
         {
-            remove useFrame - looks obsolete
+
         }
     }
 

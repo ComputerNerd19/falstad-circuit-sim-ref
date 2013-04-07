@@ -134,7 +134,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public int voltageSourceCount;
     public int circuitMatrixSize, circuitMatrixFullSize;
     public boolean circuitNeedsMap;
-    public boolean useFrame;
     public int scopeCount;
     public Scope scopes[];
     public int scopeColCount[];
@@ -162,7 +161,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public CirSim()
     {
         super(appVersion);
-        useFrame = true;
     }
 
     public String startCircuit = null;
@@ -173,14 +171,12 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public void init()
     {
         String euroResistor = "true";
-        String useFrameStr = null;
         boolean printable = false;
         boolean convention = true;
 
         CircuitElm.initClass(this);
 
         boolean euro = (euroResistor != null && euroResistor.equalsIgnoreCase("true"));
-        useFrame = (useFrameStr == null || !useFrameStr.equalsIgnoreCase("false"));
         main = this;
 
         String os = System.getProperty("os.name");
@@ -218,13 +214,11 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         popupMenu = new PopupMenu();
         MenuBar menuBar = null;
-        if (useFrame)
-            menuBar = new MenuBar();
+        menuBar = new MenuBar();
+
         Menu menuItem = new Menu("File");
-        if (useFrame)
-            menuBar.add(menuItem);
-        else
-            popupMenu.add(menuItem);
+        menuBar.add(menuItem);
+
         menuItem.add(importItem = getMenuItem("Import"));
         menuItem.add(exportItem = getMenuItem("Export"));
         menuItem.addSeparator();
@@ -245,24 +239,17 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         pasteItem.setEnabled(false);
         menuItem.add(selectAllItem = getMenuItem("Select All"));
         selectAllItem.setShortcut(new MenuShortcut(KeyEvent.VK_A));
-        if (useFrame)
-            menuBar.add(menuItem);
-        else
-            popupMenu.add(menuItem);
+
+        menuBar.add(menuItem);
 
         menuItem = new Menu("Scope");
-        if (useFrame)
-            menuBar.add(menuItem);
-        else
-            popupMenu.add(menuItem);
+        menuBar.add(menuItem);
         menuItem.add(getMenuItem("Stack All", "stackAll"));
         menuItem.add(getMenuItem("Unstack All", "unstackAll"));
 
         optionsMenu = menuItem = new Menu("Options");
-        if (useFrame)
-            menuBar.add(menuItem);
-        else
-            popupMenu.add(menuItem);
+        menuBar .add(menuItem);
+
         menuItem.add(dotsCheckItem = getCheckItem("Show Current"));
         dotsCheckItem.setState(true);
         menuItem.add(voltsCheckItem = getCheckItem("Show Voltage"));
@@ -281,10 +268,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         menuItem.add(optionsItem = getMenuItem("Other Options..."));
 
         Menu circuitsMenu = new Menu("Circuits");
-        if (useFrame)
-            menuBar.add(circuitsMenu);
-        else
-            popupMenu.add(circuitsMenu);
+        menuBar.add(circuitsMenu);
 
         popupMenu.add(getClassCheckItem("Add Wire", "com.falstad.jcircsim.element.WireElm"));
         popupMenu.add(getClassCheckItem("Add Resistor", "com.falstad.jcircsim.element.ResistorElm"));
@@ -416,8 +400,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         main.add(new Label("Simulator by Paul Falstad visit"));
         main.add(new Label("www.falstad.com"));
 
-        if (useFrame)
-            main.add(new Label(""));
+        main.add(new Label(""));
 
         main.add(new Label(""));
         main.add(statusBar);
@@ -448,22 +431,19 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         transScopeMenu = buildScopeMenu(true);
 
         getSetupList(circuitsMenu, false);
-        if (useFrame)
-            setMenuBar(menuBar);
+        setMenuBar(menuBar);
         if (startCircuitText != null)
             readSetup(startCircuitText);
         else if (stopMessage == null && startCircuit != null)
             readSetupFile(startCircuit, startLabel);
 
-        if (useFrame)
-        {
-            Dimension screen = getToolkit().getScreenSize();
-            resize(860, 640);
-            handleResize();
-            Dimension x = getSize();
-            setLocation((screen.width - x.width) / 2, (screen.height - x.height) / 2);
-            show();
-        }
+        Dimension screen = getToolkit().getScreenSize();
+        resize(860, 640);
+        handleResize();
+        Dimension x = getSize();
+        setLocation((screen.width - x.width) / 2, (screen.height - x.height) / 2);
+        show();
+
         main.requestFocus();
     }
 
