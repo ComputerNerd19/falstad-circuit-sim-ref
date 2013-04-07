@@ -270,97 +270,97 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         menuBar.add(circuitsMenu);
 
         popupMenu = new PopupMenu();
-        popupMenu.add(getClassCheckItem("Add Wire", "com.falstad.jcircsim.element.WireElm"));
-        popupMenu.add(getClassCheckItem("Add Resistor", "com.falstad.jcircsim.element.ResistorElm"));
+        popupMenu.add(getClassCheckItem("Add Wire", WireElm.class));
+        popupMenu.add(getClassCheckItem("Add Resistor", ResistorElm.class));
 
         Menu passMenu = new Menu("Passive Components");
         popupMenu.add(passMenu);
-        passMenu.add(getClassCheckItem("Add Capacitor", "com.falstad.jcircsim.element.CapacitorElm"));
-        passMenu.add(getClassCheckItem("Add Inductor", "com.falstad.jcircsim.element.InductorElm"));
-        passMenu.add(getClassCheckItem("Add Switch", "com.falstad.jcircsim.element.SwitchElm"));
-        passMenu.add(getClassCheckItem("Add Push Switch", "com.falstad.jcircsim.element.PushSwitchElm"));
-        passMenu.add(getClassCheckItem("Add SPDT Switch", "com.falstad.jcircsim.element.Switch2Elm"));
-        passMenu.add(getClassCheckItem("Add Potentiometer", "com.falstad.jcircsim.element.PotElm"));
-        passMenu.add(getClassCheckItem("Add Transformer", "com.falstad.jcircsim.element.TransformerElm"));
-        passMenu.add(getClassCheckItem("Add Tapped Transformer", "com.falstad.jcircsim.element.TappedTransformerElm"));
-        passMenu.add(getClassCheckItem("Add Transmission Line", "com.falstad.jcircsim.element.TransLineElm"));
-        passMenu.add(getClassCheckItem("Add Relay", "com.falstad.jcircsim.element.RelayElm"));
-        passMenu.add(getClassCheckItem("Add Memristor", "com.falstad.jcircsim.element.MemristorElm"));
-        passMenu.add(getClassCheckItem("Add Spark Gap", "com.falstad.jcircsim.element.SparkGapElm"));
+        passMenu.add(getClassCheckItem("Add Capacitor", CapacitorElm.class));
+        passMenu.add(getClassCheckItem("Add Inductor", InductorElm.class));
+        passMenu.add(getClassCheckItem("Add Switch", SwitchElm.class));
+        passMenu.add(getClassCheckItem("Add Push Switch", PushSwitchElm.class));
+        passMenu.add(getClassCheckItem("Add SPDT Switch", Switch2Elm.class));
+        passMenu.add(getClassCheckItem("Add Potentiometer", PotElm.class));
+        passMenu.add(getClassCheckItem("Add Transformer", TransformerElm.class));
+        passMenu.add(getClassCheckItem("Add Tapped Transformer", TappedTransformerElm.class));
+        passMenu.add(getClassCheckItem("Add Transmission Line", TransLineElm.class));
+        passMenu.add(getClassCheckItem("Add Relay", RelayElm.class));
+        passMenu.add(getClassCheckItem("Add Memristor", MemristorElm.class));
+        passMenu.add(getClassCheckItem("Add Spark Gap", SparkGapElm.class));
 
         Menu inputMenu = new Menu("Inputs/Outputs");
         popupMenu.add(inputMenu);
-        inputMenu.add(getClassCheckItem("Add Ground", "com.falstad.jcircsim.element.GroundElm"));
-        inputMenu.add(getClassCheckItem("Add Voltage Source (2-terminal)", "com.falstad.jcircsim.element.DCVoltageElm"));
-        inputMenu.add(getClassCheckItem("Add A/C Source (2-terminal)", "com.falstad.jcircsim.element.ACVoltageElm"));
-        inputMenu.add(getClassCheckItem("Add Voltage Source (1-terminal)", "com.falstad.jcircsim.element.RailElm"));
-        inputMenu.add(getClassCheckItem("Add A/C Source (1-terminal)", "com.falstad.jcircsim.element.ACRailElm"));
-        inputMenu.add(getClassCheckItem("Add Square Wave (1-terminal)", "com.falstad.jcircsim.element.SquareRailElm"));
-        inputMenu.add(getClassCheckItem("Add Analog Output", "com.falstad.jcircsim.element.OutputElm"));
-        inputMenu.add(getClassCheckItem("Add Logic Input", "com.falstad.jcircsim.element.LogicInputElm"));
-        inputMenu.add(getClassCheckItem("Add Logic Output", "com.falstad.jcircsim.element.LogicOutputElm"));
-        inputMenu.add(getClassCheckItem("Add Clock", "com.falstad.jcircsim.element.ClockElm"));
-        inputMenu.add(getClassCheckItem("Add A/C Sweep", "com.falstad.jcircsim.element.SweepElm"));
-        inputMenu.add(getClassCheckItem("Add Var. Voltage", "com.falstad.jcircsim.element.VarRailElm"));
-        inputMenu.add(getClassCheckItem("Add Antenna", "com.falstad.jcircsim.element.AntennaElm"));
-        inputMenu.add(getClassCheckItem("Add Current Source", "com.falstad.jcircsim.element.CurrentElm"));
-        inputMenu.add(getClassCheckItem("Add LED", "com.falstad.jcircsim.element.LEDElm"));
-        inputMenu.add(getClassCheckItem("Add Lamp (beta)", "com.falstad.jcircsim.element.LampElm"));
+        inputMenu.add(getClassCheckItem("Add Ground", GroundElm.class));
+        inputMenu.add(getClassCheckItem("Add Voltage Source (2-terminal)", DCVoltageElm.class));
+        inputMenu.add(getClassCheckItem("Add A/C Source (2-terminal)", ACVoltageElm.class));
+        inputMenu.add(getClassCheckItem("Add Voltage Source (1-terminal)", RailElm.class));
+        inputMenu.add(getClassCheckItem("Add A/C Source (1-terminal)", ACRailElm.class));
+        inputMenu.add(getClassCheckItem("Add Square Wave (1-terminal)", SquareRailElm.class));
+        inputMenu.add(getClassCheckItem("Add Analog Output", OutputElm.class));
+        inputMenu.add(getClassCheckItem("Add Logic Input", LogicInputElm.class));
+        inputMenu.add(getClassCheckItem("Add Logic Output", LogicOutputElm.class));
+        inputMenu.add(getClassCheckItem("Add Clock", ClockElm.class));
+        inputMenu.add(getClassCheckItem("Add A/C Sweep", SweepElm.class));
+        inputMenu.add(getClassCheckItem("Add Var. Voltage", VarRailElm.class));
+        inputMenu.add(getClassCheckItem("Add Antenna", AntennaElm.class));
+        inputMenu.add(getClassCheckItem("Add Current Source", CurrentElm.class));
+        inputMenu.add(getClassCheckItem("Add LED", LEDElm.class));
+        inputMenu.add(getClassCheckItem("Add Lamp (beta)", LampElm.class));
 
         Menu activeMenu = new Menu("Active Components");
         popupMenu.add(activeMenu);
-        activeMenu.add(getClassCheckItem("Add Diode", "com.falstad.jcircsim.element.DiodeElm"));
-        activeMenu.add(getClassCheckItem("Add Zener Diode", "com.falstad.jcircsim.element.ZenerElm"));
-        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, NPN)", "com.falstad.jcircsim.element.NTransistorElm"));
-        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, PNP)", "com.falstad.jcircsim.element.PTransistorElm"));
-        activeMenu.add(getClassCheckItem("Add Op Amp (- on top)", "com.falstad.jcircsim.element.OpAmpElm"));
-        activeMenu.add(getClassCheckItem("Add Op Amp (+ on top)", "com.falstad.jcircsim.element.OpAmpSwapElm"));
-        activeMenu.add(getClassCheckItem("Add MOSFET (n-channel)", "com.falstad.jcircsim.element.NMosfetElm"));
-        activeMenu.add(getClassCheckItem("Add MOSFET (p-channel)", "com.falstad.jcircsim.element.PMosfetElm"));
-        activeMenu.add(getClassCheckItem("Add JFET (n-channel)", "com.falstad.jcircsim.element.NJfetElm"));
-        activeMenu.add(getClassCheckItem("Add JFET (p-channel)", "com.falstad.jcircsim.element.PJfetElm"));
-        activeMenu.add(getClassCheckItem("Add Analog Switch (SPST)", "com.falstad.jcircsim.element.AnalogSwitchElm"));
-        activeMenu.add(getClassCheckItem("Add Analog Switch (SPDT)", "com.falstad.jcircsim.element.AnalogSwitch2Elm"));
-        activeMenu.add(getClassCheckItem("Add SCR", "com.falstad.jcircsim.element.SCRElm"));
+        activeMenu.add(getClassCheckItem("Add Diode", DiodeElm.class));
+        activeMenu.add(getClassCheckItem("Add Zener Diode", ZenerElm.class));
+        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, NPN)", NTransistorElm.class));
+        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, PNP)", PTransistorElm.class));
+        activeMenu.add(getClassCheckItem("Add Op Amp (- on top)", OpAmpElm.class));
+        activeMenu.add(getClassCheckItem("Add Op Amp (+ on top)", OpAmpSwapElm.class));
+        activeMenu.add(getClassCheckItem("Add MOSFET (n-channel)", NMosfetElm.class));
+        activeMenu.add(getClassCheckItem("Add MOSFET (p-channel)", PMosfetElm.class));
+        activeMenu.add(getClassCheckItem("Add JFET (n-channel)", NJfetElm.class));
+        activeMenu.add(getClassCheckItem("Add JFET (p-channel)", PJfetElm.class));
+        activeMenu.add(getClassCheckItem("Add Analog Switch (SPST)", AnalogSwitchElm.class));
+        activeMenu.add(getClassCheckItem("Add Analog Switch (SPDT)", AnalogSwitch2Elm.class));
+        activeMenu.add(getClassCheckItem("Add SCR", SCRElm.class));
         // activeMenu.add(getClassCheckItem("Add Varactor/Varicap",
-        // "VaractorElm"));
-        activeMenu.add(getClassCheckItem("Add Tunnel Diode", "com.falstad.jcircsim.element.TunnelDiodeElm"));
-        activeMenu.add(getClassCheckItem("Add Triode", "com.falstad.jcircsim.element.TriodeElm"));
-        // activeMenu.add(getClassCheckItem("Add Diac", "DiacElm"));
-        // activeMenu.add(getClassCheckItem("Add Triac", "TriacElm"));
+        // "VaractorElm.class));
+        activeMenu.add(getClassCheckItem("Add Tunnel Diode", TunnelDiodeElm.class));
+        activeMenu.add(getClassCheckItem("Add Triode", TriodeElm.class));
+        // activeMenu.add(getClassCheckItem("Add Diac", "DiacElm.class));
+        // activeMenu.add(getClassCheckItem("Add Triac", "TriacElm.class));
         // activeMenu.add(getClassCheckItem("Add Photoresistor",
-        // "PhotoResistorElm"));
-        // activeMenu.add(getClassCheckItem("Add Thermistor", "ThermistorElm"));
-        activeMenu.add(getClassCheckItem("Add CCII+", "com.falstad.jcircsim.element.CC2Elm"));
-        activeMenu.add(getClassCheckItem("Add CCII-", "com.falstad.jcircsim.element.CC2NegElm"));
+        // "PhotoResistorElm.class));
+        // activeMenu.add(getClassCheckItem("Add Thermistor", "ThermistorElm.class));
+        activeMenu.add(getClassCheckItem("Add CCII+", CC2Elm.class));
+        activeMenu.add(getClassCheckItem("Add CCII-", CC2NegElm.class));
 
         Menu gateMenu = new Menu("Logic Gates");
         popupMenu.add(gateMenu);
-        gateMenu.add(getClassCheckItem("Add Inverter", "com.falstad.jcircsim.element.InverterElm"));
-        gateMenu.add(getClassCheckItem("Add NAND Gate", "com.falstad.jcircsim.element.NandGateElm"));
-        gateMenu.add(getClassCheckItem("Add NOR Gate", "com.falstad.jcircsim.element.NorGateElm"));
-        gateMenu.add(getClassCheckItem("Add AND Gate", "com.falstad.jcircsim.element.AndGateElm"));
-        gateMenu.add(getClassCheckItem("Add OR Gate", "com.falstad.jcircsim.element.OrGateElm"));
-        gateMenu.add(getClassCheckItem("Add XOR Gate", "com.falstad.jcircsim.element.XorGateElm"));
+        gateMenu.add(getClassCheckItem("Add Inverter", InverterElm.class));
+        gateMenu.add(getClassCheckItem("Add NAND Gate", NandGateElm.class));
+        gateMenu.add(getClassCheckItem("Add NOR Gate", NorGateElm.class));
+        gateMenu.add(getClassCheckItem("Add AND Gate", AndGateElm.class));
+        gateMenu.add(getClassCheckItem("Add OR Gate", OrGateElm.class));
+        gateMenu.add(getClassCheckItem("Add XOR Gate", XorGateElm.class));
 
         Menu chipMenu = new Menu("Chips");
         popupMenu.add(chipMenu);
-        chipMenu.add(getClassCheckItem("Add D Flip-Flop", "com.falstad.jcircsim.element.DFlipFlopElm"));
-        chipMenu.add(getClassCheckItem("Add JK Flip-Flop", "com.falstad.jcircsim.element.JKFlipFlopElm"));
-        chipMenu.add(getClassCheckItem("Add 7 Segment LED", "com.falstad.jcircsim.element.SevenSegElm"));
-        chipMenu.add(getClassCheckItem("Add VCO", "com.falstad.jcircsim.element.VCOElm"));
-        chipMenu.add(getClassCheckItem("Add Phase Comparator", "com.falstad.jcircsim.element.PhaseCompElm"));
-        chipMenu.add(getClassCheckItem("Add Counter", "com.falstad.jcircsim.element.CounterElm"));
-        chipMenu.add(getClassCheckItem("Add Decade Counter", "com.falstad.jcircsim.element.DecadeElm"));
-        chipMenu.add(getClassCheckItem("Add 555 Timer", "com.falstad.jcircsim.element.TimerElm"));
-        chipMenu.add(getClassCheckItem("Add DAC", "com.falstad.jcircsim.element.DACElm"));
-        chipMenu.add(getClassCheckItem("Add ADC", "com.falstad.jcircsim.element.ADCElm"));
-        chipMenu.add(getClassCheckItem("Add Latch", "com.falstad.jcircsim.element.LatchElm"));
+        chipMenu.add(getClassCheckItem("Add D Flip-Flop", DFlipFlopElm.class));
+        chipMenu.add(getClassCheckItem("Add JK Flip-Flop", JKFlipFlopElm.class));
+        chipMenu.add(getClassCheckItem("Add 7 Segment LED", SevenSegElm.class));
+        chipMenu.add(getClassCheckItem("Add VCO", VCOElm.class));
+        chipMenu.add(getClassCheckItem("Add Phase Comparator", PhaseCompElm.class));
+        chipMenu.add(getClassCheckItem("Add Counter", CounterElm.class));
+        chipMenu.add(getClassCheckItem("Add Decade Counter", DecadeElm.class));
+        chipMenu.add(getClassCheckItem("Add 555 Timer", TimerElm.class));
+        chipMenu.add(getClassCheckItem("Add DAC", DACElm.class));
+        chipMenu.add(getClassCheckItem("Add ADC", ADCElm.class));
+        chipMenu.add(getClassCheckItem("Add Latch", LatchElm.class));
 
         Menu otherMenu = new Menu("Other");
         popupMenu.add(otherMenu);
-        otherMenu.add(getClassCheckItem("Add Text", "com.falstad.jcircsim.element.TextElm"));
-        otherMenu.add(getClassCheckItem("Add Scope Probe", "com.falstad.jcircsim.element.ProbeElm"));
+        otherMenu.add(getClassCheckItem("Add Text", TextElm.class));
+        otherMenu.add(getClassCheckItem("Add Scope Probe", ProbeElm.class));
         otherMenu.add(getCheckItem("Drag All (Alt-drag)", "DragAll"));
         otherMenu.add(getCheckItem(isMac ? "Drag Row (Alt-S-drag, S-right)" : "Drag Row (S-right)", "DragRow"));
         otherMenu.add(getCheckItem(isMac ? "Drag Column (Alt-\u2318-drag, \u2318-right)" : "Drag Column (C-right)", "DragColumn"));
@@ -516,11 +516,10 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    public CheckboxMenuItem getClassCheckItem(String text, String type)
+    public CheckboxMenuItem getClassCheckItem(String text, Class elmClass)
     {
         try
         {
-            Class elmClass = Class.forName(type);
             CircuitElm elm = constructElement(elmClass, 0, 0);
             register(elmClass, elm);
             int dt = 0;
@@ -534,7 +533,9 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         {
             ee.printStackTrace();
         }
-        return getCheckItem(text, type);
+
+        String classSignature = elmClass.getName();
+        return getCheckItem(text, classSignature);
     }
 
     public CheckboxMenuItem getCheckItem(String text, String type)
