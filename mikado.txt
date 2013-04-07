@@ -3,15 +3,10 @@
 GOAL: Separate presentation from logic
 {
     CirSim
-    {
         extract all menus to view
-        {
-
-        }
-    }
+            extract RMB context menu to view
+                separate context menu creation from elements registering
 
     elemenets
-    {
         ?
-    }
 }

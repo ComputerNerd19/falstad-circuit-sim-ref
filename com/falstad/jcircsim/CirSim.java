@@ -212,7 +212,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         cv.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        popupMenu = new PopupMenu();
         MenuBar menuBar = null;
         menuBar = new MenuBar();
 
@@ -270,6 +269,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         Menu circuitsMenu = new Menu("Circuits");
         menuBar.add(circuitsMenu);
 
+        popupMenu = new PopupMenu();
         popupMenu.add(getClassCheckItem("Add Wire", "com.falstad.jcircsim.element.WireElm"));
         popupMenu.add(getClassCheckItem("Add Resistor", "com.falstad.jcircsim.element.ResistorElm"));
 
