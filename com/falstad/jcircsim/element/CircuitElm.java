@@ -907,7 +907,7 @@ public abstract class CircuitElm implements Editable
         return boundingBox;
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return false;
     }

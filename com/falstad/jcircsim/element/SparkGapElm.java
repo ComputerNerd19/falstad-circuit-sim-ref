@@ -144,7 +144,7 @@ public class SparkGapElm extends CircuitElm
             holdcurrent = ei.value;
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return false;
     }

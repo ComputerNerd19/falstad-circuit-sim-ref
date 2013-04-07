@@ -74,7 +74,7 @@ public class GroundElm extends CircuitElm
         return true;
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return true;
     }

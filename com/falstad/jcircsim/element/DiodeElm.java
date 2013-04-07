@@ -144,7 +144,7 @@ public class DiodeElm extends CircuitElm
         setup();
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return getClass() == DiodeElm.class;
     }

@@ -138,7 +138,7 @@ public class ResistorElm extends CircuitElm
             resistance = ei.value;
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return true;
     }

@@ -120,7 +120,7 @@ public class WireElm extends CircuitElm
         }
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return true;
     }

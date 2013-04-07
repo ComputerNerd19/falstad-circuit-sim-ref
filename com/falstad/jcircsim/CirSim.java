@@ -523,9 +523,13 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             CircuitElm elm = constructElement(elmClass, 0, 0);
             register(elmClass, elm);
             int dt = 0;
-            if (elm.needsShortcut() && elm.getDumpClass() == elmClass)
+            if (elm.hasHotkey() && elm.getDumpClass() == elmClass)
             {
                 dt = elm.getDumpType();
+                /**
+                 * Append hotkey signature:
+                 * Add Diode (d)
+                 */
                 text += " (" + (char) dt + ")";
             }
             elm.delete();
@@ -538,20 +542,20 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return getCheckItem(text, classSignature);
     }
 
-    public CheckboxMenuItem getCheckItem(String text, String type)
+    public CheckboxMenuItem getCheckItem(String label, String type)
     {
-        CheckboxMenuItem mi = new CheckboxMenuItem(text);
-        mi.addItemListener(this);
-        mi.setActionCommand(type);
-        return mi;
+        CheckboxMenuItem menuItem = new CheckboxMenuItem(label);
+        menuItem.addItemListener(this);
+        menuItem.setActionCommand(type);
+        return menuItem;
     }
 
-    public void register(Class c, CircuitElm elm)
+    public void register(Class elmClass, CircuitElm elm)
     {
         int t = elm.getDumpType();
         if (t == 0)
         {
-            System.out.println("no dump type: " + c);
+            System.out.println("no dump type: " + elmClass);
             return;
         }
         Class dclass = elm.getDumpClass();
@@ -559,7 +563,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             return;
         if (dumpTypes[t] != null)
         {
-            System.out.println("dump type conflict: " + c + " " + dumpTypes[t]);
+            System.out.println("dump type conflict: " + elmClass + " " + dumpTypes[t]);
             return;
         }
         dumpTypes[t] = dclass;
@@ -2884,7 +2888,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         dragElm = constructElement(addingClass, x0, y0);
     }
 
-    public CircuitElm constructElement(Class c, int x0, int y0)
+    public CircuitElm constructElement(Class elmClass, int x0, int y0)
     {
         // find element class
         Class carr[] = new Class[2];
@@ -2893,10 +2897,10 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         Constructor cstr = null;
         try
         {
-            cstr = c.getConstructor(carr);
+            cstr = elmClass.getConstructor(carr);
         } catch (NoSuchMethodException ee)
         {
-            System.out.println("caught NoSuchMethodException " + c);
+            System.out.println("caught NoSuchMethodException " + elmClass);
             return null;
         } catch (Exception ee)
         {
@@ -3265,7 +3269,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
                 return;
             CircuitElm elm = null;
             elm = constructElement(c, 0, 0);
-            if (elm == null || !(elm.needsShortcut() && elm.getDumpClass() == c))
+            if (elm == null || !(elm.hasHotkey() && elm.getDumpClass() == c))
                 return;
             mouseMode = MODE_ADD_ELM;
             cv.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));

@@ -179,7 +179,7 @@ public class CapacitorElm extends CircuitElm
         }
     }
 
-    public boolean needsShortcut()
+    public boolean hasHotkey()
     {
         return true;
     }
