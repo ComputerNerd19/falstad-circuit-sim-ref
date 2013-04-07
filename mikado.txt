@@ -1,0 +1,14 @@
+/** Mikado method refactoring tasks */
+
+GOAL: Separate presentation from logic
+{
+    CirSim
+    {
+        x
+    }
+
+    elemenets
+    {
+        ?
+    }
+}

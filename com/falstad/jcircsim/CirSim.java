@@ -67,7 +67,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public MenuItem elmScopeMenuItem;
     public PopupMenu scopeMenu;
     public PopupMenu transScopeMenu;
-    public PopupMenu mainMenu;
+    public PopupMenu popupMenu;
     public CheckboxMenuItem scopeVMenuItem;
     public CheckboxMenuItem scopeIMenuItem;
     public CheckboxMenuItem scopeMaxMenuItem;
@@ -179,41 +179,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         CircuitElm.initClass(this);
 
-        // try {
-        // baseURL = applet.getDocumentBase().getFile();
-        // // look for circuit embedded in URL
-        // String doc = applet.getDocumentBase().toString();
-        // int in = doc.indexOf('#');
-        // if (in > 0) {
-        // String x = null;
-        // try {
-        // x = doc.substring(in+1);
-        // x = URLDecoder.decode(x);
-        // startCircuitText = x;
-        // } catch (Exception e) {
-        // System.out.println("can't decode " + x);
-        // e.printStackTrace();
-        // }
-        // }
-        // in = doc.lastIndexOf('/');
-        // if (in > 0)
-        // baseURL = doc.substring(0, in+1);
-        //
-        // String param = applet.getParameter("PAUSE");
-        // if (param != null)
-        // pause = Integer.parseInt(param);
-        // startCircuit = applet.getParameter("startCircuit");
-        // startLabel = applet.getParameter("startLabel");
-        // euroResistor = applet.getParameter("euroResistors");
-        // useFrameStr = applet.getParameter("useFrame");
-        // String x = applet.getParameter("whiteBackground");
-        // if (x != null && x.equalsIgnoreCase("true"))
-        // printable = true;
-        // x = applet.getParameter("conventionalCurrent");
-        // if (x != null && x.equalsIgnoreCase("true"))
-        // convention = false;
-        // } catch (Exception e) { }
-
         boolean euro = (euroResistor != null && euroResistor.equalsIgnoreCase("true"));
         useFrame = (useFrameStr == null || !useFrameStr.equalsIgnoreCase("false"));
         main = this;
@@ -251,81 +216,81 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         cv.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        mainMenu = new PopupMenu();
-        MenuBar mb = null;
+        popupMenu = new PopupMenu();
+        MenuBar menuBar = null;
         if (useFrame)
-            mb = new MenuBar();
-        Menu m = new Menu("File");
+            menuBar = new MenuBar();
+        Menu menuItem = new Menu("File");
         if (useFrame)
-            mb.add(m);
+            menuBar.add(menuItem);
         else
-            mainMenu.add(m);
-        m.add(importItem = getMenuItem("Import"));
-        m.add(exportItem = getMenuItem("Export"));
-        m.addSeparator();
-        m.add(exitItem = getMenuItem("Exit"));
+            popupMenu.add(menuItem);
+        menuItem.add(importItem = getMenuItem("Import"));
+        menuItem.add(exportItem = getMenuItem("Export"));
+        menuItem.addSeparator();
+        menuItem.add(exitItem = getMenuItem("Exit"));
 
-        m = new Menu("Edit");
-        m.add(undoItem = getMenuItem("Undo"));
+        menuItem = new Menu("Edit");
+        menuItem.add(undoItem = getMenuItem("Undo"));
         undoItem.setShortcut(new MenuShortcut(KeyEvent.VK_Z));
-        m.add(redoItem = getMenuItem("Redo"));
+        menuItem.add(redoItem = getMenuItem("Redo"));
         redoItem.setShortcut(new MenuShortcut(KeyEvent.VK_Z, true));
-        m.addSeparator();
-        m.add(cutItem = getMenuItem("Cut"));
+        menuItem.addSeparator();
+        menuItem.add(cutItem = getMenuItem("Cut"));
         cutItem.setShortcut(new MenuShortcut(KeyEvent.VK_X));
-        m.add(copyItem = getMenuItem("Copy"));
+        menuItem.add(copyItem = getMenuItem("Copy"));
         copyItem.setShortcut(new MenuShortcut(KeyEvent.VK_C));
-        m.add(pasteItem = getMenuItem("Paste"));
+        menuItem.add(pasteItem = getMenuItem("Paste"));
         pasteItem.setShortcut(new MenuShortcut(KeyEvent.VK_V));
         pasteItem.setEnabled(false);
-        m.add(selectAllItem = getMenuItem("Select All"));
+        menuItem.add(selectAllItem = getMenuItem("Select All"));
         selectAllItem.setShortcut(new MenuShortcut(KeyEvent.VK_A));
         if (useFrame)
-            mb.add(m);
+            menuBar.add(menuItem);
         else
-            mainMenu.add(m);
+            popupMenu.add(menuItem);
 
-        m = new Menu("Scope");
+        menuItem = new Menu("Scope");
         if (useFrame)
-            mb.add(m);
+            menuBar.add(menuItem);
         else
-            mainMenu.add(m);
-        m.add(getMenuItem("Stack All", "stackAll"));
-        m.add(getMenuItem("Unstack All", "unstackAll"));
+            popupMenu.add(menuItem);
+        menuItem.add(getMenuItem("Stack All", "stackAll"));
+        menuItem.add(getMenuItem("Unstack All", "unstackAll"));
 
-        optionsMenu = m = new Menu("Options");
+        optionsMenu = menuItem = new Menu("Options");
         if (useFrame)
-            mb.add(m);
+            menuBar.add(menuItem);
         else
-            mainMenu.add(m);
-        m.add(dotsCheckItem = getCheckItem("Show Current"));
+            popupMenu.add(menuItem);
+        menuItem.add(dotsCheckItem = getCheckItem("Show Current"));
         dotsCheckItem.setState(true);
-        m.add(voltsCheckItem = getCheckItem("Show Voltage"));
+        menuItem.add(voltsCheckItem = getCheckItem("Show Voltage"));
         voltsCheckItem.setState(true);
-        m.add(powerCheckItem = getCheckItem("Show Power"));
-        m.add(showValuesCheckItem = getCheckItem("Show Values"));
+        menuItem.add(powerCheckItem = getCheckItem("Show Power"));
+        menuItem.add(showValuesCheckItem = getCheckItem("Show Values"));
         showValuesCheckItem.setState(true);
         // m.add(conductanceCheckItem = getCheckItem("Show Conductance"));
-        m.add(smallGridCheckItem = getCheckItem("Small Grid"));
-        m.add(euroResistorCheckItem = getCheckItem("European Resistors"));
+        menuItem.add(smallGridCheckItem = getCheckItem("Small Grid"));
+        menuItem.add(euroResistorCheckItem = getCheckItem("European Resistors"));
         euroResistorCheckItem.setState(euro);
-        m.add(printableCheckItem = getCheckItem("White Background"));
+        menuItem.add(printableCheckItem = getCheckItem("White Background"));
         printableCheckItem.setState(printable);
-        m.add(conventionCheckItem = getCheckItem("Conventional Current Motion"));
+        menuItem.add(conventionCheckItem = getCheckItem("Conventional Current Motion"));
         conventionCheckItem.setState(convention);
-        m.add(optionsItem = getMenuItem("Other Options..."));
+        menuItem.add(optionsItem = getMenuItem("Other Options..."));
 
         Menu circuitsMenu = new Menu("Circuits");
         if (useFrame)
-            mb.add(circuitsMenu);
+            menuBar.add(circuitsMenu);
         else
-            mainMenu.add(circuitsMenu);
+            popupMenu.add(circuitsMenu);
 
-        mainMenu.add(getClassCheckItem("Add Wire", "com.falstad.jcircsim.element.WireElm"));
-        mainMenu.add(getClassCheckItem("Add Resistor", "com.falstad.jcircsim.element.ResistorElm"));
+        popupMenu.add(getClassCheckItem("Add Wire", "com.falstad.jcircsim.element.WireElm"));
+        popupMenu.add(getClassCheckItem("Add Resistor", "com.falstad.jcircsim.element.ResistorElm"));
 
         Menu passMenu = new Menu("Passive Components");
-        mainMenu.add(passMenu);
+        popupMenu.add(passMenu);
         passMenu.add(getClassCheckItem("Add Capacitor", "com.falstad.jcircsim.element.CapacitorElm"));
         passMenu.add(getClassCheckItem("Add Inductor", "com.falstad.jcircsim.element.InductorElm"));
         passMenu.add(getClassCheckItem("Add Switch", "com.falstad.jcircsim.element.SwitchElm"));
@@ -340,7 +305,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         passMenu.add(getClassCheckItem("Add Spark Gap", "com.falstad.jcircsim.element.SparkGapElm"));
 
         Menu inputMenu = new Menu("Inputs/Outputs");
-        mainMenu.add(inputMenu);
+        popupMenu.add(inputMenu);
         inputMenu.add(getClassCheckItem("Add Ground", "com.falstad.jcircsim.element.GroundElm"));
         inputMenu.add(getClassCheckItem("Add Voltage Source (2-terminal)", "com.falstad.jcircsim.element.DCVoltageElm"));
         inputMenu.add(getClassCheckItem("Add A/C Source (2-terminal)", "com.falstad.jcircsim.element.ACVoltageElm"));
@@ -359,7 +324,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         inputMenu.add(getClassCheckItem("Add Lamp (beta)", "com.falstad.jcircsim.element.LampElm"));
 
         Menu activeMenu = new Menu("Active Components");
-        mainMenu.add(activeMenu);
+        popupMenu.add(activeMenu);
         activeMenu.add(getClassCheckItem("Add Diode", "com.falstad.jcircsim.element.DiodeElm"));
         activeMenu.add(getClassCheckItem("Add Zener Diode", "com.falstad.jcircsim.element.ZenerElm"));
         activeMenu.add(getClassCheckItem("Add Transistor (bipolar, NPN)", "com.falstad.jcircsim.element.NTransistorElm"));
@@ -386,7 +351,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         activeMenu.add(getClassCheckItem("Add CCII-", "com.falstad.jcircsim.element.CC2NegElm"));
 
         Menu gateMenu = new Menu("Logic Gates");
-        mainMenu.add(gateMenu);
+        popupMenu.add(gateMenu);
         gateMenu.add(getClassCheckItem("Add Inverter", "com.falstad.jcircsim.element.InverterElm"));
         gateMenu.add(getClassCheckItem("Add NAND Gate", "com.falstad.jcircsim.element.NandGateElm"));
         gateMenu.add(getClassCheckItem("Add NOR Gate", "com.falstad.jcircsim.element.NorGateElm"));
@@ -395,7 +360,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         gateMenu.add(getClassCheckItem("Add XOR Gate", "com.falstad.jcircsim.element.XorGateElm"));
 
         Menu chipMenu = new Menu("Chips");
-        mainMenu.add(chipMenu);
+        popupMenu.add(chipMenu);
         chipMenu.add(getClassCheckItem("Add D Flip-Flop", "com.falstad.jcircsim.element.DFlipFlopElm"));
         chipMenu.add(getClassCheckItem("Add JK Flip-Flop", "com.falstad.jcircsim.element.JKFlipFlopElm"));
         chipMenu.add(getClassCheckItem("Add 7 Segment LED", "com.falstad.jcircsim.element.SevenSegElm"));
@@ -409,7 +374,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         chipMenu.add(getClassCheckItem("Add Latch", "com.falstad.jcircsim.element.LatchElm"));
 
         Menu otherMenu = new Menu("Other");
-        mainMenu.add(otherMenu);
+        popupMenu.add(otherMenu);
         otherMenu.add(getClassCheckItem("Add Text", "com.falstad.jcircsim.element.TextElm"));
         otherMenu.add(getClassCheckItem("Add Scope Probe", "com.falstad.jcircsim.element.ProbeElm"));
         otherMenu.add(getCheckItem("Drag All (Alt-drag)", "DragAll"));
@@ -418,13 +383,13 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         otherMenu.add(getCheckItem("Drag Selected", "DragSelected"));
         otherMenu.add(getCheckItem("Drag Post (" + ctrlMetaKey + "-drag)", "DragPost"));
 
-        mainMenu.add(getCheckItem("Select/Drag Selected (space or Shift-drag)", "Select"));
-        main.add(mainMenu);
+        popupMenu.add(getCheckItem("Select/Drag Selected (space or Shift-drag)", "Select"));
+        main.add(popupMenu);
 
         main.add(resetButton = new Button("Reset"));
         resetButton.addActionListener(this);
         dumpMatrixButton = new Button("Dump Matrix");
-        // main.add(dumpMatrixButton);
+        //main.add(dumpMatrixButton);
         dumpMatrixButton.addActionListener(this);
         stoppedCheck = new Checkbox("Stopped");
         stoppedCheck.addItemListener(this);
@@ -484,7 +449,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         getSetupList(circuitsMenu, false);
         if (useFrame)
-            setMenuBar(mb);
+            setMenuBar(menuBar);
         if (startCircuitText != null)
             readSetup(startCircuitText);
         else if (stopMessage == null && startCircuit != null)
@@ -2989,8 +2954,8 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             elmMenu.show(e.getComponent(), e.getX(), e.getY());
         } else
         {
-            doMainMenuChecks(mainMenu);
-            mainMenu.show(e.getComponent(), e.getX(), e.getY());
+            doMainMenuChecks(popupMenu);
+            popupMenu.show(e.getComponent(), e.getX(), e.getY());
         }
     }
 
