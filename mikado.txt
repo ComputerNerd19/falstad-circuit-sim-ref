@@ -4,7 +4,10 @@ GOAL: Separate presentation from logic
 {
     CirSim
     {
-        x
+        extract all menus to view
+        {
+            remove useFrame - looks obsolete
+        }
     }
 
     elemenets
