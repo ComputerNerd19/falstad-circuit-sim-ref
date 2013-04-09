@@ -519,7 +519,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     public CheckboxMenuItem getClassCheckItem(Class elmClass)
     {
-        CircuitElm elm = constructElement(elmClass, 0, 0);
+        CircuitElm elm = ElementBuilder.build(elmClass, 0, 0);
         elementRegistry.register(elmClass, elm);
 
         String text = defineText(elm, elmClass);
@@ -2887,12 +2887,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         if (!circuitArea.contains(x0, y0))
             return;
 
-        dragElm = constructElement(addingClass, x0, y0);
-    }
-
-    public CircuitElm constructElement(Class elmClass, int x0, int y0)
-    {
-        return ElementBuilder.build(elmClass, x0, y0);
+        dragElm = ElementBuilder.build(addingClass, x0, y0);
     }
 
     public void doPopupMenu(MouseEvent e)
@@ -3241,7 +3236,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             if (c == null || c == Scope.class)
                 return;
             CircuitElm elm = null;
-            elm = constructElement(c, 0, 0);
+            elm = ElementBuilder.build(c, 0, 0);
             if (elm == null || !(elm.hasHotkey() && elm.getDumpClass() == c))
                 return;
             mouseMode = MODE_ADD_ELM;
