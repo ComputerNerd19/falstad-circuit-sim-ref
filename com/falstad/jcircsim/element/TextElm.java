@@ -8,6 +8,8 @@ import java.util.Vector;
 
 public class TextElm extends CircuitElm
 {
+    public static final String NAME = "Text";
+
     public String text;
     public Vector lines;
     public int size;

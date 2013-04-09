@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class ProbeElm extends CircuitElm
 {
+    public static final String NAME = "Scope Probe";
+
     public static final int FLAG_SHOWVOLTAGE = 1;
 
     public ProbeElm(int xx, int yy)

@@ -361,6 +361,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         popupMenu.add(otherMenu);
         otherMenu.add(getClassCheckItem("Add Text", TextElm.class));
         otherMenu.add(getClassCheckItem("Add Scope Probe", ProbeElm.class));
+
         otherMenu.add(getCheckItem("Drag All (Alt-drag)", "DragAll"));
         otherMenu.add(getCheckItem(isMac ? "Drag Row (Alt-S-drag, S-right)" : "Drag Row (S-right)", "DragRow"));
         otherMenu.add(getCheckItem(isMac ? "Drag Column (Alt-\u2318-drag, \u2318-right)" : "Drag Column (C-right)", "DragColumn"));
