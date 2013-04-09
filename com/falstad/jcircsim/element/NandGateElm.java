@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class NandGateElm extends AndGateElm
 {
+    public static final String NAME = "NAND Gate";
+
     public NandGateElm(int xx, int yy)
     {
         super(xx, yy);

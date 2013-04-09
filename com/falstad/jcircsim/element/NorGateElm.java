@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class NorGateElm extends OrGateElm
 {
+    public static final String NAME = "NOR Gate";
+
     public NorGateElm(int xx, int yy)
     {
         super(xx, yy);

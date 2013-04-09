@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class TransLineElm extends CircuitElm
 {
+    public static final String NAME = "Transmission Line";
+
     public double delay, imped;
     public double voltageL[], voltageR[];
     public int lenSteps, ptr, width;

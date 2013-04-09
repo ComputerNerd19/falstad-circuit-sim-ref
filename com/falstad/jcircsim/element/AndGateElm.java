@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class AndGateElm extends GateElm
 {
+    public static final String NAME = "AND Gate";
+
     public AndGateElm(int xx, int yy)
     {
         super(xx, yy);

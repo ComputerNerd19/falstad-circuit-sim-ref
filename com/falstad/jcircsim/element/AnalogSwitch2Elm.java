@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class AnalogSwitch2Elm extends AnalogSwitchElm
 {
+    public static final String NAME = "Analog Switch (SPDT)";
+
     public AnalogSwitch2Elm(int xx, int yy)
     {
         super(xx, yy);

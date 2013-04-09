@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class SparkGapElm extends CircuitElm
 {
+    public static final String NAME = "Spark Gap";
+
     public double resistance, onresistance, offresistance, breakdown, holdcurrent;
     public boolean state;
 

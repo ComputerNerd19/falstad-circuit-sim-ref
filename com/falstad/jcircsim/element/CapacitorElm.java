@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class CapacitorElm extends CircuitElm
 {
+    public static final String NAME = "Capacitor";
+
     public double capacitance;
     public double compResistance, voltdiff;
     public Point plate1[], plate2[];

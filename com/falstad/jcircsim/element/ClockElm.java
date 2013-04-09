@@ -2,6 +2,8 @@ package com.falstad.jcircsim.element;
 
 public class ClockElm extends RailElm
 {
+    public static final String NAME = "Clock";
+
     public ClockElm(int xx, int yy)
     {
         super(xx, yy, WF_SQUARE);

@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class GroundElm extends CircuitElm
 {
+    public static final String NAME = "Ground";
+
     public GroundElm(int xx, int yy)
     {
         super(xx, yy);

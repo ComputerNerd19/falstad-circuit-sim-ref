@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class RailElm extends VoltageElm
 {
+    public static final String NAME = "Voltage Source (1-terminal)";
+
     public RailElm(int xx, int yy)
     {
         super(xx, yy, WF_DC);

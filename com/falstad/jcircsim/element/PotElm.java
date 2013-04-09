@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 
 public class PotElm extends CircuitElm implements AdjustmentListener
 {
+    public static final String NAME = "Potentiometer";
+
     public double position, maxResistance, resistance1, resistance2;
     public double current1, current2, current3;
     public double curcount1, curcount2, curcount3;

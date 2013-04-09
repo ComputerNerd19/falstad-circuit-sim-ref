@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class LogicOutputElm extends CircuitElm
 {
+    public static final String NAME = "Logic Output";
+
     public final int FLAG_TERNARY = 1;
     public final int FLAG_NUMERIC = 2;
     public final int FLAG_PULLDOWN = 4;

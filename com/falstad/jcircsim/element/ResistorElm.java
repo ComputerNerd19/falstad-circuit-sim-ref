@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class ResistorElm extends CircuitElm
 {
+    public static final String NAME = "Resistor";
+
     public double resistance;
 
     public ResistorElm(int xx, int yy)

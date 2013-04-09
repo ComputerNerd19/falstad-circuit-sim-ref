@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class TunnelDiodeElm extends CircuitElm
 {
+    public static final String NAME = "Tunnel Diode";
+
     public TunnelDiodeElm(int xx, int yy)
     {
         super(xx, yy);

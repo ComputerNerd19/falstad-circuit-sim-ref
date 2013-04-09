@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class Switch2Elm extends SwitchElm
 {
+    public static final String NAME = "SPDT Switch";
+
     public int link;
     public static final int FLAG_CENTER_OFF = 1;
 

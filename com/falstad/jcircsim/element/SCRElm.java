@@ -14,6 +14,8 @@ import java.util.StringTokenizer;
 
 public class SCRElm extends CircuitElm
 {
+    public static final String NAME = "SCR";
+
     public final int anode = 0;
     public final int cnode = 1;
     public final int gnode = 2;

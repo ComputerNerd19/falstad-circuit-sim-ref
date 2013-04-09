@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class CurrentElm extends CircuitElm
 {
+    public static final String NAME = "Current Source";
+
     public double currentValue;
 
     public CurrentElm(int xx, int yy)

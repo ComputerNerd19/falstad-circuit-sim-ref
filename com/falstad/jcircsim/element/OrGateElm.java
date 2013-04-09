@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class OrGateElm extends GateElm
 {
+    public static final String NAME = "OR Gate";
+
     public OrGateElm(int xx, int yy)
     {
         super(xx, yy);

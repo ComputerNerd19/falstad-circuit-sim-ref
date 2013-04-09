@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class XorGateElm extends OrGateElm
 {
+    public static final String NAME = "XOR Gate";
+
     public XorGateElm(int xx, int yy)
     {
         super(xx, yy);

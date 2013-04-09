@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class LEDElm extends DiodeElm
 {
+    public static final String NAME = "LED";
+
     public double colorR, colorG, colorB;
 
     public LEDElm(int xx, int yy)

@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class WireElm extends CircuitElm
 {
+    public static final String NAME = "Wire";
+
     public WireElm(int xx, int yy)
     {
         super(xx, yy);

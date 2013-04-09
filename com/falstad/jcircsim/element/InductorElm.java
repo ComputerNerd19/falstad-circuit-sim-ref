@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class InductorElm extends CircuitElm
 {
+    public static final String NAME = "Inductor";
+
     public final Inductor ind;
     public double inductance;
 

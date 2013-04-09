@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class DFlipFlopElm extends ChipElm
 {
+    public static final String NAME = "D Flip-Flop";
+
     public final int FLAG_RESET = 2;
 
     public boolean hasReset()

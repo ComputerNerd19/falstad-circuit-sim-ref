@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class CC2Elm extends ChipElm
 {
+    public static final String NAME = "CCII+";
+
     public final double gain;
 
     public CC2Elm(int xx, int yy)

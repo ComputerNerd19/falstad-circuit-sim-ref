@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class AnalogSwitchElm extends CircuitElm
 {
+    public static final String NAME = "Analog Switch (SPST)";
+
     public final int FLAG_INVERT = 1;
     public double resistance, r_on, r_off;
 

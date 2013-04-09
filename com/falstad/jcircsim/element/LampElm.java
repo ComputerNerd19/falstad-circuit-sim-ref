@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class LampElm extends CircuitElm
 {
+    public static final String NAME = "Lamp (beta)";
+
     public double resistance;
     public final double roomTemp = 300;
     public double temp, nom_pow, nom_v, warmTime, coolTime;

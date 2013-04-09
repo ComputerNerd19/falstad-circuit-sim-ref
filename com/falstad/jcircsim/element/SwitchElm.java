@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class SwitchElm extends CircuitElm
 {
+    public static final String NAME = "Switch";
+
     public boolean momentary;
     // position 0 == closed, position 1 == open
     public int position, posCount;

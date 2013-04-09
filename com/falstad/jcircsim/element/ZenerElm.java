@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 // http://www.camotruck.net/rollins/simulator.html
 public class ZenerElm extends DiodeElm
 {
+    public static final String NAME = "Zener Diode";
+
     public ZenerElm(int xx, int yy)
     {
         super(xx, yy);

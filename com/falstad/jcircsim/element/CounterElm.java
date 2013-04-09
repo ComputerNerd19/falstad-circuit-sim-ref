@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class CounterElm extends ChipElm
 {
+    public static final String NAME = "Counter";
+
     public final int FLAG_ENABLE = 2;
 
     public CounterElm(int xx, int yy)

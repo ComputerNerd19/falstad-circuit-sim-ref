@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class SweepElm extends CircuitElm
 {
+    public static final String NAME = "A/C Sweep";
+
     public double maxV, maxF, minF, sweepTime, frequency;
     public final int FLAG_LOG = 1;
     public final int FLAG_BIDIR = 2;

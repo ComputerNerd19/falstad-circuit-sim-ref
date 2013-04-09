@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class VCOElm extends ChipElm
 {
+    public static final String NAME = "VCO";
+
     public VCOElm(int xx, int yy)
     {
         super(xx, yy);

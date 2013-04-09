@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class LatchElm extends ChipElm
 {
+    public static final String NAME = "Latch";
+
     public LatchElm(int xx, int yy)
     {
         super(xx, yy);

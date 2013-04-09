@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class DiodeElm extends CircuitElm
 {
+    public static final String NAME = "Diode";
+
     public final Diode diode;
     public static final int FLAG_FWDROP = 1;
     public final double defaultdrop = .805904783;

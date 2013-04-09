@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class VarRailElm extends RailElm
 {
+    public static final String NAME = "Var. Voltage";
+
     public Scrollbar slider;
     public Label label;
     public String sliderText;

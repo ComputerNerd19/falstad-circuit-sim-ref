@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class PhaseCompElm extends ChipElm
 {
+    public static final String NAME = "Phase Comparator";
+
     public PhaseCompElm(int xx, int yy)
     {
         super(xx, yy);

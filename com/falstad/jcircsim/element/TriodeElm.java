@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class TriodeElm extends CircuitElm
 {
+    public static final String NAME = "Triode";
+
     public final double mu;
     public final double kg1;
     public double curcountp, curcountc, curcountg, currentp, currentg, currentc;

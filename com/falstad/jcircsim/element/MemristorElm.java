@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class MemristorElm extends CircuitElm
 {
+    public static final String NAME = "Memristor";
+
     public double r_on, r_off, dopeWidth, totalWidth, mobility, resistance;
 
     public MemristorElm(int xx, int yy)

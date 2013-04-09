@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class TappedTransformerElm extends CircuitElm
 {
+    public static final String NAME = "Tapped Transformer";
+
     public double inductance, ratio;
     public Point ptEnds[], ptCoil[], ptCore[];
     public final double[] current;

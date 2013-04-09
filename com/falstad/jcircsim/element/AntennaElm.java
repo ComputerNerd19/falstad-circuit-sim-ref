@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class AntennaElm extends RailElm
 {
+    public static final String NAME = "Antenna";
+
     public AntennaElm(int xx, int yy)
     {
         super(xx, yy, WF_DC);

@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class InverterElm extends CircuitElm
 {
+    public static final String NAME = "Inverter";
+
     public double slewRate; // V/ns
 
     public InverterElm(int xx, int yy)

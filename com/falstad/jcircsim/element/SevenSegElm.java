@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class SevenSegElm extends ChipElm
 {
+    public static final String NAME = "7 Segment LED";
+
     public SevenSegElm(int xx, int yy)
     {
         super(xx, yy);

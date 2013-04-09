@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class LogicInputElm extends SwitchElm
 {
+    public static final String NAME = "Logic Input";
+
     public final int FLAG_TERNARY = 1;
     public final int FLAG_NUMERIC = 2;
     public double hiV, loV;

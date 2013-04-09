@@ -15,6 +15,8 @@ import java.util.StringTokenizer;
 
 public class RelayElm extends CircuitElm
 {
+    public static final String NAME = "Relay";
+
     public double inductance;
     public final Inductor ind;
     public double r_on, r_off, onCurrent;

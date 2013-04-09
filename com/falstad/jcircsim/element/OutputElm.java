@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class OutputElm extends CircuitElm
 {
+    public static final String NAME = "Analog Output";
+
     public final int FLAG_VALUE = 1;
 
     public OutputElm(int xx, int yy)

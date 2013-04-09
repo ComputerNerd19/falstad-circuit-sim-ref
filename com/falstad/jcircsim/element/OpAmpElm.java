@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 
 public class OpAmpElm extends CircuitElm
 {
+    public static final String NAME = "Op Amp (- on top)";
+
     public int opsize, opheight, opwidth, opaddtext;
     public double maxOut, minOut, gain, gbw;
     public boolean reset;

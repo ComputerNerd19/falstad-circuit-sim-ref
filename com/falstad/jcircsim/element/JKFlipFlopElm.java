@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class JKFlipFlopElm extends ChipElm
 {
+    public static final String NAME = "JK Flip-Flop";
+
     public JKFlipFlopElm(int xx, int yy)
     {
         super(xx, yy);

@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class DecadeElm extends ChipElm
 {
+    public static final String NAME = "Decade Counter";
+
     public DecadeElm(int xx, int yy)
     {
         super(xx, yy);

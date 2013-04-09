@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class TimerElm extends ChipElm
 {
+    public static final String NAME = "555 Timer";
+
     public final int FLAG_RESET = 2;
     public final int N_DIS = 0;
     public final int N_TRIG = 1;

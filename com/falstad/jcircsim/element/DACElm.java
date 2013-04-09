@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class DACElm extends ChipElm
 {
+    public static final String NAME = "DAC";
+
     public DACElm(int xx, int yy)
     {
         super(xx, yy);

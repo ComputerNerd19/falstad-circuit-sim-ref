@@ -4,6 +4,8 @@ import java.util.StringTokenizer;
 
 public class ADCElm extends ChipElm
 {
+    public static final String NAME = "ADC";
+
     public ADCElm(int xx, int yy)
     {
         super(xx, yy);
