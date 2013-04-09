@@ -21,10 +21,11 @@ import java.net.URLEncoder;
 import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.Vector;
+import com.falstad.jcircsim.model.ElementLibrary;
 
 public class CirSim extends JFrame implements ComponentListener, ActionListener, AdjustmentListener, MouseMotionListener, MouseListener, ItemListener, KeyListener
 {
-
+    private ElementLibrary elementLibrary;
     public Thread engine = null;
 
     public Dimension winSize;
@@ -139,7 +140,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public int scopeColCount[];
     public static EditDialog editDialog;
     public static ImportDialog impDialog;
-    public Class dumpTypes[];
     public static String muString = "u";
     public static String ohmString = "ohm";
     public String clipboard;
@@ -190,15 +190,15 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             ohmString = "\u03a9";
             useBufferedImage = true;
         }
-
-        dumpTypes = new Class[300];
+        elementLibrary = new ElementLibrary();
+        elementLibrary.dumpTypes = new Class[300];
         // these characters are reserved
-        dumpTypes[(int) 'o'] = Scope.class;
-        dumpTypes[(int) 'h'] = Scope.class;
-        dumpTypes[(int) '$'] = Scope.class;
-        dumpTypes[(int) '%'] = Scope.class;
-        dumpTypes[(int) '?'] = Scope.class;
-        dumpTypes[(int) 'B'] = Scope.class;
+        elementLibrary.dumpTypes[(int) 'o'] = Scope.class;
+        elementLibrary.dumpTypes[(int) 'h'] = Scope.class;
+        elementLibrary.dumpTypes[(int) '$'] = Scope.class;
+        elementLibrary.dumpTypes[(int) '%'] = Scope.class;
+        elementLibrary.dumpTypes[(int) '?'] = Scope.class;
+        elementLibrary.dumpTypes[(int) 'B'] = Scope.class;
 
         StatusBar statusBar = new StatusBar();
 
@@ -533,12 +533,11 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         try
         {
             CircuitElm elm = constructElement(elmClass, 0, 0);
-            register(elmClass, elm);
+            elementLibrary.register(elmClass, elm);
             int dt = 0;
             if (elm.hasHotkey() && elm.getDumpClass() == elmClass)
             {
                 dt = elm.getDumpType();
-                System.out.println("IMHERE");
                 return " (" + (char) dt + ")";
             }
             elm.delete();
@@ -555,25 +554,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         menuItem.addItemListener(this);
         menuItem.setActionCommand(type);
         return menuItem;
-    }
-
-    public void register(Class elmClass, CircuitElm elm)
-    {
-        int t = elm.getDumpType();
-        if (t == 0)
-        {
-            System.out.println("no dump type: " + elmClass);
-            return;
-        }
-        Class dclass = elm.getDumpClass();
-        if (dumpTypes[t] == dclass)
-            return;
-        if (dumpTypes[t] != null)
-        {
-            System.out.println("dump type conflict: " + elmClass + " " + dumpTypes[t]);
-            return;
-        }
-        dumpTypes[t] = dclass;
     }
 
     public void handleResize()
@@ -2401,7 +2381,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
                     int y2 = Integer.parseInt(st.nextToken());
                     int f = Integer.parseInt(st.nextToken());
                     CircuitElm ce = null;
-                    Class cls = dumpTypes[tint];
+                    Class cls = elementLibrary.dumpTypes[tint];
                     if (cls == null)
                     {
                         System.out.println("unrecognized dump type: " + type);
@@ -3271,7 +3251,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     {
         if (e.getKeyChar() > ' ' && e.getKeyChar() < 127)
         {
-            Class c = dumpTypes[e.getKeyChar()];
+            Class c = elementLibrary.dumpTypes[e.getKeyChar()];
             if (c == null || c == Scope.class)
                 return;
             CircuitElm elm = null;
