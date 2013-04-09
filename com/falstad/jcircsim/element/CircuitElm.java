@@ -10,6 +10,8 @@ import java.text.NumberFormat;
 
 public abstract class CircuitElm implements Editable
 {
+    public static String NAME = "none";
+
     public static double voltageRange = 5;
     public static final int colorScaleCount = 32;
     public static Color colorScale[];

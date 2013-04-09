@@ -268,99 +268,99 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         Menu circuitsMenu = new Menu("Circuits");
         menuBar.add(circuitsMenu);
-
+        
         popupMenu = new PopupMenu();
-        popupMenu.add(getClassCheckItem("Add Wire", WireElm.class));
-        popupMenu.add(getClassCheckItem("Add Resistor", ResistorElm.class));
+        popupMenu.add(getClassCheckItem(WireElm.class));
+        popupMenu.add(getClassCheckItem(ResistorElm.class));
 
         Menu passMenu = new Menu("Passive Components");
         popupMenu.add(passMenu);
-        passMenu.add(getClassCheckItem("Add Capacitor", CapacitorElm.class));
-        passMenu.add(getClassCheckItem("Add Inductor", InductorElm.class));
-        passMenu.add(getClassCheckItem("Add Switch", SwitchElm.class));
-        passMenu.add(getClassCheckItem("Add Push Switch", PushSwitchElm.class));
-        passMenu.add(getClassCheckItem("Add SPDT Switch", Switch2Elm.class));
-        passMenu.add(getClassCheckItem("Add Potentiometer", PotElm.class));
-        passMenu.add(getClassCheckItem("Add Transformer", TransformerElm.class));
-        passMenu.add(getClassCheckItem("Add Tapped Transformer", TappedTransformerElm.class));
-        passMenu.add(getClassCheckItem("Add Transmission Line", TransLineElm.class));
-        passMenu.add(getClassCheckItem("Add Relay", RelayElm.class));
-        passMenu.add(getClassCheckItem("Add Memristor", MemristorElm.class));
-        passMenu.add(getClassCheckItem("Add Spark Gap", SparkGapElm.class));
+        passMenu.add(getClassCheckItem(CapacitorElm.class));
+        passMenu.add(getClassCheckItem(InductorElm.class));
+        passMenu.add(getClassCheckItem(SwitchElm.class));
+        passMenu.add(getClassCheckItem(PushSwitchElm.class));
+        passMenu.add(getClassCheckItem(Switch2Elm.class));
+        passMenu.add(getClassCheckItem(PotElm.class));
+        passMenu.add(getClassCheckItem(TransformerElm.class));
+        passMenu.add(getClassCheckItem(TappedTransformerElm.class));
+        passMenu.add(getClassCheckItem(TransLineElm.class));
+        passMenu.add(getClassCheckItem(RelayElm.class));
+        passMenu.add(getClassCheckItem(MemristorElm.class));
+        passMenu.add(getClassCheckItem(SparkGapElm.class));
 
         Menu inputMenu = new Menu("Inputs/Outputs");
         popupMenu.add(inputMenu);
-        inputMenu.add(getClassCheckItem("Add Ground", GroundElm.class));
-        inputMenu.add(getClassCheckItem("Add Voltage Source (2-terminal)", DCVoltageElm.class));
-        inputMenu.add(getClassCheckItem("Add A/C Source (2-terminal)", ACVoltageElm.class));
-        inputMenu.add(getClassCheckItem("Add Voltage Source (1-terminal)", RailElm.class));
-        inputMenu.add(getClassCheckItem("Add A/C Source (1-terminal)", ACRailElm.class));
-        inputMenu.add(getClassCheckItem("Add Square Wave (1-terminal)", SquareRailElm.class));
-        inputMenu.add(getClassCheckItem("Add Analog Output", OutputElm.class));
-        inputMenu.add(getClassCheckItem("Add Logic Input", LogicInputElm.class));
-        inputMenu.add(getClassCheckItem("Add Logic Output", LogicOutputElm.class));
-        inputMenu.add(getClassCheckItem("Add Clock", ClockElm.class));
-        inputMenu.add(getClassCheckItem("Add A/C Sweep", SweepElm.class));
-        inputMenu.add(getClassCheckItem("Add Var. Voltage", VarRailElm.class));
-        inputMenu.add(getClassCheckItem("Add Antenna", AntennaElm.class));
-        inputMenu.add(getClassCheckItem("Add Current Source", CurrentElm.class));
-        inputMenu.add(getClassCheckItem("Add LED", LEDElm.class));
-        inputMenu.add(getClassCheckItem("Add Lamp (beta)", LampElm.class));
+        inputMenu.add(getClassCheckItem(GroundElm.class));
+        inputMenu.add(getClassCheckItem(DCVoltageElm.class));
+        inputMenu.add(getClassCheckItem(ACVoltageElm.class));
+        inputMenu.add(getClassCheckItem(RailElm.class));
+        inputMenu.add(getClassCheckItem(ACRailElm.class));
+        inputMenu.add(getClassCheckItem(SquareRailElm.class));
+        inputMenu.add(getClassCheckItem(OutputElm.class));
+        inputMenu.add(getClassCheckItem(LogicInputElm.class));
+        inputMenu.add(getClassCheckItem(LogicOutputElm.class));
+        inputMenu.add(getClassCheckItem(ClockElm.class));
+        inputMenu.add(getClassCheckItem(SweepElm.class));
+        inputMenu.add(getClassCheckItem(VarRailElm.class));
+        inputMenu.add(getClassCheckItem(AntennaElm.class));
+        inputMenu.add(getClassCheckItem(CurrentElm.class));
+        inputMenu.add(getClassCheckItem(LEDElm.class));
+        inputMenu.add(getClassCheckItem(LampElm.class));
 
         Menu activeMenu = new Menu("Active Components");
         popupMenu.add(activeMenu);
-        activeMenu.add(getClassCheckItem("Add Diode", DiodeElm.class));
-        activeMenu.add(getClassCheckItem("Add Zener Diode", ZenerElm.class));
-        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, NPN)", NTransistorElm.class));
-        activeMenu.add(getClassCheckItem("Add Transistor (bipolar, PNP)", PTransistorElm.class));
-        activeMenu.add(getClassCheckItem("Add Op Amp (- on top)", OpAmpElm.class));
-        activeMenu.add(getClassCheckItem("Add Op Amp (+ on top)", OpAmpSwapElm.class));
-        activeMenu.add(getClassCheckItem("Add MOSFET (n-channel)", NMosfetElm.class));
-        activeMenu.add(getClassCheckItem("Add MOSFET (p-channel)", PMosfetElm.class));
-        activeMenu.add(getClassCheckItem("Add JFET (n-channel)", NJfetElm.class));
-        activeMenu.add(getClassCheckItem("Add JFET (p-channel)", PJfetElm.class));
-        activeMenu.add(getClassCheckItem("Add Analog Switch (SPST)", AnalogSwitchElm.class));
-        activeMenu.add(getClassCheckItem("Add Analog Switch (SPDT)", AnalogSwitch2Elm.class));
-        activeMenu.add(getClassCheckItem("Add SCR", SCRElm.class));
+        activeMenu.add(getClassCheckItem(DiodeElm.class));
+        activeMenu.add(getClassCheckItem(ZenerElm.class));
+        activeMenu.add(getClassCheckItem(NTransistorElm.class));
+        activeMenu.add(getClassCheckItem(PTransistorElm.class));
+        activeMenu.add(getClassCheckItem(OpAmpElm.class));
+        activeMenu.add(getClassCheckItem(OpAmpSwapElm.class));
+        activeMenu.add(getClassCheckItem(NMosfetElm.class));
+        activeMenu.add(getClassCheckItem(PMosfetElm.class));
+        activeMenu.add(getClassCheckItem(NJfetElm.class));
+        activeMenu.add(getClassCheckItem(PJfetElm.class));
+        activeMenu.add(getClassCheckItem(AnalogSwitchElm.class));
+        activeMenu.add(getClassCheckItem(AnalogSwitch2Elm.class));
+        activeMenu.add(getClassCheckItem(SCRElm.class));
         // activeMenu.add(getClassCheckItem("Add Varactor/Varicap",
         // "VaractorElm.class));
-        activeMenu.add(getClassCheckItem("Add Tunnel Diode", TunnelDiodeElm.class));
-        activeMenu.add(getClassCheckItem("Add Triode", TriodeElm.class));
-        // activeMenu.add(getClassCheckItem("Add Diac", "DiacElm.class));
-        // activeMenu.add(getClassCheckItem("Add Triac", "TriacElm.class));
+        activeMenu.add(getClassCheckItem(TunnelDiodeElm.class));
+        activeMenu.add(getClassCheckItem(TriodeElm.class));
+        // activeMenu.add(getClassCheckItem("DiacElm.class));
+        // activeMenu.add(getClassCheckItem("TriacElm.class));
         // activeMenu.add(getClassCheckItem("Add Photoresistor",
         // "PhotoResistorElm.class));
-        // activeMenu.add(getClassCheckItem("Add Thermistor", "ThermistorElm.class));
-        activeMenu.add(getClassCheckItem("Add CCII+", CC2Elm.class));
-        activeMenu.add(getClassCheckItem("Add CCII-", CC2NegElm.class));
+        // activeMenu.add(getClassCheckItem("ThermistorElm.class));
+        activeMenu.add(getClassCheckItem(CC2Elm.class));
+        activeMenu.add(getClassCheckItem(CC2NegElm.class));
 
         Menu gateMenu = new Menu("Logic Gates");
         popupMenu.add(gateMenu);
-        gateMenu.add(getClassCheckItem("Add Inverter", InverterElm.class));
-        gateMenu.add(getClassCheckItem("Add NAND Gate", NandGateElm.class));
-        gateMenu.add(getClassCheckItem("Add NOR Gate", NorGateElm.class));
-        gateMenu.add(getClassCheckItem("Add AND Gate", AndGateElm.class));
-        gateMenu.add(getClassCheckItem("Add OR Gate", OrGateElm.class));
-        gateMenu.add(getClassCheckItem("Add XOR Gate", XorGateElm.class));
+        gateMenu.add(getClassCheckItem(InverterElm.class));
+        gateMenu.add(getClassCheckItem(NandGateElm.class));
+        gateMenu.add(getClassCheckItem(NorGateElm.class));
+        gateMenu.add(getClassCheckItem(AndGateElm.class));
+        gateMenu.add(getClassCheckItem(OrGateElm.class));
+        gateMenu.add(getClassCheckItem(XorGateElm.class));
 
         Menu chipMenu = new Menu("Chips");
         popupMenu.add(chipMenu);
-        chipMenu.add(getClassCheckItem("Add D Flip-Flop", DFlipFlopElm.class));
-        chipMenu.add(getClassCheckItem("Add JK Flip-Flop", JKFlipFlopElm.class));
-        chipMenu.add(getClassCheckItem("Add 7 Segment LED", SevenSegElm.class));
-        chipMenu.add(getClassCheckItem("Add VCO", VCOElm.class));
-        chipMenu.add(getClassCheckItem("Add Phase Comparator", PhaseCompElm.class));
-        chipMenu.add(getClassCheckItem("Add Counter", CounterElm.class));
-        chipMenu.add(getClassCheckItem("Add Decade Counter", DecadeElm.class));
-        chipMenu.add(getClassCheckItem("Add 555 Timer", TimerElm.class));
-        chipMenu.add(getClassCheckItem("Add DAC", DACElm.class));
-        chipMenu.add(getClassCheckItem("Add ADC", ADCElm.class));
-        chipMenu.add(getClassCheckItem("Add Latch", LatchElm.class));
+        chipMenu.add(getClassCheckItem(DFlipFlopElm.class));
+        chipMenu.add(getClassCheckItem(JKFlipFlopElm.class));
+        chipMenu.add(getClassCheckItem(SevenSegElm.class));
+        chipMenu.add(getClassCheckItem(VCOElm.class));
+        chipMenu.add(getClassCheckItem(PhaseCompElm.class));
+        chipMenu.add(getClassCheckItem(CounterElm.class));
+        chipMenu.add(getClassCheckItem(DecadeElm.class));
+        chipMenu.add(getClassCheckItem(TimerElm.class));
+        chipMenu.add(getClassCheckItem(DACElm.class));
+        chipMenu.add(getClassCheckItem(ADCElm.class));
+        chipMenu.add(getClassCheckItem(LatchElm.class));
 
         Menu otherMenu = new Menu("Other");
         popupMenu.add(otherMenu);
-        otherMenu.add(getClassCheckItem("Add Text", TextElm.class));
-        otherMenu.add(getClassCheckItem("Add Scope Probe", ProbeElm.class));
+        otherMenu.add(getClassCheckItem(TextElm.class));
+        otherMenu.add(getClassCheckItem(ProbeElm.class));
 
         otherMenu.add(getCheckItem("Drag All (Alt-drag)", "DragAll"));
         otherMenu.add(getCheckItem(isMac ? "Drag Row (Alt-S-drag, S-right)" : "Drag Row (S-right)", "DragRow"));
@@ -517,36 +517,50 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return mi;
     }
 
-    public CheckboxMenuItem getClassCheckItem(String text, Class elmClass)
+    public CheckboxMenuItem getClassCheckItem(Class elmClass)
     {
-        /**
-         * Append hotkey:
-         * Add Diode (d)
-         */
-        text += getHotkeyAppendixAndRegister(elmClass);
+        CircuitElm elm = constructElement(elmClass, 0, 0);
+        elementRegistry.register(elmClass, elm);
+
+        String text = defineText(elm, elmClass);
 
         String classSignature = elmClass.getName();
         return getCheckItem(text, classSignature);
     }
 
-    private String getHotkeyAppendixAndRegister(Class elmClass)
+    private String defineText(CircuitElm elm, Class elmClass)
     {
+        String text = "Add ";
         try
         {
-            CircuitElm elm = constructElement(elmClass, 0, 0);
-            elementRegistry.register(elmClass, elm);
+            text += (String)elmClass.getDeclaredField("NAME").get(null);
+        }
+        catch (NoSuchFieldException ee)
+        {
+            text = "Unnamed";
+        }
+        catch (IllegalAccessException ee)
+        {
+            text = "Access Error";
+        }
+        try
+        {
+            /**
+             * Append hotkey:
+             * Add Diode (d)
+             */
             int dt = 0;
             if (elm.hasHotkey() && elm.getDumpClass() == elmClass)
             {
                 dt = elm.getDumpType();
-                return " (" + (char) dt + ")";
+                return text + " (" + (char) dt + ")";
             }
             elm.delete();
         } catch (Exception ee)
         {
             ee.printStackTrace();
         }
-        return "";
+        return text;
     }
 
     public CheckboxMenuItem getCheckItem(String label, String type)
