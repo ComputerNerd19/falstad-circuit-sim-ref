@@ -520,7 +520,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public CheckboxMenuItem getClassCheckItem(Class elmClass)
     {
         CircuitElm elm = ElementBuilder.build(elmClass, 0, 0);
-        elementRegistry.register(elmClass, elm);
+        elementRegistry.register(elmClass);
 
         String text = defineText(elm, elmClass);
 

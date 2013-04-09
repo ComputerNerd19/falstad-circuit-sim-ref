@@ -1,5 +1,6 @@
 package com.falstad.jcircsim.model;
 
+import com.falstad.jcircsim.ElementBuilder;
 import com.falstad.jcircsim.element.*;
 
 import java.awt.*;
@@ -8,8 +9,10 @@ public class ElementRegistry
 {
     public Class dumpTypes[];
 
-    public void register(Class elmClass, CircuitElm elm)
+    public void register(Class elmClass)
     {
+        CircuitElm elm = ElementBuilder.build(elmClass, 0, 0);
+
         int dumpType = elm.getDumpType();
         if (dumpType == 0)
         {
