@@ -114,6 +114,10 @@ public abstract class CircuitElm implements Editable
         volts = new double[getPostCount() + getInternalNodeCount()];
     }
 
+    /**
+     * Used for import\export.
+     * Saves element ID
+     */
     public String dump()
     {
         int t = getDumpType();

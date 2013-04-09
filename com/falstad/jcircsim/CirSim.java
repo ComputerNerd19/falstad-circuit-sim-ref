@@ -518,6 +518,18 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
     public CheckboxMenuItem getClassCheckItem(String text, Class elmClass)
     {
+        /**
+         * Append hotkey:
+         * Add Diode (d)
+         */
+        text += getHotkeyAppendixAndRegister(elmClass);
+
+        String classSignature = elmClass.getName();
+        return getCheckItem(text, classSignature);
+    }
+
+    private String getHotkeyAppendixAndRegister(Class elmClass)
+    {
         try
         {
             CircuitElm elm = constructElement(elmClass, 0, 0);
@@ -526,20 +538,15 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             if (elm.hasHotkey() && elm.getDumpClass() == elmClass)
             {
                 dt = elm.getDumpType();
-                /**
-                 * Append hotkey signature:
-                 * Add Diode (d)
-                 */
-                text += " (" + (char) dt + ")";
+                System.out.println("IMHERE");
+                return " (" + (char) dt + ")";
             }
             elm.delete();
         } catch (Exception ee)
         {
             ee.printStackTrace();
         }
-
-        String classSignature = elmClass.getName();
-        return getCheckItem(text, classSignature);
+        return "";
     }
 
     public CheckboxMenuItem getCheckItem(String label, String type)
