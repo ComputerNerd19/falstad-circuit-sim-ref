@@ -1,8 +1,10 @@
 package com.falstad.jcircsim.model;
 
-import com.falstad.jcircsim.element.CircuitElm;
+import com.falstad.jcircsim.element.*;
 
-public class ElementLibrary
+import java.awt.*;
+
+public class ElementRegistry
 {
     public Class dumpTypes[];
 
