@@ -204,13 +204,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         cv.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         elementDumpTypesRegistry = new ElementDumpTypesRegistry();
-        /** Reserved characters */
-        elementDumpTypesRegistry.dumpTypes[(int) 'o'] = Scope.class;
-        elementDumpTypesRegistry.dumpTypes[(int) 'h'] = Scope.class;
-        elementDumpTypesRegistry.dumpTypes[(int) '$'] = Scope.class;
-        elementDumpTypesRegistry.dumpTypes[(int) '%'] = Scope.class;
-        elementDumpTypesRegistry.dumpTypes[(int) '?'] = Scope.class;
-        elementDumpTypesRegistry.dumpTypes[(int) 'B'] = Scope.class;
+
 
         MenuBar menuBar = null;
         menuBar = new MenuBar();

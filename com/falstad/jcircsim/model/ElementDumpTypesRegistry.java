@@ -2,8 +2,19 @@ package com.falstad.jcircsim.model;
 
 import com.falstad.jcircsim.ElementBuilder;
 import com.falstad.jcircsim.element.*;
+import com.falstad.jcircsim.view.Scope;
 
 import java.awt.*;
+
+/**
+ * Stores Integer(Char number) to ElmClass relation.
+ * Used for:
+ *   ) Circuit Import\Export.
+ *   ) Hotkey registration?
+ *
+ * dumpTypes["a"] -> OpAmpElm.class
+ * dumpTypes["c"] -> CapacitorElm
+ */
 
 public class ElementDumpTypesRegistry
 {
@@ -12,6 +23,8 @@ public class ElementDumpTypesRegistry
     public ElementDumpTypesRegistry()
     {
         dumpTypes = new Class[300];
+
+        reserveScopeCharacters();
 
         //registerAllElements();
     }
@@ -122,5 +135,15 @@ public class ElementDumpTypesRegistry
         /** Other */
         register(TextElm.class);
         register(ProbeElm.class);
+    }
+
+    private void reserveScopeCharacters()
+    {
+        dumpTypes[(int) 'o'] = Scope.class;
+        dumpTypes[(int) 'h'] = Scope.class;
+        dumpTypes[(int) '$'] = Scope.class;
+        dumpTypes[(int) '%'] = Scope.class;
+        dumpTypes[(int) '?'] = Scope.class;
+        dumpTypes[(int) 'B'] = Scope.class;
     }
 }
