@@ -4,6 +4,7 @@ package com.falstad.jcircsim;
 // For information about the theory behind this, see Electronic Circuit & System Simulation Methods by Pillage
 
 import com.falstad.jcircsim.element.*;
+import com.falstad.jcircsim.model.ElementDumpTypesRegistry;
 import com.falstad.jcircsim.view.*;
 import com.falstad.jcircsim.view.edit.EditDialog;
 import com.falstad.jcircsim.view.edit.EditOptions;
@@ -21,11 +22,10 @@ import java.net.URLEncoder;
 import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import com.falstad.jcircsim.model.ElementRegistry;
 
 public class CirSim extends JFrame implements ComponentListener, ActionListener, AdjustmentListener, MouseMotionListener, MouseListener, ItemListener, KeyListener
 {
-    private ElementRegistry elementRegistry;
+    private ElementDumpTypesRegistry elementDumpTypesRegistry;
     public Thread engine = null;
 
     public Dimension winSize;
@@ -190,14 +190,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             ohmString = "\u03a9";
             useBufferedImage = true;
         }
-        elementRegistry = new ElementRegistry();
-        // these characters are reserved
-        elementRegistry.dumpTypes[(int) 'o'] = Scope.class;
-        elementRegistry.dumpTypes[(int) 'h'] = Scope.class;
-        elementRegistry.dumpTypes[(int) '$'] = Scope.class;
-        elementRegistry.dumpTypes[(int) '%'] = Scope.class;
-        elementRegistry.dumpTypes[(int) '?'] = Scope.class;
-        elementRegistry.dumpTypes[(int) 'B'] = Scope.class;
 
         StatusBar statusBar = new StatusBar();
 
@@ -210,6 +202,15 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         main.add(cv);
 
         cv.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        elementDumpTypesRegistry = new ElementDumpTypesRegistry();
+        /** Reserved characters */
+        elementDumpTypesRegistry.dumpTypes[(int) 'o'] = Scope.class;
+        elementDumpTypesRegistry.dumpTypes[(int) 'h'] = Scope.class;
+        elementDumpTypesRegistry.dumpTypes[(int) '$'] = Scope.class;
+        elementDumpTypesRegistry.dumpTypes[(int) '%'] = Scope.class;
+        elementDumpTypesRegistry.dumpTypes[(int) '?'] = Scope.class;
+        elementDumpTypesRegistry.dumpTypes[(int) 'B'] = Scope.class;
 
         MenuBar menuBar = null;
         menuBar = new MenuBar();
@@ -519,7 +520,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     public CheckboxMenuItem getClassCheckItem(Class elmClass)
     {
         CircuitElm elm = ElementBuilder.build(elmClass, 0, 0);
-        elementRegistry.register(elmClass);
+        elementDumpTypesRegistry.register(elmClass);
 
         String text = defineText(elm, elmClass);
 
@@ -2395,7 +2396,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
                     int y2 = Integer.parseInt(st.nextToken());
                     int f = Integer.parseInt(st.nextToken());
                     CircuitElm ce = null;
-                    Class cls = elementRegistry.dumpTypes[tint];
+                    Class cls = elementDumpTypesRegistry.dumpTypes[tint];
                     if (cls == null)
                     {
                         System.out.println("unrecognized dump type: " + type);
@@ -3231,7 +3232,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     {
         if (e.getKeyChar() > ' ' && e.getKeyChar() < 127)
         {
-            Class c = elementRegistry.dumpTypes[e.getKeyChar()];
+            Class c = elementDumpTypesRegistry.dumpTypes[e.getKeyChar()];
             if (c == null || c == Scope.class)
                 return;
             CircuitElm elm = null;

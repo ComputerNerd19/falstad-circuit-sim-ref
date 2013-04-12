@@ -5,11 +5,11 @@ import com.falstad.jcircsim.element.*;
 
 import java.awt.*;
 
-public class ElementRegistry
+public class ElementDumpTypesRegistry
 {
     public Class dumpTypes[];
 
-    public ElementRegistry()
+    public ElementDumpTypesRegistry()
     {
         dumpTypes = new Class[300];
 
@@ -88,14 +88,12 @@ public class ElementRegistry
         register(AnalogSwitchElm.class);
         register(AnalogSwitch2Elm.class);
         register(SCRElm.class);
-        // register("Add Varactor/Varicap",
-        // "VaractorElm.class);
+        // register("Add Varactor/Varicap", VaractorElm.class);
         register(TunnelDiodeElm.class);
         register(TriodeElm.class);
         // register("DiacElm.class);
         // register("TriacElm.class);
-        // register("Add Photoresistor",
-        // "PhotoResistorElm.class);
+        // register("Add Photoresistor", PhotoResistorElm.class);
         // register("ThermistorElm.class);
         register(CC2Elm.class);
         register(CC2NegElm.class);
