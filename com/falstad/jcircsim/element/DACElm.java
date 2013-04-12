@@ -64,6 +64,9 @@ public class DACElm extends ChipElm
 
     public int getDumpType()
     {
-        return 166;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 166;
+
 }

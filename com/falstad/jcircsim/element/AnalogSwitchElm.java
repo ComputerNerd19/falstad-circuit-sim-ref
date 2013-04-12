@@ -41,8 +41,11 @@ public class AnalogSwitchElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 159;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 159;
+
 
     public boolean open;
 

@@ -23,8 +23,11 @@ public class OutputElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'O';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'O';
+
 
     public int getPostCount()
     {

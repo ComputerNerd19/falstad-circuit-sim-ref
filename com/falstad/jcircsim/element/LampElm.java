@@ -41,8 +41,11 @@ public class LampElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 181;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 181;
+
 
     public Point bulbLead[], filament[], bulb;
     public int bulbR;

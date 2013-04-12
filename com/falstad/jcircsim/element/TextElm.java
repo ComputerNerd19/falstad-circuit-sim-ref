@@ -66,8 +66,11 @@ public class TextElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'x';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'x';
+
 
     public void drag(int xx, int yy)
     {

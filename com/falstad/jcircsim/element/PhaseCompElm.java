@@ -83,7 +83,10 @@ public class PhaseCompElm extends ChipElm
 
     public int getDumpType()
     {
-        return 161;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 161;
+
 }
     

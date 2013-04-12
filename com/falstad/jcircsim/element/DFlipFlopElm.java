@@ -76,8 +76,11 @@ public class DFlipFlopElm extends ChipElm
 
     public int getDumpType()
     {
-        return 155;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 155;
+
 
     public EditInfo getEditInfo(int n)
     {

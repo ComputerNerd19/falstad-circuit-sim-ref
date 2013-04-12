@@ -30,8 +30,11 @@ public class TunnelDiodeElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 175;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 175;
+
 
     public final int hs = 8;
     public Polygon poly;

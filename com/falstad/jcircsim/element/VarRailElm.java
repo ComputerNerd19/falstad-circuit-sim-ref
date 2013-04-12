@@ -37,8 +37,11 @@ public class VarRailElm extends RailElm
 
     public int getDumpType()
     {
-        return 172;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 172;
+
 
     public void createSlider()
     {

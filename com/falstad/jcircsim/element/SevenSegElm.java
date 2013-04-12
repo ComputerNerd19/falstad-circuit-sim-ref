@@ -78,6 +78,9 @@ public class SevenSegElm extends ChipElm
 
     public int getDumpType()
     {
-        return 157;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 157;
+
 }

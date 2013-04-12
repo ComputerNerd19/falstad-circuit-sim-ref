@@ -26,8 +26,11 @@ public class RailElm extends VoltageElm
 
     public int getDumpType()
     {
-        return 'R';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'R';
+
 
     public int getPostCount()
     {

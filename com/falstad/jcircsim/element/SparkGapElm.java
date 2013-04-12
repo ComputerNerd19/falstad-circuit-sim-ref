@@ -38,8 +38,11 @@ public class SparkGapElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 187;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 187;
+
 
     public String dump()
     {

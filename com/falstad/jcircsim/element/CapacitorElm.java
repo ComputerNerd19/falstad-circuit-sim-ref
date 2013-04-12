@@ -47,8 +47,11 @@ public class CapacitorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'c';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'c';
+
 
     public String dump()
     {

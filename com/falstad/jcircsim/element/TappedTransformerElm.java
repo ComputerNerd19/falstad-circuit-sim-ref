@@ -44,8 +44,11 @@ public class TappedTransformerElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 169;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 169;
+
 
     public String dump()
     {

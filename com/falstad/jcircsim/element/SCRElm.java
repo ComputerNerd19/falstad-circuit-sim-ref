@@ -76,8 +76,11 @@ public class SCRElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 177;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 177;
+
 
     public String dump()
     {

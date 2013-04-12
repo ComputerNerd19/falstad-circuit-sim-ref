@@ -33,8 +33,11 @@ public class ZenerElm extends DiodeElm
 
     public int getDumpType()
     {
-        return 'z';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'z';
+
 
     public String dump()
     {

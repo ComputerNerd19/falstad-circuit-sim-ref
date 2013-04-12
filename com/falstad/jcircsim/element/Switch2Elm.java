@@ -33,8 +33,11 @@ public class Switch2Elm extends SwitchElm
 
     public int getDumpType()
     {
-        return 'S';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'S';
+
 
     public String dump()
     {

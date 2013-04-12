@@ -40,8 +40,11 @@ public class LogicOutputElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'M';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'M';
+
 
     public int getPostCount()
     {

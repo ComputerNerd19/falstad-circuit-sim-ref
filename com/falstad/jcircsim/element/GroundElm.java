@@ -19,8 +19,11 @@ public class GroundElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'g';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'g';
+
 
     public int getPostCount()
     {

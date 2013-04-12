@@ -48,8 +48,11 @@ public class LogicInputElm extends SwitchElm
 
     public int getDumpType()
     {
-        return 'L';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'L';
+
 
     public String dump()
     {

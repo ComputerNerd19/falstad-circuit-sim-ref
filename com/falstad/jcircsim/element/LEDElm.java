@@ -33,8 +33,11 @@ public class LEDElm extends DiodeElm
 
     public int getDumpType()
     {
-        return 162;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 162;
+
 
     public String dump()
     {

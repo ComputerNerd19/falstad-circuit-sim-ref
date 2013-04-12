@@ -38,8 +38,11 @@ public class InverterElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'I';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'I';
+
 
     public void draw(Graphics g)
     {

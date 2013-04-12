@@ -38,8 +38,11 @@ public class ThermistorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 188;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 188;
+
 
     public String dump()
     {

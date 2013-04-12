@@ -25,8 +25,11 @@ public class ResistorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'r';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'r';
+
 
     public String dump()
     {

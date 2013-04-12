@@ -38,6 +38,9 @@ public class AntennaElm extends RailElm
 
     public int getDumpType()
     {
-        return 'A';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'A';
+
 }

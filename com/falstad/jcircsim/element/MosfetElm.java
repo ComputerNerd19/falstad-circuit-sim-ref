@@ -68,8 +68,11 @@ public class MosfetElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'f';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'f';
+
 
     public final int hs = 16;
 

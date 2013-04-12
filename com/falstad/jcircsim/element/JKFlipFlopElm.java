@@ -70,6 +70,9 @@ public class JKFlipFlopElm extends ChipElm
 
     public int getDumpType()
     {
-        return 156;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 156;
+
 }

@@ -77,8 +77,11 @@ public class TriacElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 183;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 183;
+
 
     public String dump()
     {

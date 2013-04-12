@@ -23,8 +23,11 @@ public class ProbeElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'p';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'p';
+
 
     public Point center;
 

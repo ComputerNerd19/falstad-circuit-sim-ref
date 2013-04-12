@@ -66,6 +66,9 @@ public class ADCElm extends ChipElm
 
     public int getDumpType()
     {
-        return 167;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 167;
+
 }

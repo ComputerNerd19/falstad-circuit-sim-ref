@@ -36,8 +36,11 @@ public class SweepElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 170;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 170;
+
 
     public int getPostCount()
     {

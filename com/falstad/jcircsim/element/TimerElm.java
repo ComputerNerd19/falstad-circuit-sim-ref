@@ -119,7 +119,10 @@ public class TimerElm extends ChipElm
 
     public int getDumpType()
     {
-        return 165;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 165;
+
 }
     

@@ -216,8 +216,11 @@ public class OpAmpElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'a';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'a';
+
 
     public EditInfo getEditInfo(int n)
     {

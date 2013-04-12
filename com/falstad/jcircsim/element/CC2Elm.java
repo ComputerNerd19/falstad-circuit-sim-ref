@@ -84,7 +84,10 @@ public class CC2Elm extends ChipElm
 
     public int getDumpType()
     {
-        return 179;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 179;
+
 }
 

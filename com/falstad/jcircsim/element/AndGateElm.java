@@ -57,6 +57,9 @@ public class AndGateElm extends GateElm
 
     public int getDumpType()
     {
-        return 150;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 150;
+
 }

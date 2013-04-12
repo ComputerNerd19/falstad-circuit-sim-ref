@@ -67,6 +67,9 @@ public class OrGateElm extends GateElm
 
     public int getDumpType()
     {
-        return 152;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 152;
+
 }

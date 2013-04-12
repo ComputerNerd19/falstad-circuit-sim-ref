@@ -32,6 +32,9 @@ public class XorGateElm extends OrGateElm
 
     public int getDumpType()
     {
-        return 154;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 154;
+
 }

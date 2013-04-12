@@ -36,8 +36,11 @@ public class TransLineElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 171;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 171;
+
 
     public int getPostCount()
     {
@@ -235,7 +238,7 @@ public class TransLineElm extends CircuitElm
     public boolean getConnection(int n1, int n2)
     {
         return false;    /*if (comparePair(n1, n2, 0, 1))
-	  return true;
+      return true;
 	  if (comparePair(n1, n2, 2, 3))
 	  return true;
 	  return false;*/

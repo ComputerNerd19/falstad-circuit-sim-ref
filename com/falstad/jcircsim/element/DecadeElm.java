@@ -79,6 +79,9 @@ public class DecadeElm extends ChipElm
 
     public int getDumpType()
     {
-        return 163;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 163;
+
 }

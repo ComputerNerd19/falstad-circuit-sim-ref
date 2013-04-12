@@ -51,8 +51,11 @@ public class TriodeElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 173;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 173;
+
 
     public Point plate[], grid[], cath[], midgrid, midcath;
     public int circler;

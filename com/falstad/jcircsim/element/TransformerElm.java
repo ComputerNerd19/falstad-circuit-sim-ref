@@ -62,8 +62,11 @@ public class TransformerElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'T';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'T';
+
 
     public String dump()
     {

@@ -38,8 +38,11 @@ public class PhotoResistorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 186;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 186;
+
 
     public String dump()
     {

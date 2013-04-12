@@ -50,8 +50,11 @@ public class PotElm extends CircuitElm implements AdjustmentListener
 
     public int getDumpType()
     {
-        return 174;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 174;
+
 
     public Point getPost(int n)
     {

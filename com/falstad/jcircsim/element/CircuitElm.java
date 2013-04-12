@@ -36,8 +36,11 @@ public abstract class CircuitElm implements Editable
 
     public int getDumpType()
     {
-        return 0;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 0;
+
 
     public Class getDumpClass()
     {
@@ -714,11 +717,10 @@ public abstract class CircuitElm implements Editable
         if (sim.stoppedCheck.getState())
             return cc;
         double cadd = cur * currentMult;        /*
-		 * if (cur != 0 && cadd <= .05 && cadd >= -.05) cadd = (cadd < 0) ? -.05
+         * if (cur != 0 && cadd <= .05 && cadd >= -.05) cadd = (cadd < 0) ? -.05
 		 * : .05;
 		 */
-        cadd %= 8;
-		/*
+        cadd %= 8;        /*
 		 * if (cadd > 8) cadd = 8; if (cadd < -8) cadd = -8;
 		 */
         return cc + cadd;

@@ -126,6 +126,9 @@ public class VCOElm extends ChipElm
 
     public int getDumpType()
     {
-        return 158;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 158;
+
 }

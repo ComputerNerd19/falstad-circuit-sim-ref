@@ -79,8 +79,11 @@ public class RelayElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 178;
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 178;
+
 
     public String dump()
     {

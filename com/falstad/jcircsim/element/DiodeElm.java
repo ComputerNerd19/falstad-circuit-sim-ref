@@ -53,8 +53,11 @@ public class DiodeElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'd';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'd';
+
 
     public String dump()
     {

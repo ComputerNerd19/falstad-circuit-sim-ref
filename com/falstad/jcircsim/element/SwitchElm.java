@@ -45,8 +45,11 @@ public class SwitchElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 's';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 's';
+
 
     public String dump()
     {

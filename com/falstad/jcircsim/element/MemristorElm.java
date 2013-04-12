@@ -35,8 +35,11 @@ public class MemristorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'm';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'm';
+
 
     public String dump()
     {

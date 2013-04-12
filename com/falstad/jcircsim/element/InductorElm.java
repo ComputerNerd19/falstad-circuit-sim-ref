@@ -31,8 +31,11 @@ public class InductorElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'l';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'l';
+
 
     public String dump()
     {

@@ -75,8 +75,11 @@ public class JfetElm extends MosfetElm
 
     public int getDumpType()
     {
-        return 'j';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'j';
+
 
     // these values are taken from Hayes+Horowitz p155
     public double getDefaultThreshold()

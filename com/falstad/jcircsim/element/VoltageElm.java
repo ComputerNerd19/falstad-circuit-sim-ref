@@ -56,8 +56,11 @@ public class VoltageElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'v';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'v';
+
 
     public String dump()
     {

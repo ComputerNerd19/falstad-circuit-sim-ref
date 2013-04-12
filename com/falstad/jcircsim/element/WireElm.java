@@ -69,8 +69,11 @@ public class WireElm extends CircuitElm
 
     public int getDumpType()
     {
-        return 'w';
+        return DUMP_TYPE;
     }
+
+    public static final int DUMP_TYPE = 'w';
+
 
     public double getPower()
     {
