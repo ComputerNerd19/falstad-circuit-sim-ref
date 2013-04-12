@@ -191,7 +191,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             useBufferedImage = true;
         }
         elementRegistry = new ElementRegistry();
-        elementRegistry.dumpTypes = new Class[300];
         // these characters are reserved
         elementRegistry.dumpTypes[(int) 'o'] = Scope.class;
         elementRegistry.dumpTypes[(int) 'h'] = Scope.class;
