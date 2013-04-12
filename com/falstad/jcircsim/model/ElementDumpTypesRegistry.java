@@ -10,10 +10,11 @@ import java.awt.*;
  * Stores Integer(Char number) to ElmClass relation.
  * Used for:
  *   ) Circuit Import\Export.
- *   ) Hotkey registration?
+ *   ) Hotkey identification for some elemetnts
  *
- * dumpTypes["a"] -> OpAmpElm.class
+ * dumpTypes["a"] -> OpAmpElm
  * dumpTypes["c"] -> CapacitorElm
+ * dumpTypes[167] -> ADCElm
  */
 
 public class ElementDumpTypesRegistry
