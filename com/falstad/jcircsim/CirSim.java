@@ -543,11 +543,9 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
              * Append hotkey:
              * Add Diode (d)
              */
-            int dt = 0;
             if (elm.hasHotkey() && elm.getDumpClass() == elmClass)
             {
-                dt = elm.getDumpType();
-                return text + " (" + (char) dt + ")";
+                return text + " (" + (char) elm.getDumpType() + ")";
             }
             elm.delete();
         } catch (Exception ee)
