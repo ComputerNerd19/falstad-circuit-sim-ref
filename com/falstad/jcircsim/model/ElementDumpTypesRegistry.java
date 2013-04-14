@@ -27,7 +27,7 @@ public class ElementDumpTypesRegistry
 
         reserveScopeCharacters();
 
-        //registerAllElements();
+        registerAllElements();
     }
 
     public void register(Class elmClass)

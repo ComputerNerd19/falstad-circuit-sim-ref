@@ -20,7 +20,14 @@ abstract class ChipElm extends CircuitElm
             bits = (this instanceof DecadeElm) ? 10 : 4;
         noDiagonal = true;
         setupPins();
-        setSize(sim.smallGridCheckItem.getState() ? 1 : 2);
+        try
+        {
+            setSize(sim.smallGridCheckItem.getState() ? 1 : 2);
+        }
+        catch (Exception e)
+        {
+            setSize(1);
+        }
     }
 
     public ChipElm(int xa, int ya, int xb, int yb, int f, StringTokenizer st)
