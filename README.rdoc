@@ -1,7 +1,9 @@
 = Falstad Circuit Simulator Ref
 
-Falstad circuit simulator refactoring project.
+Falstad circuit simulator rough refactoring project.
+
+Goal:
+Separate presentation from logic to expose their interaction points.
 
 Original code by Paul Falstad at http://www.falstad.com/circuit/
-
 File import/export code and a stand-alone Java-GUI code by genko.

@@ -1,12 +1,9 @@
 /** Mikado method refactoring tasks */
 
-GOAL: Separate presentation from logic
+GOAL: Roughly separate presentation from logic to expose their interaction points
 {
     CirSim
         extract all menus to view
-            extract RMB context menu to view
-                separate context menu creation from elements registering
-                    simplify registration; purpose of registration seems to be only storage of Id to EmlClass relation for import\export
 
     elemenets
         extract draw method
