@@ -125,8 +125,8 @@ public abstract class CircuitElm implements Editable
      */
     public String dump()
     {
-        int t = getDumpType();
-        return (t < 127 ? ((char) t) + " " : t + " ") + x + " " + y + " " + x2 + " " + y2 + " " + flags;
+        int type = getDumpType();
+        return (type < 127 ? ((char) type) + " " : type + " ") + x + " " + y + " " + x2 + " " + y2 + " " + flags;
     }
 
     public void reset()

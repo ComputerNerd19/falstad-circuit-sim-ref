@@ -41,7 +41,6 @@ public class CurrentElm extends CircuitElm
 
     public static final int DUMP_TYPE = 'i';
 
-
     public Polygon arrow;
     public Point ashaft1, ashaft2, center;
 

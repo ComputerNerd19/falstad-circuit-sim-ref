@@ -228,7 +228,7 @@ abstract class ChipElm extends CircuitElm
 
     public String dump()
     {
-        int t = getDumpType();
+        //int t = getDumpType();
         String s = super.dump();
         if (needsBits())
             s += " " + bits;

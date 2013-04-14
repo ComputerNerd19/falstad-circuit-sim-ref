@@ -3224,17 +3224,17 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
     {
         if (e.getKeyChar() > ' ' && e.getKeyChar() < 127)
         {
-            Class c = elementDumpTypesRegistry.dumpTypes[e.getKeyChar()];
-            if (c == null || c == Scope.class)
+            Class elmClass = elementDumpTypesRegistry.dumpTypes[e.getKeyChar()];
+            if (elmClass == null || elmClass == Scope.class)
                 return;
             CircuitElm elm = null;
-            elm = ElementBuilder.build(c, 0, 0);
-            if (elm == null || !(elm.hasHotkey() && elm.getDumpClass() == c))
+            elm = ElementBuilder.build(elmClass, 0, 0);
+            if (elm == null || !(elm.hasHotkey() && elm.getDumpClass() == elmClass))
                 return;
             mouseMode = MODE_ADD_ELM;
             cv.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            mouseModeStr = c.getName();
-            addingClass = c;
+            mouseModeStr = elmClass.getName();
+            addingClass = elmClass;
         }
         if (e.getKeyChar() == ' ')
         {
