@@ -179,7 +179,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         boolean euro = (euroResistor != null && euroResistor.equalsIgnoreCase("true"));
         main = this;
 
-
         String jv = System.getProperty("java.class.version");
         double jvf = Double.parseDouble(jv);
         if (jvf >= 48)
@@ -188,8 +187,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
             ohmString = "\u03a9";
             useBufferedImage = true;
         }
-
-        StatusBar statusBar = new StatusBar();
 
         main.setLayout(new CircuitLayout());
         cv = new CircuitCanvas(this);
@@ -293,11 +290,6 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         main.add(new Label("Heavily based on the Circuit"));
         main.add(new Label("Simulator by Paul Falstad visit"));
         main.add(new Label("www.falstad.com"));
-
-        main.add(new Label(""));
-
-        main.add(new Label(""));
-        main.add(statusBar);
 
         setGrid();
         elmList = new Vector();
