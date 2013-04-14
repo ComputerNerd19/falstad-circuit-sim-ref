@@ -6,13 +6,13 @@ import com.falstad.jcircsim.element.*;
 
 import java.awt.*;
 
-public class SimMenuBuilder
+public class RMBMenuBuilder
 {
     private CirSim sim;
     private Boolean isMac;
     private String ctrlMetaKey;
 
-    public SimMenuBuilder(CirSim sim)
+    public RMBMenuBuilder(CirSim sim)
     {
         this.sim = sim;
 
@@ -21,7 +21,7 @@ public class SimMenuBuilder
         ctrlMetaKey = (isMac) ? "\u2318" : "Ctrl";
     }
 
-    public PopupMenu buildAddElementsPopupMenu()
+    public PopupMenu build()
     {
         PopupMenu popupMenu = new PopupMenu();
 
@@ -121,6 +121,8 @@ public class SimMenuBuilder
         otherMenu.add(getCheckItem(isMac ? "Drag Column (Alt-\u2318-drag, \u2318-right)" : "Drag Column (C-right)", "DragColumn"));
         otherMenu.add(getCheckItem("Drag Selected", "DragSelected"));
         otherMenu.add(getCheckItem("Drag Post (" + ctrlMetaKey + "-drag)", "DragPost"));
+
+        popupMenu.add(getCheckItem("Select/Drag Selected (space or Shift-drag)", "Select"));
 
         return popupMenu;
     }
