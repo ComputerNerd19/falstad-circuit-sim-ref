@@ -9,6 +9,7 @@ import com.falstad.jcircsim.view.*;
 import com.falstad.jcircsim.view.edit.EditDialog;
 import com.falstad.jcircsim.view.edit.EditOptions;
 import com.falstad.jcircsim.view.edit.Editable;
+import com.falstad.jcircsim.view.menu.SimMenuBuilder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,6 +41,7 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
         return "Circuit by Paul Falstad";
     }
 
+    private SimMenuBuilder menuBuilder;
     public static Container main;
     public Label titleLabel;
     public Button resetButton;
@@ -262,7 +264,10 @@ public class CirSim extends JFrame implements ComponentListener, ActionListener,
 
         Menu circuitsMenu = new Menu("Circuits");
         menuBar.add(circuitsMenu);
-        
+
+        SimMenuBuilder menuBuilder = new SimMenuBuilder();
+        popupMenu = menuBuilder.buildAddElementsPopupMenu();
+
         popupMenu = new PopupMenu();
         popupMenu.add(getClassCheckItem(WireElm.class));
         popupMenu.add(getClassCheckItem(ResistorElm.class));
