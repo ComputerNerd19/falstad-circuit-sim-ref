@@ -12,3 +12,8 @@ This piece of software is not worth time in case of circuits atleast somewhat la
 License is unknown. Code is copyrighted by Paul and you cant just throw it whereever you want.
 Original code by Paul Falstad at http://www.falstad.com/circuit/
 File import/export code and a stand-alone Java-GUI code by genko.
+
+Check LiveSPICE https://github.com/dsharlet/LiveSPICE.
+
+In case someone is wondering there are some books about theory.
+Google for Farid Najm Circuit Simulation. See similar books on amazon.
