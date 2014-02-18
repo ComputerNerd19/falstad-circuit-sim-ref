@@ -1,15 +1,14 @@
 = Falstad Circuit Simulator Ref
 
-Falstad circuit simulator refactoring project.
+Falstad circuit simulator refactoring project. A very nice circuit simultor with GUI.
 
 Goal:
 Separate presentation from logic to expose their interaction points.
 
 Result: fail.
-Code quality is still ridiculous. Algorithm complexity(performance) is bad.
-This piece of software is not worth time in case of circuits atleast somewhat larger than toy presentation.
+Code quality and complexity is still bad.
 
-License is unknown. Code is copyrighted by Paul and you cant just throw it whereever you want.
+License is unknown. Code is copyrighted by Paul and you can't throw it whereever you want.
 Original code by Paul Falstad at http://www.falstad.com/circuit/
 File import/export code and a stand-alone Java-GUI code by genko.
 
