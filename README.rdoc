@@ -16,3 +16,5 @@ Check LiveSPICE https://github.com/dsharlet/LiveSPICE.
 
 In case someone is wondering there are some books about theory.
 Google for Farid Najm Circuit Simulation. See similar books on amazon.
+
+Check my simple simulator https://github.com/ilit/ilit-cir-sim
